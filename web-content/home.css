@@ -1,0 +1,43 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  font-weight: 300;
+  background: #DDDCDA;
+  color: #E87E1C;
+}
+
+.head {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signUp {
+  color: rgb(0, 0, 0);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: auto;
+  gap: 3px;
+  height: auto;
+  align-items: center;
+}
+.nav li {
+  background: #E87E1C;
+  text-align: center;
+  width: 100%;
+  height: 5vh;
+  padding: 0.5rem;
+}
+.nav li a {
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+}
