@@ -1,7 +1,10 @@
 $color-pry: #E87E1C;
-    $color-bg: #DDDCDA;
-    $color-white: rgb(255,255,255);
-    $color-black: rgb(0,0,0);
+$color-bg: #f7f4ef;
+$color-white: rgb(255,255,255);
+$color-black: rgb(0,0,0);
+$color-border: rgba(192, 189, 189, 0.5);
+$color-bg2: #f5dec8;
+$color-pry-varient: #faae66;
 
 *{
     padding: 0;
@@ -18,7 +21,7 @@ body{
     color: $color-pry;
 }
 
-// .container{
-//     display: block;
-//     position: fixed;
-// }
+.container{
+    position: fixed;
+    width: 100%;
+}

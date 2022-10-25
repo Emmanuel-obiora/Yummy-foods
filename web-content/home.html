@@ -10,7 +10,11 @@
 
     <!--=================================== GOOGLE CDN =========================================-->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+    <!--====================================FONT AWESOME ICON =====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <!--=================================== JAVA SCRIPT==========================================-->
     <script src="main.js"></script>
 
@@ -23,22 +27,43 @@
     <div class="container">
         <header class="head">
             <div>
-                <h1>YummyFoods</h1>
+                <h1><b> YummyFoods </b></h1>
             </div>
-            <div>
-
+            <div class="search-bar">
+                <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
+                <button title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></button>
             </div>
-            <div>
-                <small class="signUp">Sign-Up/Sign-in</small>
+            <div class="left">
+                <small><a href="#"> Sign-Up/Sign-in </a></small>
                 <i class="fas fa-user-circle"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-shopping-cart"></i>
             </div> 
 
         </header>
-        <nav >
-            <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Menu</a></li>
-                <li><a href="#">Orders</a></li>
+        <nav class="nav">
+            <ul >
+                <li class="active"><a href="home.html">Home</a></li>
+                <li><a href="#">Menu</a>
+                    <div class="sub-menu1"> 
+                        <ul>
+                            <li><a href="#">Meats and Grills</a></li>
+                            <li><a href="#">Continental Dishes</a></li>
+                            <li><a href="#">Native Delicacies</a></li>
+                            <li><a href="#">Pastries</a></li>
+                            <li><a href="#">Desserts</a></li>
+                            <li><a href="#">Drinks</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="#">Orders</a>
+                    <div class="sub-menu1"> 
+                        <ul>
+                            <li><a href="#">Order History</a></li>
+                            <li><a href="#">Track Orders</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li><a href="#">Favourites</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>

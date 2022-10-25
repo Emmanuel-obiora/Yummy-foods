@@ -9,35 +9,113 @@
 body {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
-  background: #DDDCDA;
+  background: #f7f4ef;
   color: #E87E1C;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
 }
 
 .head {
   display: flex;
   justify-content: space-between;
+  padding: 0.2rem 1rem;
+  align-items: center;
 }
-
-.signUp {
+.head .search-bar {
+  border: 2px solid rgba(192, 189, 189, 0.5);
+  display: flex;
+  width: 30%;
+  border-radius: 15px;
+  background: rgb(255, 255, 255);
+  height: 2rem;
+}
+.head .search-bar__input {
+  flex-grow: 1;
+  font-size: 0.9rem;
+  padding: 0 0.5em;
+  border: 0;
+  background: transparent;
+}
+.head .search-bar__input:focus {
+  outline: 0;
+}
+.head .search-bar__submit {
+  font-size: 1rem;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+.head .search-bar__submit i {
+  padding: 0.3rem;
+  color: #E87E1C;
+}
+.head .left {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.head .left small > a {
   color: rgb(0, 0, 0);
+  font-weight: 400;
 }
 
 .nav {
+  height: 50px;
   display: flex;
-  justify-content: space-between;
-  width: auto;
-  gap: 3px;
-  height: auto;
   align-items: center;
 }
-.nav li {
+.nav ul {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: auto;
+  gap: 5px;
+}
+.nav ul li {
+  display: flex;
   background: #E87E1C;
-  text-align: center;
   width: 100%;
   height: 5vh;
-  padding: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
-.nav li a {
+.nav ul li:hover {
+  background: #faae66;
+}
+.nav ul li:hover .sub-menu1 {
+  display: block;
+}
+.nav ul li a {
   color: rgb(255, 255, 255);
-  font-weight: 500;
+  font-weight: 600;
+}
+
+.sub-menu1 {
+  display: none;
+  top: 5vh;
+  position: absolute;
+  left: 0%;
+  right: 0%;
+}
+.sub-menu1 ul {
+  display: block;
+}
+.sub-menu1 ul li {
+  align-items: left;
+  justify-content: left;
+  background: #f5dec8;
+  border-bottom: 2px solid rgb(255, 255, 255);
+}
+.sub-menu1 ul li:hover {
+  background: #faae66;
+}
+.sub-menu1 ul li:last-child {
+  border-bottom: none;
+}
+.sub-menu1 ul li a {
+  color: rgb(0, 0, 0);
 }
