@@ -1,4 +1,5 @@
 .nav{
+ Panther
         height: 50px;
         display: flex;
         align-items: center;
@@ -67,3 +68,26 @@
         
     }
 }
+=======
+    display: flex;
+    justify-content: space-between;
+    width: auto;
+    gap: 3px;
+    height: auto;
+    align-items: center;
+
+
+    & li{
+        background: $color-pry;
+        text-align: center;
+        width: 100%;
+        height: 5vh;
+        padding: 0.5rem;
+
+        & a{
+            color: $color-white;
+            font-weight: 500;
+        }
+    }
+}
+ main
