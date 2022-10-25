@@ -1,9 +1,61 @@
 .head{
     display: flex;
     justify-content: space-between;
+ Panther
+    padding: 0.2rem 1rem;
+    align-items: center;
+
+    .search-bar{
+        border: 2px solid $color-border;
+        display: flex;
+        width: 30%;
+        border-radius: 15px;
+        background: $color-white;
+        height: 2rem;
+
+        &__input{
+            flex-grow: 1;
+            font-size: 0.9rem;
+            padding: 0 0.5em;
+            border: 0;
+            background: transparent;
+
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        &__submit{
+            font-size: 1rem;
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            
+            & i{
+                padding: 0.3rem;
+                color: $color-pry;
+            }
+        }
+    }
+
+    .left{
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        
+        
+        & small>a{
+            color: $color-black;
+            font-weight: 400;
+           
+        }
+    }
+
+=======
 }
 
 
 .signUp{
     color: $color-black;
+main
 }

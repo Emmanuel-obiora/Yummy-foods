@@ -1,4 +1,74 @@
 .nav{
+ Panther
+        height: 50px;
+        display: flex;
+        align-items: center;
+        
+    
+    & ul{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        height: auto;
+        gap: 5px;
+    
+        & li{
+            display: flex;
+            background: $color-pry;
+            width: 100%;
+            height: 5vh;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+
+            &:hover{
+
+                background: $color-pry-varient;
+                    .sub-menu1{
+                        display: block;
+                    }
+            }
+
+            & a{
+                color: $color-white;
+                font-weight: 600;
+            }
+        }
+        
+    }
+}
+
+.sub-menu1{
+    display: none;
+    top: 5vh;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+
+    & ul{
+        display: block;
+
+        & li{
+            align-items: left;
+            justify-content: left;
+            background: $color-bg2;
+            border-bottom: 2px solid $color-white;
+
+            &:hover{
+                background: $color-pry-varient;
+            }
+            &:last-child{
+                border-bottom: none;
+            }
+
+            & a{
+                color: $color-black;
+            }
+        }
+        
+    }
+}
+=======
     display: flex;
     justify-content: space-between;
     width: auto;
@@ -20,4 +90,4 @@
         }
     }
 }
-
+ main
