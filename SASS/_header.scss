@@ -1,8 +1,14 @@
+.container{
+    // position:relative;
+    width: 100%;
+}
+
 .head{
     display: flex;
     justify-content: space-between;
     padding: 0.2rem 1rem;
     align-items: center;
+    color: $color-pry;
 
     .search-bar{
         border: 2px solid $color-border;
@@ -11,6 +17,7 @@
         border-radius: 15px;
         background: $color-white;
         height: 2rem;
+        position: relative;
 
         &__input{
             flex-grow: 1;
@@ -29,6 +36,8 @@
             cursor: pointer;
             border: 0;
             background: transparent;
+            position: absolute;
+            right: 0;
             
             & i{
                 padding: 0.3rem;

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--===================================STYLE LINK=========================================-->
+    <link rel="stylesheet" href="home.css">
+
+    <!--=================================== GOOGLE CDN =========================================-->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
+
+    <!--====================================FONT AWESOME ICON =====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!--=================================== JAVA SCRIPT==========================================-->
+    <!-- <script src="./main.js"></script> -->
+
+    <!--=====================================PROJECT TITLE=======================================-->
+    <title>Yummy foods</title>
+
+</head>
+<body>
+    <!--==================================PANTHER===================================-->
+    <div class="container">
+        <header class="head">
+            <div>
+                <h1><b> YummyFoods </b></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
+                <button title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="left">
+                <small><a href="#"> Sign-Up/Sign-in </a></small>
+                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </div> 
+
+        </header>
+        <nav class="nav">
+            <ul >
+                <li class="active"><a href="/web-content/home.html">Home</a></li>
+                <li><a href="#">Menu</a></li>
+                <li><a href="#">Orders</a></li>
+                <li><a href="#">Favourites</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <section class="sign_container">
+        <!-- ==========================SIGN IN FORM============================================== -->
+        <b><a href="./home.html" title="close" class="form__close"><i class="fas fa-close"></i></a></b>
+        <form class="form" id="login">
+            
+            <h1 class="form__title">Sign in</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <div class="logInput" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" class="form__input" autofocus placeholder="Email Address">
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" class="form__input" autofocus placeholder="Password">
+                    <i class="fas fa-light fa-eye"></i>
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <p class="form__text">
+                <a href="#" class="form__link"><b>Forgot password</b></a>
+            </p>
+
+            <p class="form__text2">
+                <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+            </p>
+            <button class="form__button" type="submit">Sign in</button>
+            <div class="form__foot">
+                <div class="ior">
+                    <hr/>
+                    <b>Or</b>
+                    <hr/>
+                </div>
+                <b>Sign in using</b>
+                <div class="socials">
+                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </form>
+<!-- ======================================SIGN UP FORM================================================= -->
+        
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Sign Up</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <div class="logInput" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" class="form__input" autofocus placeholder="Email Address">
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" id="signupPassword" class="form__input" autofocus placeholder="Password">
+                    <i class="fas fa-light fa-eye"></i>
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" id="confirmPass" class="form__input" autofocus placeholder="Confirm Password">
+                    <i class="fas fa-light fa-eye"></i>
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+            <p class="form__text4">
+                <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+            </p>
+            <button class="form__button" type="submit">Sign Up</button>
+            <div class="form__foot">
+                <div class="ior">
+                    <hr/>
+                    <b>Or</b>
+                    <hr/>
+                </div>
+                <b>Sign in using</b>
+                <div class="socials">
+                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+            
+        </form>
+    </section>
+    <script src="./main.js"></script>
+</body>
+</html>
