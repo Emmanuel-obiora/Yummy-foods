@@ -1,0 +1,187 @@
+
+.sign_container{
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin: 1% 30% 0% 30%;
+    background: $color-white;
+    
+    .form{
+        width: 100%;
+        padding: 2rem;
+
+        &__close{
+            display: block;
+            text-align: right;
+
+            & > i{
+                color: $color-error;
+            }
+        }
+
+        &__title{
+            text-align : center;
+            font-size: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        &--hidden{
+            display: none;
+        }
+
+        & > *:first-child{
+            margin-top: 0;
+        }
+        & > *:last-child{
+            margin-bottom: 0;
+        }
+
+        &__message{
+            text-align: center;
+            margin: 1rem 0rem;
+        
+            &--success{
+                color: $color-success;
+            }
+            &--error{
+                color: $color-error;
+            }
+        }
+
+        &__input-group{
+
+            .logInput{
+                display: flex;
+                width: 100%;
+                border: 2px solid $color-bg2;
+                background: $color-bg2;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                height: 2.5rem;
+                padding: 0px 0px 0px 5px;
+                border-radius: 5px;
+
+                
+
+                & > i{
+                    color: $color-border;
+                    margin-right: 5px;
+                }
+
+            }
+
+            .form__input{
+                background: transparent;
+                outline: none;
+                border: none;
+                flex-grow: 1;
+                color: rgb(146, 143, 143);
+                font-size: 300;
+                height: 100%;
+                
+                &:focus{
+                    background: $color-white;
+                }
+
+                &--error{
+                    color: $color-error;
+                    border-color: $color-error;
+                }
+
+                &-error-message{
+                    margin-top: 0.5rem;
+                    font-size: 0.85rem;
+                    color: $color-error;
+                }
+            }
+
+        }
+
+        &__button{
+            width: 100%;
+            font-size: 0.9rem;
+            color: $color-white;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            cursor: pointer;
+            background: $color-pry;
+            height: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        
+            &:hover{
+                background: $color-success
+            }
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
+        
+        }
+
+        &__text{
+            text-align: right;
+            font-size: 14px;
+
+        }
+        &__text2{
+            text-align: center;
+            margin-top: 5rem;
+        }
+        &__text3{
+            font-size: 14px;
+        }
+        &__text4{
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        &__foot{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            text-align: center;
+            gap: 1rem;
+
+            .ior {
+                display: flex;
+                justify-content: space-between;
+                gap:1rem;
+                align-items: center;
+
+
+                & > hr{
+                    color: $color-black;
+                    background: $color-black;
+                    flex-grow: 1;
+                    height: 3px;
+
+                }
+            }
+
+            .socials {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+
+                & > a{
+                    color: $color-black;
+                } 
+            }
+            
+        }
+ 
+    }
+}
+
+.form__link{
+    color: $color-black;
+    cursor: pointer;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}

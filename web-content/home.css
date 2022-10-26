@@ -10,11 +10,9 @@ body {
   font-family: "Josefin Sans", sans-serif;
   font-weight: 300;
   background: #f7f4ef;
-  color: #E87E1C;
 }
 
 .container {
-  position: fixed;
   width: 100%;
   background-color: #F5F5F5;
 }
@@ -24,6 +22,7 @@ body {
   justify-content: space-between;
   padding: 0.2rem 1rem;
   align-items: center;
+  color: #E87E1C;
 }
 .head .search-bar {
   border: 2px solid rgba(192, 189, 189, 0.5);
@@ -32,6 +31,7 @@ body {
   border-radius: 15px;
   background: rgb(255, 255, 255);
   height: 2rem;
+  position: relative;
 }
 .head .search-bar__input {
   flex-grow: 1;
@@ -48,6 +48,8 @@ body {
   cursor: pointer;
   border: 0;
   background: transparent;
+  position: absolute;
+  right: 0;
 }
 .head .search-bar__submit i {
   padding: 0.3rem;
@@ -121,6 +123,7 @@ body {
   color: rgb(0, 0, 0);
 }
 
+<<<<<<< HEAD
 /* toby */
 .hero-btn-content {
   display: flex;
@@ -208,3 +211,154 @@ body {
   justify-content: space-around;
   padding: 10px;
 }
+=======
+.sign_container {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  margin: 1% 30% 0% 30%;
+  background: rgb(255, 255, 255);
+}
+.sign_container .form {
+  width: 100%;
+  padding: 2rem;
+}
+.sign_container .form__close {
+  display: block;
+  text-align: right;
+}
+.sign_container .form__close > i {
+  color: red;
+}
+.sign_container .form__title {
+  text-align: center;
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+.sign_container .form--hidden {
+  display: none;
+}
+.sign_container .form > *:first-child {
+  margin-top: 0;
+}
+.sign_container .form > *:last-child {
+  margin-bottom: 0;
+}
+.sign_container .form__message {
+  text-align: center;
+  margin: 1rem 0rem;
+}
+.sign_container .form__message--success {
+  color: green;
+}
+.sign_container .form__message--error {
+  color: red;
+}
+.sign_container .form__input-group .logInput {
+  display: flex;
+  width: 100%;
+  border: 2px solid #f5dec8;
+  background: #f5dec8;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  height: 2.5rem;
+  padding: 0px 0px 0px 5px;
+  border-radius: 5px;
+}
+.sign_container .form__input-group .logInput > i {
+  color: rgba(192, 189, 189, 0.5);
+  margin-right: 5px;
+}
+.sign_container .form__input-group .form__input {
+  background: transparent;
+  outline: none;
+  border: none;
+  flex-grow: 1;
+  color: rgb(146, 143, 143);
+  font-size: 300;
+  height: 100%;
+}
+.sign_container .form__input-group .form__input:focus {
+  background: rgb(255, 255, 255);
+}
+.sign_container .form__input-group .form__input--error {
+  color: red;
+  border-color: red;
+}
+.sign_container .form__input-group .form__input-error-message {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: red;
+}
+.sign_container .form__button {
+  width: 100%;
+  font-size: 0.9rem;
+  color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  cursor: pointer;
+  background: #E87E1C;
+  height: 2rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+.sign_container .form__button:hover {
+  background: green;
+}
+.sign_container .form__button:active {
+  transform: scale(0.9);
+  transition: all 400ms ease-in-out;
+}
+.sign_container .form__text {
+  text-align: right;
+  font-size: 14px;
+}
+.sign_container .form__text2 {
+  text-align: center;
+  margin-top: 5rem;
+}
+.sign_container .form__text3 {
+  font-size: 14px;
+}
+.sign_container .form__text4 {
+  margin-top: 2rem;
+  text-align: center;
+}
+.sign_container .form__foot {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+  text-align: center;
+  gap: 1rem;
+}
+.sign_container .form__foot .ior {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+}
+.sign_container .form__foot .ior > hr {
+  color: rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
+  flex-grow: 1;
+  height: 3px;
+}
+.sign_container .form__foot .socials {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+.sign_container .form__foot .socials > a {
+  color: rgb(0, 0, 0);
+}
+
+.form__link {
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+}
+.form__link:hover {
+  text-decoration: underline;
+}
+>>>>>>> 9864ccdd67de6d785a77ba4683bee604e127421e
