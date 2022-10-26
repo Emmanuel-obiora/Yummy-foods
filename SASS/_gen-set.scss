@@ -5,6 +5,8 @@ $color-black: rgb(0,0,0);
 $color-border: rgba(192, 189, 189, 0.5);
 $color-bg2: #f5dec8;
 $color-pry-varient: #faae66;
+$color-error: red;
+$color-success: green;
 
 *{
     padding: 0;
@@ -18,10 +20,4 @@ body{
     font-family: 'Josefin Sans', sans-serif;
     font-weight: 300;
     background: $color-bg;
-    color: $color-pry;
-}
-
-.container{
-    position: fixed;
-    width: 100%;
 }
