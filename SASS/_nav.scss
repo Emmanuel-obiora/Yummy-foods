@@ -1,8 +1,47 @@
+.toggle{
+    cursor: pointer;
+    padding: 0.5rem;
+
+    @media (min-width: 601px){
+        display: none;
+    }
+
+
+  }
+  .bars{
+    background: #999;
+    display: inline-block;
+    height: 2px;
+    position: relative;
+    width: 4vw;
+  }
+  .bars::before,.bars::after{
+    background: #999;
+    content: "";
+    display: inline-block;
+    height: 2px;
+    position: absolute;
+    width: 4vw;
+  }
+  .bars::before{
+    top:5px;
+  }
+  .bars::after{
+    bottom: 5px;
+  }
+
+
 .nav{
-        height: 50px;
+        height: 5vh;
         display: flex;
         align-items: center;
+        position: relative;
+        z-index: 1;
         
+        @media (max-width: 37.5rem){
+            display: none;
+            align-items: left;
+        }
     
     & ul{
         display: flex;
@@ -10,6 +49,11 @@
         width: 100%;
         height: auto;
         gap: 5px;
+
+        @media (max-width: 37.5rem){
+            flex-direction: column;
+            width:max-content;
+        }
     
         & li{
             display: flex;
@@ -19,6 +63,13 @@
             justify-content: center;
             align-items: center;
             position: relative;
+
+            @media (max-width: 37.5rem){
+                justify-content: left;
+                height:8vh;
+                padding: 1rem;
+                font-weight: 400;
+            }
 
             &:hover{
 
@@ -44,8 +95,19 @@
     left: 0%;
     right: 0%;
 
+    @media (max-width: 37.5rem){
+        display: none;
+        position: absolute;
+        top:0; 
+        margin-left: 7rem;
+    }
+
     & ul{
         display: block;
+
+        @media (max-width: 37.5rem){
+            gap: 5px;
+        }
 
         & li{
             align-items: left;
@@ -53,6 +115,9 @@
             background: $color-bg2;
             border-bottom: 2px solid $color-white;
 
+            @media (max-width: 37.5rem){
+                width: auto;
+            }
             &:hover{
                 background: $color-pry-varient;
             }

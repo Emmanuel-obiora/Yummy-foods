@@ -8,7 +8,7 @@
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  font-weight: 300;
+  font-weight: 200;
   background: #f7f4ef;
 }
 
@@ -22,6 +22,15 @@ body {
   padding: 0.2rem 1rem;
   align-items: center;
   color: #E87E1C;
+
+}
+@media (max-width: 37.5rem) {
+  .head {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    text-align: center;
+  }
 }
 .head .search-bar {
   border: 2px solid rgba(192, 189, 189, 0.5);
@@ -31,6 +40,11 @@ body {
   background: rgb(255, 255, 255);
   height: 2rem;
   position: relative;
+}
+@media (max-width: 37.5rem) {
+  .head .search-bar {
+    width: auto;
+  }
 }
 .head .search-bar__input {
   flex-grow: 1;
@@ -64,10 +78,53 @@ body {
   font-weight: 400;
 }
 
+.toggle {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+@media (min-width: 601px) {
+  .toggle {
+    display: none;
+  }
+}
+
+.bars {
+  background: #999;
+  display: inline-block;
+  height: 2px;
+  position: relative;
+  width: 4vw;
+}
+
+.bars::before, .bars::after {
+  background: #999;
+  content: "";
+  display: inline-block;
+  height: 2px;
+  position: absolute;
+  width: 4vw;
+}
+
+.bars::before {
+  top: 5px;
+}
+
+.bars::after {
+  bottom: 5px;
+}
+
 .nav {
-  height: 50px;
+  height: 5vh;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 37.5rem) {
+  .nav {
+    display: none;
+    align-items: left;
+  }
 }
 .nav ul {
   display: flex;
@@ -75,6 +132,14 @@ body {
   width: 100%;
   height: auto;
   gap: 5px;
+}
+@media (max-width: 37.5rem) {
+  .nav ul {
+    flex-direction: column;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
 }
 .nav ul li {
   display: flex;
@@ -84,6 +149,14 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
+}
+@media (max-width: 37.5rem) {
+  .nav ul li {
+    justify-content: left;
+    height: 8vh;
+    padding: 1rem;
+    font-weight: 400;
+  }
 }
 .nav ul li:hover {
   background: #faae66;
@@ -103,14 +176,32 @@ body {
   left: 0%;
   right: 0%;
 }
+@media (max-width: 37.5rem) {
+  .sub-menu1 {
+    display: none;
+    position: absolute;
+    top: 0;
+    margin-left: 7rem;
+  }
+}
 .sub-menu1 ul {
   display: block;
+}
+@media (max-width: 37.5rem) {
+  .sub-menu1 ul {
+    gap: 5px;
+  }
 }
 .sub-menu1 ul li {
   align-items: left;
   justify-content: left;
   background: #f5dec8;
   border-bottom: 2px solid rgb(255, 255, 255);
+}
+@media (max-width: 37.5rem) {
+  .sub-menu1 ul li {
+    width: auto;
+  }
 }
 .sub-menu1 ul li:hover {
   background: #faae66;
@@ -126,8 +217,13 @@ body {
   display: block;
   align-items: center;
   justify-content: center;
-  margin: 1% 30% 0% 30%;
+  margin: 2% 30% 0% 30%;
   background: rgb(255, 255, 255);
+}
+@media (max-width: 600px) {
+  .sign_container {
+    margin: 1% 10% 0% 10%;
+  }
 }
 .sign_container .form {
   width: 100%;
@@ -167,30 +263,45 @@ body {
 .sign_container .form__input-group .logInput {
   display: flex;
   width: 100%;
-  border: 2px solid #f5dec8;
-  background: #f5dec8;
   align-items: center;
   justify-content: space-between;
   position: relative;
-  height: 2.5rem;
-  padding: 0px 0px 0px 5px;
-  border-radius: 5px;
 }
 .sign_container .form__input-group .logInput > i {
-  color: rgba(192, 189, 189, 0.5);
-  margin-right: 5px;
+  position: absolute;
+  color: #7a797e;
+  cursor: pointer;
+  margin: 0 6px;
+}
+.sign_container .form__input-group .logInput .second {
+  right: 0;
 }
 .sign_container .form__input-group .form__input {
-  background: transparent;
+  background: #f5dec8;
   outline: none;
   border: none;
   flex-grow: 1;
   color: rgb(146, 143, 143);
   font-size: 300;
-  height: 100%;
+  height: 2.5rem;
+  border: 2px solid #f5dec8;
+  letter-spacing: 0.5px;
+  padding: 0.5rem;
+  border-radius: 5px;
+}
+.sign_container .form__input-group .form__input::-moz-placeholder {
+  font-weight: 300;
+}
+.sign_container .form__input-group .form__input:-ms-input-placeholder {
+  font-weight: 300;
+}
+.sign_container .form__input-group .form__input::placeholder {
+  font-weight: 300;
 }
 .sign_container .form__input-group .form__input:focus {
   background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 2px solid #E87E1C;
 }
 .sign_container .form__input-group .form__input--error {
   color: red;
