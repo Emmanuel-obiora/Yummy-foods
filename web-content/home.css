@@ -116,6 +116,8 @@ body {
   height: 5vh;
   display: flex;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 @media (max-width: 37.5rem) {
   .nav {
