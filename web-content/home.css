@@ -22,7 +22,6 @@ body {
   padding: 0.2rem 1rem;
   align-items: center;
   color: #E87E1C;
-
 }
 @media (max-width: 37.5rem) {
   .head {
@@ -266,17 +265,18 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-top: 1rem;
 }
 .sign_container .form__input-group .logInput > i {
   position: absolute;
   color: #7a797e;
   cursor: pointer;
-  margin: 0 6px;
+  margin: 6px;
 }
 .sign_container .form__input-group .logInput .second {
   right: 0;
 }
-.sign_container .form__input-group .form__input {
+.sign_container .form__input-group .logInput .form__input {
   background: #f5dec8;
   outline: none;
   border: none;
@@ -289,25 +289,25 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
 }
-.sign_container .form__input-group .form__input::-moz-placeholder {
+.sign_container .form__input-group .logInput .form__input::-moz-placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input:-ms-input-placeholder {
+.sign_container .form__input-group .logInput .form__input:-ms-input-placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input::placeholder {
+.sign_container .form__input-group .logInput .form__input::placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input:focus {
+.sign_container .form__input-group .logInput .form__input:focus {
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border: 2px solid #E87E1C;
 }
-.sign_container .form__input-group .form__input--error {
+.sign_container .form__input-group .logInput .form__input--error {
   color: red;
   border-color: red;
 }
-.sign_container .form__input-group .form__input-error-message {
+.sign_container .form__input-group .logInput .form__input-error-message {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: red;
