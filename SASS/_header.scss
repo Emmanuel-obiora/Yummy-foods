@@ -10,6 +10,7 @@
     align-items: center;
     color: $color-pry;
 
+
     
 
     @media (max-width: 37.5rem){
@@ -18,6 +19,8 @@
         gap: 0.5rem;
         text-align: center;
       }
+
+
 
     .search-bar{
         border: 2px solid $color-border;
@@ -31,6 +34,7 @@
           @media (max-width: 37.5rem){
             width: auto;
           }
+
 
         &__input{
             flex-grow: 1;
