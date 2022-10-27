@@ -69,3 +69,48 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 });
+
+
+// nav bar responsive
+var menuItem = false;
+function menuBar(){
+    if(menuItem){
+        document.getElementById("onOff").style.display="none";
+        menuItem = false;
+    }
+    else {
+        document.getElementById("onOff").style.display="block";
+        menuItem = true;
+    }
+}
+
+// Reveal Passwords
+var state = false;
+function toggle(){
+    if(state){
+        document.getElementById("password").setAttribute("type", "password");
+        document.getElementById("signupPassword").setAttribute("type", "password");
+        document.getElementById("eye").style.colour="#7a797e";
+        state = false;
+    }
+    else {
+        document.getElementById("password").setAttribute("type", "text");
+        document.getElementById("signupPassword").setAttribute("type", "text");
+        document.getElementById("eye").style.colour="#5887ef";
+        state = true;
+    }
+}
+
+var check = false;
+function tog(){
+    if(check){
+        document.getElementById("confirmPass").setAttribute("type", "password");
+        document.getElementById("iron").style.colour="#7a797e";
+        check = false;
+    }
+    else {
+        document.getElementById("confirmPass").setAttribute("type", "text");
+        document.getElementById("iron").style.colour="#5887ef";
+        check = true;
+    }
+}
