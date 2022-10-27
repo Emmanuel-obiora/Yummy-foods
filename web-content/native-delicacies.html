@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--===================================STYLE LINK=========================================-->
+    <link rel="stylesheet" href="home.css">
+
+    <!--=================================== GOOGLE CDN =========================================-->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
+
+    <!--====================================FONT AWESOME ICON =====================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
+    integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    
+    <!--=====================================JAVASCRIPT CDN===================================-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    
+
+    <!--=====================================PROJECT TITLE=======================================-->
+    <title>Yummy foods</title>
+
+</head>
+<body>
+    <!--==================================PANTHER===================================-->
+    <div class="container">
+        <header class="head">
+            <div>
+                <h1><b> YummyFoods </b></h1>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
+                <button title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="left">
+                <small><a href="login-signup.html"> Sign-Up/Sign-in </a></small>
+                <i class="fas fa-user-circle"></i>
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-shopping-cart"></i>
+            </div> 
+
+        </header>
+            <div class="toggle" onClick="menuBar()">
+                <span class="bars"></span>
+            </div>
+            <nav class="nav" id="onOff">
+                <ul class="menu-nav">
+                    <li class="menu-nav__item active"><a href="home.html" class="menu-nav__link">Home</a></li>
+                    <li class="menu-nav__item"><a href="#" class="menu-nav__link">Menu</a>
+                        <div class="sub-menu1"> 
+                            <ul>
+                                <li><a href="./meats-and-grills.html">Meats and Grills</a></li>
+                                <li><a href="./continental-dishes.html">Continental Dishes</a></li>
+                                <li><a href="./native-delicacies.html">Native Delicacies</a></li>
+                                <li><a href="./pasteries.html">Pastries</a></li>
+                                <li><a href="./desserts.html">Desserts</a></li>
+                                <li><a href="./drinks.html">Drinks</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-nav__item" ><a href="#" class="menu-nav__link">Orders</a>
+                        <div class="sub-menu1"> 
+                            <ul>
+                                <li><a href="#">Order History</a></li>
+                                <li><a href="#">Track Orders</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="menu-nav__item"><a href="#" class="menu-nav__link">Favourites</a></li>
+                    <li class="menu-nav__item"><a href="#" class="menu-nav__link">Contact Us</a></li>
+                </ul>
+            </nav>
+    </div>
+
+    <div class="food_container">
+        <div class="food_container-top">Native Delicacies</div>
+        <div class="food_container-buttom">
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Beef Curry and Chips.jpg" alt="Beef Curry and Chips">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Beef Curry and Chips</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Fish Fingerlings.jpg" alt="Fish Fingerlings">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Fish Fingerlings</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Betu Rice.jpg" alt="Betu Rice">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Betu Rice</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Goatmeat Peppersoup.jpg" alt="Goatmeat Peppersoup">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Goatmeat Peppersoup</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Achi Soup with Yam.jpg" alt="Achi Soup with Yam">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Achi Soup with Yam</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Fish Peppersoup.jpg" alt="Fish Peppersoup">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Fish Peppersoup</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Native Soup.jpg" alt="Native Soup">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Native Soup</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+
+            <article class = "menu_list">
+                <div class="menu_list-image">
+                    <img src="/Assets/Native Delicacies/Pork Noodle Soup.jpg" alt="Pork Noodle Soup">
+                </div>
+                <div class="menu_list-summary">
+                    <div class="menu_list-summary-about">
+                        <h3>Pork Noodle Soup</h3>
+                        <b>#2450</b>
+                    </div>
+                    <div class="menu_list-summary-icons">
+                        <span><i class="fas fa-heart"></i></span>
+                        <span><i class="fas fa-shopping-cart"></i></span>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+
+    <!--==================================TOBY=======================================-->
+    <script src="./main.js"></script>
+</body>
+</html>
