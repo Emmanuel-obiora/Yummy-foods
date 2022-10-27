@@ -3,7 +3,7 @@
     display: block;
     align-items: center;
     justify-content: center;
-    margin: 2% 30% 0% 30%;
+    margin: 2% 33% 0% 33%;
     background: $color-white;
 
     @media (max-width: 600px){
@@ -60,18 +60,19 @@
                 align-items: center;
                 justify-content: space-between;
                 position: relative;
+                margin-top: 1rem;
                 
 
                 & > i{
                     position: absolute;
                     color: #7a797e;
                     cursor: pointer;
-                    margin: 0 6px;
+                    margin: 6px;
                 }
 
                 & .second{
                     right: 0;
-                    
+                }
                 
             .form__input{
                 background: $color-bg2;
@@ -106,10 +107,11 @@
                     margin-top: 0.5rem;
                     font-size: 0.85rem;
                     color: $color-error;
+                
                 }
             }
-
         }
+    }
 
         &__button{
             width: 100%;
@@ -186,7 +188,6 @@
             }
             
         }
- 
     }
 }
 

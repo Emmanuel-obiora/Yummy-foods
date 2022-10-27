@@ -22,7 +22,6 @@ body {
   padding: 0.2rem 1rem;
   align-items: center;
   color: #E87E1C;
-
 }
 @media (max-width: 37.5rem) {
   .head {
@@ -217,7 +216,7 @@ body {
   display: block;
   align-items: center;
   justify-content: center;
-  margin: 2% 30% 0% 30%;
+  margin: 2% 33% 0% 33%;
   background: rgb(255, 255, 255);
 }
 @media (max-width: 600px) {
@@ -266,17 +265,18 @@ body {
   align-items: center;
   justify-content: space-between;
   position: relative;
+  margin-top: 1rem;
 }
 .sign_container .form__input-group .logInput > i {
   position: absolute;
   color: #7a797e;
   cursor: pointer;
-  margin: 0 6px;
+  margin: 6px;
 }
 .sign_container .form__input-group .logInput .second {
   right: 0;
 }
-.sign_container .form__input-group .form__input {
+.sign_container .form__input-group .logInput .form__input {
   background: #f5dec8;
   outline: none;
   border: none;
@@ -289,25 +289,25 @@ body {
   padding: 0.5rem;
   border-radius: 5px;
 }
-.sign_container .form__input-group .form__input::-moz-placeholder {
+.sign_container .form__input-group .logInput .form__input::-moz-placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input:-ms-input-placeholder {
+.sign_container .form__input-group .logInput .form__input:-ms-input-placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input::placeholder {
+.sign_container .form__input-group .logInput .form__input::placeholder {
   font-weight: 300;
 }
-.sign_container .form__input-group .form__input:focus {
+.sign_container .form__input-group .logInput .form__input:focus {
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   border: 2px solid #E87E1C;
 }
-.sign_container .form__input-group .form__input--error {
+.sign_container .form__input-group .logInput .form__input--error {
   color: red;
   border-color: red;
 }
-.sign_container .form__input-group .form__input-error-message {
+.sign_container .form__input-group .logInput .form__input-error-message {
   margin-top: 0.5rem;
   font-size: 0.85rem;
   color: red;
@@ -381,4 +381,77 @@ body {
 }
 .form__link:hover {
   text-decoration: underline;
+}
+
+.food_container {
+  display: block;
+  background: rgb(255, 255, 255);
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.food_container-top {
+  display: flex;
+  background: green;
+  width: 100%;
+  margin-top: 0.5rem;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  height: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.food_container-buttom {
+  background: transparent;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 3.1rem;
+  width: 100%;
+  row-gap: 1.5rem;
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+@media (max-width: 64rem) {
+  .food_container-buttom {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 37.5rem) {
+  .food_container-buttom {
+    grid-template-columns: 1fr;
+  }
+}
+.food_container-buttom .menu_list {
+  display: block;
+  align-items: center;
+  width: 100%;
+  height: 13.5rem;
+  border: 3px solid rgba(192, 189, 189, 0.5);
+}
+.food_container-buttom .menu_list-image {
+  height: 22vh;
+  width: 100%;
+}
+.food_container-buttom .menu_list-image > img {
+  width: 100%;
+  height: 100%;
+  border-image-repeat: no-repeat;
+}
+.food_container-buttom .menu_list-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+.food_container-buttom .menu_list-summary-about {
+  display: flex;
+  flex-direction: column;
+  color: rgb(0, 0, 0);
+  row-gap: 0.5rem;
+}
+.food_container-buttom .menu_list-summary-icons {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  color: #E87E1C;
+  cursor: pointer;
 }
