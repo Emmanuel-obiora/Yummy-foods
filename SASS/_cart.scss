@@ -10,7 +10,7 @@
     top: 0;
     left: 98%;
     visibility: hidden;
-    transition: all 0.4s ease-in-out;
+    transition: $transition;
 
     @media (max-width: 37.5rem){
         left: 95%;
