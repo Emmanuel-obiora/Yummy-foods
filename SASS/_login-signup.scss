@@ -1,0 +1,225 @@
+
+.sign_container{
+    display: block;
+    align-items: center;
+    width: 35%;
+    justify-content: center;
+    background: $color-white;
+    transform: translate(-50%, -50%) scale(0.1);
+    position: absolute;
+    top: 0;
+    left: 87%;
+    visibility: hidden;
+    transition: $transition;
+
+    @media (max-width: 37.5rem){
+        left: 15%;
+        top: 15%;
+        width: 80%;
+    }
+
+    & b{
+        display: block;
+        text-align: right;
+        cursor: pointer;
+
+        & > i{
+            color: $color-error;
+        }
+    }
+    
+    .form{
+        width: 100%;
+        padding: 2rem;
+
+        &__title{
+            text-align : center;
+            font-size: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        &--hidden{
+            display: none;
+        }
+
+        & > *:first-child{
+            margin-top: 0;
+        }
+        & > *:last-child{
+            margin-bottom: 0;
+        }
+
+        &__message{
+            text-align: center;
+            margin: 1rem 0rem;
+        
+            &--success{
+                color: $color-success;
+            }
+            &--error{
+                color: $color-error;
+            }
+        }
+
+        &__input-group{
+
+            .logInput{
+                display: flex;
+                width: 100%;
+                align-items: center;
+                justify-content: space-between;
+                position: relative;
+                margin-top: 1rem;
+                
+
+                & > i{
+                    position: absolute;
+                    color: #7a797e;
+                    cursor: pointer;
+                    margin: 6px;
+                }
+
+                & .second{
+                    right: 0;
+                }
+                
+            .form__input{
+                background: $color-bg2;
+                outline: none;
+                border: none;
+                flex-grow: 1;
+                color: rgb(146, 143, 143);
+                font-size: 300;
+                height: 2.5rem;
+                border: 2px solid $color-bg2;
+                letter-spacing: 0.5px;
+                padding: 0.5rem;
+                border-radius: 5px;
+
+                &::placeholder{
+                    font-weight: 300;
+
+                }
+                
+                &:focus{
+                    background: $color-white;
+                    color: $color-black;
+                    border: 2px solid $color-pry;
+                }
+
+                &--error{
+                    color: $color-error;
+                    border-color: $color-error;
+                }
+
+                &-error-message{
+                    margin-top: 0.5rem;
+                    font-size: 0.85rem;
+                    color: $color-error;
+                
+                }
+            }
+        }
+    }
+
+        &__button{
+            width: 100%;
+            font-size: 0.9rem;
+            color: $color-white;
+            border: none;
+            border-radius: 15px;
+            outline: none;
+            cursor: pointer;
+            background: $color-pry;
+            height: 2rem;
+            text-align: center;
+            margin-top: 1rem;
+        
+            &:hover{
+                background: $color-success
+            }
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
+        
+        }
+
+        &__text{
+            text-align: right;
+            font-size: 14px;
+
+        }
+        &__text2{
+            text-align: center;
+            margin-top: 5rem;
+        }
+        &__text3{
+            font-size: 14px;
+        }
+        &__text4{
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        &__foot{
+            display: flex;
+            flex-direction: column;
+            margin-top: 2rem;
+            text-align: center;
+            gap: 1rem;
+
+            .ior {
+                display: flex;
+                justify-content: space-between;
+                gap:1rem;
+                align-items: center;
+
+
+                & > hr{
+                    color: $color-black;
+                    background: $color-black;
+                    flex-grow: 1;
+                    height: 3px;
+
+                }
+            }
+
+            .socials {
+                display: flex;
+                gap: 1rem;
+                justify-content: center;
+
+                & > a{
+                    color: $color-black;
+                } 
+            }
+            
+        }
+    }
+}
+
+.form__link{
+    color: $color-black;
+    cursor: pointer;
+
+    &:hover{
+        text-decoration: underline;
+    }
+}
+
+.open-popup{
+    transform: translate(-50%, -50%) scale(1);
+    top: 55%;
+    left: 50%;
+    visibility: visible;
+    z-index: 9999;
+
+    @media (max-width: 37.5rem){
+        transform: translate(-50%, -50%) scale(1);
+        top: 60%;
+        left: 50%;
+        visibility: visible;
+    }
+}

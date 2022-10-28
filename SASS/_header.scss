@@ -1,0 +1,95 @@
+.container{
+    width: 100%;
+    // position: fixed;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.2rem 1rem;
+    align-items: center;
+    color: $color-pry;
+
+
+    
+
+    @media (max-width: 37.5rem){
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        text-align: center;
+      }
+
+
+
+    .search-bar{
+        border: 2px solid $color-border;
+        display: flex;
+        width: 30%;
+        border-radius: 15px;
+        background: $color-white;
+        height: 2rem;
+        position: relative;
+
+          @media (max-width: 37.5rem){
+            width: auto;
+          }
+
+
+        &__input{
+            flex-grow: 1;
+            font-size: 0.9rem;
+            padding: 0 0.5em;
+            border: 0;
+            background: transparent;
+
+            &:focus{
+                outline: 0;
+            }
+        }
+
+        &__submit{
+            font-size: 1rem;
+            cursor: pointer;
+            border: 0;
+            background: transparent;
+            position: absolute;
+            right: 0;
+            
+            & i{
+                padding: 0.3rem;
+                color: $color-pry;
+            }
+        }
+    }
+
+    .left{
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+        font-size: 25px;
+
+        
+        & > button{
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+
+            &:hover{
+                background: $color-pry-varient;
+                border-radius: 5px;
+            }
+        }
+
+        & > i{
+            cursor: pointer;
+
+            &:hover{
+                background: $color-border;
+            }
+        }
+    }
+
+}
