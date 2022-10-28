@@ -488,9 +488,9 @@ body {
   cursor: pointer;
 }
 
-.cart-container {
-  background: rgb(255, 255, 255);
-  display: block;
+/* Toby's part */
+.hero-btn-content {
+  display: flex;
   align-items: center;
   width: 35%;
   justify-content: center;
@@ -514,20 +514,26 @@ body {
   text-align: right;
   cursor: pointer;
 }
-.cart-container > b > i {
-  color: red;
+
+.display-front {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F5F5F5;
+  border: 1px solid #D9D9D9;
+  background-position: center;
+  padding-top: 1rem;
 }
 
-.cart_cont {
-  background: transparent;
-  display: block;
-  padding: 1.5rem;
-  font: bold;
-  font-weight: 400;
+.display-front .display-pic img {
+  height: 400px;
 }
-.cart_cont__close {
-  display: block;
-  text-align: right;
+
+.display-front .display-text1 h1 {
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
+  color: #E87E1C;
 }
 .cart_cont__close > i {
   color: red;
@@ -548,12 +554,20 @@ body {
 .cart_cont-table-table-list {
   display: block;
 }
-.cart_cont-total {
-  display: block;
-  align-content: center;
-  justify-items: center;
+
+.layer {
+  color: #FFFFFF;
+  position: absolute;
+  top: 50%;
+  width: 50%;
+  text-align: center;
+  font-size: 20px;
+  text-shadow: 5px 5px 10px #000000;
+  padding-top: 8rem;
+  padding-left: 21rem;
 }
-.cart_cont-total .dark-rule {
+
+.foods {
   display: flex;
   margin-top: 1rem;
   height: 3px;
@@ -586,11 +600,18 @@ body {
   visibility: visible;
   z-index: 9999;
 }
-@media (max-width: 37.5rem) {
-  .open-cart {
-    transform: translate(-50%, -50%) scale(1);
-    top: 60%;
-    left: 50%;
-    visibility: visible;
-  }
+
+.step-order {
+  width: 100%;
+  text-align: center;
+  padding: 50px 0;
+}
+
+.step-order h1 {
+  margin-bottom: 25px;
+  margin-top: 20px;
+}
+
+.order-box .fa {
+  color: #E87E1C;
 }
