@@ -69,7 +69,6 @@
         gap: 1rem;
         font-size: 25px;
 
-        
         & > button{
             font-weight: 500;
             cursor: pointer;
@@ -89,6 +88,12 @@
             &:hover{
                 background: $color-border;
             }
+
+        }
+
+        .fas{
+            cursor: pointer;
+            font-size: 20px;
         }
     }
 
