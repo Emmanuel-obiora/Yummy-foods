@@ -17,7 +17,7 @@
 
     
     <!--=====================================JAVASCRIPT CDN===================================-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
     
 
     <!--=====================================PROJECT TITLE=======================================-->
@@ -79,6 +79,7 @@
 
     <section class="sign_container" id="signPopup">
         <b><i class="fas fa-close" onclick="closeSignin()"></i></b>
+
         <form class="form" id="login">
             
             <h1 class="form__title">Sign in</h1>
@@ -237,73 +238,86 @@
                 <div class="layer">
                     <h3>Seafood Rice</h3>
                 </div>
+                <div class="form__input-error-message"></div>
             </div>
-            <div class="display-text2">    
-                <h1>Special menu for the <br> day</h1>
-                <a href="" class="hero-btn-2">
-                    <div class="hero-btn-content">
-                        Add to cart
-                    </div>  
-                </a>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
+                    <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                </div>
+                <div class="form__input-error-message"></div>
             </div>
+            <p class="form__text">
+                <a href="#" class="form__link"><b>Forgot password</b></a>
+            </p>
+
+            <p class="form__text2">
+                <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+            </p>
+            <button class="form__button" type="submit">Sign in</button>
+            <div class="form__foot">
+                <div class="ior">
+                    <hr/>
+                    <b>Or</b>
+                    <hr/>
+                </div>
+                <b>Sign in using</b>
+                <div class="socials">
+                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </form>
+<!-- ======================================SIGN UP FORM================================================= -->
+        
+        <form class="form form--hidden" id="createAccount">
+            <h1 class="form__title">Sign Up</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <div class="logInput" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Email Address">
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
+                    <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <div class="form__input-group">
+                <div class="logInput">
+                    <i class="fas fa-light fa-key"></i>
+                    <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
+                    <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+                </div>
+                <div class="form__input-error-message"></div>
+            </div>
+            <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+            <p class="form__text4">
+                <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+            </p>
+            <button class="form__button" type="submit">Sign Up</button>
+            <div class="form__foot">
+                <div class="ior">
+                    <hr/>
+                    <b>Or</b>
+                    <hr/>
+                </div>
+                <b>Sign in using</b>
+                <div class="socials">
+                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+
         </section>
-
-        <section class="foods">
-            <div class="food-container">
-                <img src="img/meat.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Meats and Grills</h1>
-                </div>
-            </div>
-            <div class="food-container">
-                <img src="img/continental.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Continental Dishes</h1>
-                </div>
-            </div>
-            <div class="food-container">
-                <img src="img/native.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Native Delicacies</h1>
-                </div>
-            </div>   
-        </section>
-        <section class="foods">
-            <div class="food-container">
-                <img src="img/pastries.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Pastries</h1>
-                </div>
-            </div>
-            <div class="food-container">
-                <img src="img/desert.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Desert</h1> 
-                </div>
-            </div>
-            <div class="food-container">
-                <img src="img/drinks.jpg" alt=""/>
-                <div class="layer2">
-                    <h1>Drinks</h1>
-                </div>
-            </div>   
-        </section>
-
-        <section class="step-order">
-            <h1>Steps to order</h1>
-            <div class="order-box">
-                <a href="#"><i class="fa fa-book-open"></i></a>
-                <a href="#"><i class="fa fa-burger"></i></a>
-                <a href="#"><i class="fa fa-credit-card"></i></a>
-                <a href="#"><i class="fa fa-truck"></i></a>
-                <a href="#"><i class="fa fa-utensils"></i></a>
-            </div>
-        </section>
-
-
-
-
-
 
     <script src="./main.js"></script>
 </body>
