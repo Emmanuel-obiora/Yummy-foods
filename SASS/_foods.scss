@@ -42,6 +42,10 @@
             height: 13.5rem;
             border: 3px solid $color-border;
 
+            &:hover{
+                border: 3px solid $color-success;
+            }
+
             &-image{
                 height: 22vh;
                 width: 100%;

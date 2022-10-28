@@ -10,30 +10,23 @@
     top: 0;
     left: 87%;
     visibility: hidden;
-    transition: all 0.4s ease-in-out;
+    transition: $transition;
 
-    
-    @media (max-width: 600px){
+    @media (max-width: 37.5rem){
         left: 15%;
         top: 15%;
         width: 80%;
-
     }
 
-    & > b {
-            display: block;
-            text-align: right;
-            cursor: pointer;
+    & b{
+        display: block;
+        text-align: right;
+        cursor: pointer;
 
-            & > i{
-                color: $color-error;
-            }
-        
+        & > i{
+            color: $color-error;
+        }
     }
-    
-    .form{
-        width: 100%;
-        padding: 2rem;
 
         &__title{
             text-align : center;
@@ -221,8 +214,9 @@
 
     @media (max-width: 37.5rem){
         transform: translate(-50%, -50%) scale(1);
-        top: 60%;
+        top: 61%;
         left: 50%;
         visibility: visible;
     }
 }
+

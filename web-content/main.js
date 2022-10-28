@@ -138,3 +138,4 @@ function openCart() {
 function closeCart() {
     cartPop.classList.remove("open-cart");
 }
+
