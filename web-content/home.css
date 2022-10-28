@@ -456,6 +456,7 @@ body {
   cursor: pointer;
 }
 
+/* Toby's part */
 .hero-btn-content {
   display: flex;
   align-items: center;
@@ -480,16 +481,26 @@ body {
   align-items: center;
   justify-content: space-between;
   background: #F5F5F5;
-  border: 1px solid #D9D9D9;
+  border: 10px solid #D9D9D9;
   background-position: center;
   padding-top: 1rem;
 }
 
-.display-front .display-pic img {
-  height: 400px;
+/* slides start */
+.slider {
+  width: 800px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-.display-front .display-text1 h1 {
+.slides {
+  width: 800px;
+  height: 400px;
+  display: flex;
+}
+
+.slide .display-front .display-text1 h1 {
   width: 100%;
   font-size: 25px;
   text-align: center;
@@ -516,18 +527,6 @@ body {
 .display-front .display-text2 a {
   padding-left: 5rem;
   padding-right: 5rem;
-}
-
-.layer {
-  color: #FFFFFF;
-  position: absolute;
-  top: 50%;
-  width: 50%;
-  text-align: center;
-  font-size: 20px;
-  text-shadow: 5px 5px 10px #000000;
-  padding-top: 8rem;
-  padding-left: 21rem;
 }
 
 .foods {
@@ -567,8 +566,4 @@ body {
 .step-order h1 {
   margin-bottom: 25px;
   margin-top: 20px;
-}
-
-.order-box .fa {
-  color: #E87E1C;
 }
