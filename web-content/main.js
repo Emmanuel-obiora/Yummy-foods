@@ -114,3 +114,27 @@ function tog(){
         check = true;
     }
 }
+
+// FOR OPENING AND CLOSING SIGNIN/SIGNUP POPUP
+let logPop = document.getElementById("signPopup");
+
+function openSignin() {
+    logPop.classList.add("open-popup");
+}
+
+function closeSignin() {
+    logPop.classList.remove("open-popup");
+}
+
+// SHOPPING CART (FOR ONCLICK FUNCTION, VIEW, ADD ITEM, PURCHASE ETC)
+
+// CART POP-UP
+let cartPop = document.getElementById("showCart");
+
+function openCart() {
+    cartPop.classList.add("open-cart");
+}
+
+function closeCart() {
+    cartPop.classList.remove("open-cart");
+}

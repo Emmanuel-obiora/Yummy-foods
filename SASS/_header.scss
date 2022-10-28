@@ -67,12 +67,28 @@
         display: flex;
         justify-content: space-between;
         gap: 1rem;
+        font-size: 25px;
 
         
-        & small>a{
-            color: $color-black;
-            font-weight: 400;
-           
+        & > button{
+            font-weight: 500;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 15px;
+
+            &:hover{
+                background: $color-pry-varient;
+                border-radius: 5px;
+            }
+        }
+
+        & > i{
+            cursor: pointer;
+
+            &:hover{
+                background: $color-border;
+            }
         }
     }
 
