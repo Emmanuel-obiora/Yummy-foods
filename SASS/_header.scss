@@ -69,10 +69,18 @@
         gap: 1rem;
 
         
-        & small>a{
+        & button{
             color: $color-black;
             font-weight: 400;
+            border: none;
+            background: transparent;
+            cursor: pointer;
            
+        }
+
+        .fas{
+            cursor: pointer;
+            font-size: 20px;
         }
     }
 
