@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         e.preventDefault();
 
         if (first == last) {
-            setFormMessage(createAccountForm, "error", "Wrong Password ");
+            setFormMessage(createAccountForm, "error", "Please try again");
         }
     });
 });
@@ -252,3 +252,46 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
 }
+
+// CART DATE DISPLAY
+
+function displayDate(){
+
+    var dateTime = new Date ();
+    var yr = dateTime.getFullYear();
+    var mth = dateTime.getMonth() + 1;
+    var dy = dateTime.getDay();
+    var hr = dateTime.getHours();
+    var mins = dateTime.getMinutes();
+    var dat = dateTime.getDate();
+    let weekDays = document.getElementById('day');
+    let greeting = document.getElementById('mode');
+
+
+    days = (dy == 1)? weekDays.innerHTML = "Monday":
+        (dy == 2)? weekDays.innerHTML = "Tuesday":
+        (dy == 3)? weekDays.innerHTML = "Wednesday":
+        (dy == 4)? weekDays.innerHTML = "Thursday":
+        (dy == 5)? weekDays.innerHTML = "Friday":
+        (dy == 6)? weekDays.innerHTML = "Saturday":
+        weekDays.innerHTML = "Sunday";
+
+        if (mins <=9){
+            mins="0"+mins;
+        }
+
+        if (hr >0 && hr <= 11){
+            let greet = greeting.innerHTML = "am" ;
+        }
+        else {
+            greet = greeting.innerHTML = "pm";
+        }
+
+    
+document.getElementById('min').innerHTML = mins;
+document.getElementById('hrs').innerHTML = hr;
+document.getElementById('date').innerHTML = dat;
+document.getElementById('month').innerHTML = mth;
+document.getElementById('year').innerHTML = yr;
+}
+setInterval(displayDate, 10);

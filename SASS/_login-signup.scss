@@ -11,6 +11,7 @@
     left: 87%;
     visibility: hidden;
     transition: $transition;
+    border: 1px solid $color-border;
 
     @media (max-width: 37.5rem){
         left: 15%;
