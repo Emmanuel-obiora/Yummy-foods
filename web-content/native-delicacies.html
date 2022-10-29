@@ -14,15 +14,12 @@
     <!--====================================FONT AWESOME ICON =====================================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
     
-    <!--=====================================JAVASCRIPT CDN===================================-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-
     <!--=====================================PROJECT TITLE=======================================-->
     <title>Yummy foods</title>
 
+    <!--=====================================JAVASCRIPT===================================-->
+    <script src="./main.js" async></script>
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -39,7 +36,10 @@
                 <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
                 <i class="fas fa-user-circle"></i>
                 <i class="fas fa-bell"></i>
-                <i class="fas fa-shopping-cart" onclick="openCart()"></i>
+                <div class="notification">
+                    <i class="fas fa-shopping-cart" onclick="openCart(); removeBadge()"></i>
+                    <span class="note" id="badge">1</span>
+                </div>
             </div> 
 
         </header>
@@ -78,7 +78,7 @@
     <!-- ==========================SIGN IN FORM============================================== -->
 
 <section class="sign_container" id="signPopup">
-    <b><i class="fas fa-close" onclick="closeSignin()"></i></b>
+    <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
     <form class="form" id="login">
         
         <h1 class="form__title">Sign in</h1>
@@ -172,7 +172,7 @@
 
 <!-- =======================================SHOPPING CART=================================-->
 <section class="cart-container" id="showCart">
-    <b><i class="fas fa-close" onclick="closeCart()"></i></b>
+    <b><i class="fas fa-close" onclick="closeCart(); removeBadge()"></i></b>
     <div class="cart_cont">  
         <h2 class="section-header">Cart</h2>
         <div class="cart_cont-date">
@@ -225,7 +225,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -241,7 +241,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -257,7 +257,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -273,7 +273,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -289,7 +289,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -305,7 +305,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -321,7 +321,7 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
@@ -337,14 +337,12 @@
                     </div>
                     <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
         </div>
     </div>
 
-    <!--==================================TOBY=======================================-->
-    <script src="./main.js"></script>
 </body>
 </html>
