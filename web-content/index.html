@@ -171,36 +171,11 @@
     </section>
 
 <!-- =======================================SHOPPING CART=================================-->
-<!-- <div class="shop-item">
-    <span class="shop-item-title">Coffee Cup</span>
-    <img class="shop-item-image" src="Images/Cofee.png">
-    <div class="shop-item-details">
-        <span class="shop-item-price">$6.99</span>
-        <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-    </div>
-</div> -->
-
-
-<!-- <section class="container content-section">
-    <h2 class="section-header">CART</h2>
-    <div class="cart-row">
-        <span class="cart-item cart-header cart-column">ITEM</span>
-        <span class="cart-price cart-header cart-column">PRICE</span>
-        <span class="cart-quantity cart-header cart-column">QUANTITY</span>
-    </div>
-    <div class="cart-items">
-    </div>
-    <div class="cart-total">
-        <strong class="cart-total-title">Total</strong>
-        <span class="cart-total-price">$0</span>
-    </div>
-    <button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-</section> -->
 
 <section class="cart-container" id="showCart">
     <b><i class="fas fa-close" onclick="closeCart()"></i></b>
     <div class="cart_cont">  
-        <h2>Cart</h2>
+        <h2 class="section-header">Cart</h2>
         <div class="cart_cont-date">
             <span>0</span>
             <span>:</span>
@@ -209,21 +184,37 @@
             <span>,</span>
             <span>Tuesday</span>
         </div>
-        <div class="cart_cont-table">
+        <div class="cart_cont-table cart-row">
             <span class="cart-item cart-header cart-column">Item</span>
             <span class="cart-price cart-header cart-column">Quantity</span>
             <span class="cart-quantity cart-header cart-column">Cost</span>
         </div>
-        <div class="cart_cont-table-list"></div>
+        <div class="cart_cont-table-list cart-items">
+            <!-- <article class = "menu_list">
+                    <div class="image"><img src="/Assets/Continental Dishes/Local Salad.jpg" alt="Local Salad"></div>
+                    <h3>Local Salad</h3>
+                    <div class="item-adder">
+                    <button type="button" title="reduce">-</button>
+                    <button class="numD" type="button" title="item-num">00</button>
+                    <button type="button" title="increase">+</button>
+                    </div>
+                    <span class="amf">#2450.00</span>
+                    <div class="split">
+                    <span><i class="fas fa-heart"></i></span>
+                    <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
+                    </div>
+                </article> -->
+            
+        </div>
         <div class="cart_cont-total">
             <span class="dark-rule"></span>
-            <div class="cart_cont-total-cost">
+            <div class="cart_cont-total-cost cart-total">
                 <strong class="cart-total-title">Total</strong>
                 <span class="cart-total-price">#0</span>
             </div>
             <span class="dark-rule"></span>
         </div>
-        <button class="btn-confirm" type="button">Confirm Order</button>
+        <button class="btn-confirm btn-purchase" type="button">Confirm Order</button>
     </div>
 </section>
 
@@ -305,6 +296,6 @@
 
 
 
-    <script src="./main.js"></script>
+    <script src="./main.js" async></script>
 </body>
 </html>

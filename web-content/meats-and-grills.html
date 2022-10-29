@@ -17,7 +17,9 @@
 
     
     <!--=====================================JAVASCRIPT CDN===================================-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> -->
+
+   
     
 
     <!--=====================================PROJECT TITLE=======================================-->
@@ -74,135 +76,278 @@
                 </ul>
             </nav>
     </div>
+        
+    <!-- ==========================SIGN IN FORM============================================== -->
+
+<section class="sign_container" id="signPopup">
+    <b><i class="fas fa-close" onclick="closeSignin()"></i></b>
+    <form class="form" id="login">
+        
+        <h1 class="form__title">Sign in</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+            <div class="logInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" class="form__input" autofocus placeholder="    Email Address">
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
+                <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <p class="form__text">
+            <a href="#" class="form__link"><b>Forgot password</b></a>
+        </p>
+
+        <p class="form__text2">
+            <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+        </p>
+        <button class="form__button" type="submit">Sign in</button>
+        <div class="form__foot">
+            <div class="ior">
+                <hr/>
+                <b>Or</b>
+                <hr/>
+            </div>
+            <b>Sign in using</b>
+            <div class="socials">
+                <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </form>
+<!-- ======================================SIGN UP FORM================================================= -->
+    
+    <form class="form form--hidden" id="createAccount">
+        <h1 class="form__title">Sign Up</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+            <div class="logInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" class="form__input" autofocus placeholder="    Email Address">
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
+                <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
+                <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+        <p class="form__text4">
+            <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+        </p>
+        <button class="form__button" type="submit">Sign Up</button>
+        <div class="form__foot">
+            <div class="ior">
+                <hr/>
+                <b>Or</b>
+                <hr/>
+            </div>
+            <b>Sign in using</b>
+            <div class="socials">
+                <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        
+    </form>
+</section>
+
+<!-- =======================================SHOPPING CART=================================-->
+
+<section class="cart-container" id="showCart">
+    <b><i class="fas fa-close" onclick="closeCart()"></i></b>
+    <div class="cart_cont">  
+        <h2 class="section-header">Cart</h2>
+        <div class="cart_cont-date">
+            <span>0</span>
+            <span>:</span>
+            <span>00</span>
+            <span>am</span>
+            <span>,</span>
+            <span>Tuesday</span>
+        </div>
+        <div class="cart_cont-table cart-row">
+            <span class="cart-item cart-header cart-column">Item</span>
+            <span class="cart-price cart-header cart-column">Quantity</span>
+            <span class="cart-quantity cart-header cart-column">Cost</span>
+        </div>
+        <div class="cart_cont-table-list cart-items">
+            <!-- <article class = "menu_list cart-row">
+                    <div class="image cart-item-image"><img src="/Assets/Continental Dishes/Local Salad.jpg" alt="Local Salad"></div>
+                    <h3 class="cart-item-title">Local Salad</h3>
+                    <div class="item-adder">
+                    <button type="button" title="reduce">-</button>
+                    <input class="numD cart-quantity-input" type="number" title="item-number" value="1"></input>
+                    <button type="button" title="increase">+</button>
+                    </div>
+                    <span class="amf cart-price cart-column">#2450.00</span>
+                    <div class="split">
+                    <span><i class="fas fa-heart"></i></span>
+                    <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
+                    </div>
+                </article> -->
+            
+        </div>
+        <div class="cart_cont-total">
+            <span class="dark-rule"></span>
+            <div class="cart_cont-total-cost cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">#0</span>
+            </div>
+            <span class="dark-rule"></span>
+        </div>
+        <button class="btn-confirm btn-purchase" type="button">Confirm Order</button>
+    </div>
+</section>
 
 <!--===========================================MEAT AND GRILLS=======================================-->
     <div class="food_container">
         <div class="food_container-top">Meats and Grills</div>
         <div class="food_container-buttom">
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Fish Fillet.jpg" alt="Grilled Fish Fillet">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Fish Fillet.jpg" alt="Grilled Fish Fillet">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Fish Fillet</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Fish Fillet</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Zucchini Beef Grills.jpg" alt="Zucchini Beef Grill">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Zucchini Beef Grills.jpg" alt="Zucchini Beef Grill">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Zucchini Beef Grill</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Zucchini Beef Grill</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Cheese Burger.jpg" alt="Grilled Cheese Burger">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Cheese Burger.jpg" alt="Grilled Cheese Burger">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Cheese Burger</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Cheese Burger</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Veggies.jpg" alt="Grilled Veggies">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Veggies.jpg" alt="Grilled Veggies">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Veggies</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Veggies</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
                     <div class="menu_list-summary-icons">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Prawns.jpg" alt="Grilled Prawns">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Prawns.jpg" alt="Grilled Prawns">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Prawns</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Prawns</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
                     <div class="menu_list-summary-icons">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Beef Curry.jpg" alt="Grilled Beef Curry">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Beef Curry.jpg" alt="Grilled Beef Curry">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Beef Curry</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Beef Curry</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
                     <div class="menu_list-summary-icons">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Chicken.jpg" alt="Grilled Chicken">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Chicken.jpg" alt="Grilled Chicken">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Chicken</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Chicken</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
                     <div class="menu_list-summary-icons">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Meats and Grills/Grilled Steaks.jpg" alt="Grilled Steak">
+                    <img class="shop-item-image" src="/Assets/Meats and Grills/Grilled Steaks.jpg" alt="Grilled Steak">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Grilled Steak</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Grilled Steak</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
                     <div class="menu_list-summary-icons">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart"></i></span>
                     </div>
                 </div>
             </article>
@@ -210,6 +355,6 @@
     </div>
 
     <!--==================================TOBY=======================================-->
-    <script src="./main.js"></script>
+    <script src="./main.js" async></script>
 </body>
 </html>
