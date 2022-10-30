@@ -90,7 +90,7 @@
                 border: none;
                 flex-grow: 1;
                 color: rgb(146, 143, 143);
-                font-size: 300;
+                font-size: 16PX;
                 height: 2.5rem;
                 border: 2px solid $color-bg2;
                 letter-spacing: 0.5px;
@@ -99,7 +99,7 @@
 
                 &::placeholder{
                     font-weight: 300;
-                    text-align: left;
+                    text-align: center;
 
                 }
                 

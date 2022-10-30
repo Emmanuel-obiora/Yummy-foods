@@ -298,14 +298,13 @@ function displayDate(){
             mins="0"+mins;
         }
 
-        if (hr >0 && hr <= 11){
-            let greet = greeting.innerHTML = "am" ;
-        }
-        else {
+        if (hr > 12){
+            hr = hr - 12;
             greet = greeting.innerHTML = "pm";
         }
-
- 
+        else {
+            greet = greeting.innerHTML = "am" ;
+        }
 
 // day switch for delivery pop-up
         if (dy >= 0){
@@ -334,14 +333,16 @@ function displayDate(){
         }
         
     // mode for delivery pop-up
-        // while (hr <12){
-        // welcome = welcome.innerHTML = "pm";
-        // }
-        // welcome = welcome.innerHTML = "pm";
+      if (mins < 720){
+        welcome = welcome.innerHTML = "pm";
+      }
+      else {
+        welcome = welcome.innerHTML = "am";
+      }
 
 
     
-
+// FUNCTION TO DISPLAY TIME ON POP-UP BOXES
 document.querySelectorAll('.min').forEach((dateElement) => dateElement.innerHTML = mins)
 document.querySelectorAll('.hrs').forEach((dateElement) => dateElement.innerHTML = hr)
 document.querySelectorAll('.date').forEach((dateElement) => dateElement.innerHTML = dat)

@@ -177,18 +177,18 @@
     <div class="cart_cont">  
         <h2 class="section-header">Cart</h2>
         <div class="cart_cont-date">
-            <span id="hrs">00</span>
+            <span class ="hrs">00</span>
             <span>:</span>
-            <span id="min">00</span>
+            <span class ="min">00</span>
             <span class="space" id="mode">am</span>
             <span >,</span>
             <span class="space" id="day">Tuesday</span>
             <span >,</span>
-            <span class="space" id="date">1</span>
+            <span class="space date">1</span>
             <span>-</span>
-            <span id="month">1</span>
+            <span class ="month">1</span>
             <span>-</span>
-            <span id="year">2022</span>
+            <span class ="year">2022</span>
         </div>
         <div class="cart_cont-table cart-row">
             <span class="cart-item cart-header cart-column">Item</span>
@@ -196,7 +196,7 @@
             <span class="cart-quantity cart-header cart-column">Cost</span>
         </div>
         <div class="cart_cont-table-list cart-items">
-
+            
         </div>
         <div class="cart_cont-total">
             <span class="dark-rule"></span>
@@ -206,7 +206,46 @@
             </div>
             <span class="dark-rule"></span>
         </div>
-        <button class="btn-confirm btn-purchase" type="button">Confirm Order</button>
+        <button class="btn-confirm btn-purchase" type="button" onClick="openInfo(); closeCart()">Confirm Order</button>
+    </div>
+</section>
+
+<!--====================================DELIVERY INFORMATION=========================================-->
+<section class="info-container" id="showInfo">
+    <b><i class="fas fa-close" onclick="closeInfo()"></i></b>
+    <div class="cart_cont">  
+        <h2 class="section-header">Delivery Information</h2>
+        <div class="cart_cont-date">
+            <span class ="hrs">00</span>
+            <span>:</span>
+            <span class="min">00</span>
+            <span class="space" id="modeT">am</span>
+            <span >,</span>
+            <span class="space" id="dayT">Tuesday</span>
+            <span >,</span>
+            <span class="space date">1</span>
+            <span>-</span>
+            <span class="month">1</span>
+            <span>-</span>
+            <span class="year">2022</span>
+        </div>
+        <form>
+            <div class="info_group">
+                <div class="info_group-item" >
+                    <i class="fas fa-regular fa-phone"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Phone Number" required>
+                </div>
+                <div class="info_group-item" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Address" required>
+                </div>
+                <div class="info_group-item" >
+                    <i class="fas fa-regular fa-book"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Name" required>
+                </div>
+            </div>
+            <button class="btn-confirm btn-purchase" type="button">Confirm Delivery Information</button>
+        </form>
     </div>
 </section>
 
