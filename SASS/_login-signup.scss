@@ -94,11 +94,12 @@
                 height: 2.5rem;
                 border: 2px solid $color-bg2;
                 letter-spacing: 0.5px;
-                padding: 0.5rem;
+                padding: 1.5rem;
                 border-radius: 5px;
 
                 &::placeholder{
                     font-weight: 300;
+                    text-align: left;
 
                 }
                 

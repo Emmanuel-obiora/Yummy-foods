@@ -337,17 +337,20 @@ body {
   height: 2.5rem;
   border: 2px solid #f5dec8;
   letter-spacing: 0.5px;
-  padding: 0.5rem;
+  padding: 1.5rem;
   border-radius: 5px;
 }
 .sign_container .form__input-group .logInput .form__input::-moz-placeholder {
   font-weight: 300;
+  text-align: left;
 }
 .sign_container .form__input-group .logInput .form__input:-ms-input-placeholder {
   font-weight: 300;
+  text-align: left;
 }
 .sign_container .form__input-group .logInput .form__input::placeholder {
   font-weight: 300;
+  text-align: left;
 }
 .sign_container .form__input-group .logInput .form__input:focus {
   background: rgb(255, 255, 255);
@@ -846,4 +849,102 @@ body {
 
 .cart_cont-table-list {
   display: block;
+}
+
+.info-container {
+  display: block;
+  align-items: center;
+  width: 35%;
+  justify-content: center;
+  background: rgb(255, 255, 255);
+  transform: translate(-50%, -50%) scale(0.1);
+  position: absolute;
+  top: 0;
+  left: 67%;
+  visibility: hidden;
+  transition: all 0.4s ease-in-out;
+  border: 1px solid rgba(192, 189, 189, 0.5);
+}
+@media (max-width: 37.5rem) {
+  .info-container {
+    left: 15%;
+    top: 0;
+    width: 90%;
+  }
+}
+.info-container > b {
+  display: block;
+  text-align: right;
+  cursor: pointer;
+}
+.info-container > b > i {
+  color: red;
+}
+.info-container form {
+  width: 100%;
+  padding: 0.5rem;
+}
+.info-container form .info_group {
+  display: block;
+  margin-top: 3rem;
+}
+.info-container form .info_group-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 1rem;
+}
+.info-container form .info_group-item > i {
+  position: absolute;
+  color: #7a797e;
+  cursor: pointer;
+  margin: 6px;
+}
+.info-container form .info_group-item .form__input {
+  background: #f5dec8;
+  outline: none;
+  border: none;
+  flex-grow: 1;
+  color: rgb(146, 143, 143);
+  font-size: 16px;
+  height: 2.5rem;
+  border: 2px solid #f5dec8;
+  letter-spacing: 0.5px;
+  padding: 1.5rem;
+  border-radius: 5px;
+}
+.info-container form .info_group-item .form__input::-moz-placeholder {
+  font-weight: 300;
+  text-align: center;
+}
+.info-container form .info_group-item .form__input:-ms-input-placeholder {
+  font-weight: 300;
+  text-align: center;
+}
+.info-container form .info_group-item .form__input::placeholder {
+  font-weight: 300;
+  text-align: center;
+}
+.info-container form .info_group-item .form__input:focus {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 2px solid #E87E1C;
+}
+
+.open-info {
+  transform: translate(-50%, -50%) scale(1);
+  top: 55%;
+  left: 50%;
+  visibility: visible;
+  z-index: 9999;
+}
+@media (max-width: 37.5rem) {
+  .open-info {
+    transform: translate(-50%, -50%) scale(1);
+    top: 80%;
+    left: 50%;
+    visibility: visible;
+  }
 }

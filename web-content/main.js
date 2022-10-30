@@ -235,6 +235,7 @@ function addItemToCart(title, price, imageSrc) {
     cartItems.append(cartRow)
     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+    updateCartTotal()
 }
 
 function updateCartTotal() {
@@ -252,7 +253,6 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
 }
-updateCartTotal()
 
 // DISPLAYING NOTIFICATION BADGE
 
@@ -282,8 +282,10 @@ function displayDate(){
     var dat = dateTime.getDate();
     let weekDays = document.getElementById('day');
     let greeting = document.getElementById('mode');
+    let welcome = document.getElementById('modeT');
+    let net = document.getElementById('dayT');
 
-
+// day switch for cart pop up
     days = (dy == 1)? weekDays.innerHTML = "Monday":
         (dy == 2)? weekDays.innerHTML = "Tuesday":
         (dy == 3)? weekDays.innerHTML = "Wednesday":
@@ -303,11 +305,61 @@ function displayDate(){
             greet = greeting.innerHTML = "pm";
         }
 
+ 
+
+// day switch for delivery pop-up
+        if (dy >= 0){
+            switch(dy){
+                case 0: 
+                net.innerHTML = "Sunday";
+                break;
+                case 1: 
+                net.innerHTML = "Monday";
+                break;
+                case 2:
+                net.innerHTML = "Tuesday";
+                break;
+                case 3:
+                net.innerHTML = "Wednesday";
+                break;
+                case 4:
+                net.innerHTML = "Thursday";
+                break;
+                case 5:
+                net.innerHTML = "Friday";
+                break;
+                default:
+                net.innerHTML = "Saturday";
+            }
+        }
+        
+    // mode for delivery pop-up
+        // while (hr <12){
+        // welcome = welcome.innerHTML = "pm";
+        // }
+        // welcome = welcome.innerHTML = "pm";
+
+
     
-document.getElementById('min').innerHTML = mins;
-document.getElementById('hrs').innerHTML = hr;
-document.getElementById('date').innerHTML = dat;
-document.getElementById('month').innerHTML = mth;
-document.getElementById('year').innerHTML = yr;
+
+document.querySelectorAll('.min').forEach((dateElement) => dateElement.innerHTML = mins)
+document.querySelectorAll('.hrs').forEach((dateElement) => dateElement.innerHTML = hr)
+document.querySelectorAll('.date').forEach((dateElement) => dateElement.innerHTML = dat)
+document.querySelectorAll('.month').forEach((dateElement) => dateElement.innerHTML = mth)
+document.querySelectorAll('.year').forEach((dateElement) => dateElement.innerHTML = yr)
 }
 setInterval(displayDate, 10);
+
+// DISPLAYING DELIVERY INFORMATION
+
+function openInfo() {
+    var info = document.getElementById("showInfo");
+
+    info.classList.add("open-info");
+}
+function closeInfo() {
+    var info = document.getElementById("showInfo");
+
+    info.classList.remove("open-info");
+}
+
