@@ -256,12 +256,47 @@
             <div class="display-text1">
                 <h1>Yummy and <br> delicious food <br> delivered to <br> your doorstep</h1>
             </div>
-            <div class="display-pic">    
-                <img src="img/kaitlin.jpg" alt=""/>
-                <div class="layer">
-                    <h3>Seafood Rice</h3>
+
+            <!--picture slides start-->
+            <div class="slider"> 
+                <div class="slides">
+                    <input type="radio" name="radio-btn" id="radio1">
+                    <input type="radio" name="radio-btn" id="radio2">
+                    <input type="radio" name="radio-btn" id="radio3">
+
+                    <div class="slide-first">   
+                        <img src="img/kaitlin.jpg" alt=""/>
+                        <div class="layer">
+                            <h3>Seafood Rice</h3>
+                        </div>
+                    </div>    
+                    <div class="slide">   
+                        <img src="img/continental.jpg" alt=""/>
+                        <div class="layer">
+                            <h3></h3>
+                        </div>
+                    </div>    
+                    <div class="slide">   
+                        <img src="img/meat.jpg" alt=""/>
+                        <div class="layer">
+                            <h3></h3>
+                        </div>
+                    </div>
+                    
+                    <div class="navigation-auto">
+                        <div class="auto-btn1"></div>
+                        <div class="auto-btn2"></div>
+                        <div class="auto-btn3"></div>
+                    </div>
+                </div>
+
+                <div class="navigation-manual">
+                    <label for="radio1" class="manual-btn"></label>
+                    <label for="radio2" class="manual-btn"></label>
+                    <label for="radio3" class="manual-btn"></label>
                 </div>
             </div>
+            <!--picture slides end-->
             <div class="display-text2">    
                 <h1>Special menu for the <br> day</h1>
                 <a href="" class="hero-btn-2">
@@ -274,19 +309,19 @@
 
         <section class="foods">
             <div class="food-container">
-                <img src="img/meat.jpg" alt=""/>
+                <a href="meats-and-grills.html"><img src="img/meat.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Meats and Grills</h1>
                 </div>
             </div>
             <div class="food-container">
-                <img src="img/continental.jpg" alt=""/>
+                <a href="continental-dishes.html"><img src="img/continental.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Continental Dishes</h1>
                 </div>
             </div>
             <div class="food-container">
-                <img src="img/native.jpg" alt=""/>
+                <a href="native-delicacies.html"><img src="img/native.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Native Delicacies</h1>
                 </div>
@@ -294,19 +329,19 @@
         </section>
         <section class="foods">
             <div class="food-container">
-                <img src="img/pastries.jpg" alt=""/>
+                <a href="pasteries.html"><img src="img/pastries.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Pastries</h1>
                 </div>
             </div>
             <div class="food-container">
-                <img src="img/desert.jpg" alt=""/>
+                <a href="desserts.html"><img src="img/desert.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Desert</h1> 
                 </div>
             </div>
             <div class="food-container">
-                <img src="img/drinks.jpg" alt=""/>
+                <a href="drinks.html"><img src="img/drinks.jpg" alt=""/></a>
                 <div class="layer2">
                     <h1>Drinks</h1>
                 </div>
@@ -315,14 +350,68 @@
 
         <section class="step-order">
             <h1>Steps to order</h1>
-            <div class="order-box">
-                <a href="#"><i class="fa fa-book-open"></i></a>
-                <a href="#"><i class="fa fa-burger"></i></a>
-                <a href="#"><i class="fa fa-credit-card"></i></a>
-                <a href="#"><i class="fa fa-truck"></i></a>
-                <a href="#"><i class="fa fa-utensils"></i></a>
-            </div>
-        </section>
 
+            <div class="order-box1">
+                <div class="order-box">
+                    <a href="#"><img src="img/menu_book_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                    <small>Browse menu</small>  
+                </div>
+                <div class="order-box">
+                    <a href="#"><img src="img/brunch_dining_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                    <small>Select payment</small>
+                </div>
+                <div class="order-box">
+                    <a href="#"><img src="img/credit_card_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                    <small>Make payment</small>
+                </div>
+                <div class="order-box">
+                    <a href="#"><img src="img/agriculture_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                    <small>Delivery</small>
+                </div>
+                <div class="order-box">
+                    <a href="#"><img src="img/restaurant_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                    <small>Enjoy</small>
+                </div>
+            </div>
+        </section>    
+
+           
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+
+
+    <!--==================================TOBY=======================================-->
+    <script src="./main.js"></script>
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+                counter = 1;
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
