@@ -42,6 +42,10 @@
             height: 13.5rem;
             border: 3px solid $color-border;
 
+            &:hover{
+                border: 3px solid $color-success;
+            }
+
             &-image{
                 height: 22vh;
                 width: 100%;
@@ -69,9 +73,22 @@
                 &-icons{
                     display:flex;
                     flex-direction: column;
-                    row-gap: 0.5rem;
+                    row-gap: 0.3rem;
                     color: $color-pry;
                     cursor: pointer;
+                    
+                    & span{
+                        display: flex;
+                        border: 2px solid $color-pry;
+                        border-radius: 5px;
+                        align-items: center;
+                        justify-content: center;
+
+                        &:hover{
+                            border: 2px solid $color-pry-varient;
+                            color: $color-success;
+                        }
+                    }
                 }
             }
         }

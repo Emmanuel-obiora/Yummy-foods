@@ -2,26 +2,36 @@
 .sign_container{
     display: block;
     align-items: center;
+    width: 35%;
     justify-content: center;
-    margin: 2% 33% 0% 33%;
     background: $color-white;
+    transform: translate(-50%, -50%) scale(0.1);
+    position: absolute;
+    top: 0;
+    left: 87%;
+    visibility: hidden;
+    transition: $transition;
+    border: 1px solid $color-border;
 
-    @media (max-width: 600px){
-        margin: 1% 10% 0% 10%;
+    @media (max-width: 37.5rem){
+        left: 15%;
+        top: 15%;
+        width: 80%;
+    }
+
+    & > b{
+        display: block;
+        text-align: right;
+        cursor: pointer;
+
+        & > i{
+            color: $color-error;
+        }
     }
     
     .form{
         width: 100%;
         padding: 2rem;
-
-        &__close{
-            display: block;
-            text-align: right;
-
-            & > i{
-                color: $color-error;
-            }
-        }
 
         &__title{
             text-align : center;
@@ -80,15 +90,16 @@
                 border: none;
                 flex-grow: 1;
                 color: rgb(146, 143, 143);
-                font-size: 300;
+                font-size: 16PX;
                 height: 2.5rem;
                 border: 2px solid $color-bg2;
                 letter-spacing: 0.5px;
-                padding: 0.5rem;
+                padding: 1.5rem;
                 border-radius: 5px;
 
                 &::placeholder{
                     font-weight: 300;
+                    text-align: center;
 
                 }
                 
@@ -197,5 +208,20 @@
 
     &:hover{
         text-decoration: underline;
+    }
+}
+
+.open-popup{
+    transform: translate(-50%, -50%) scale(1);
+    top: 55%;
+    left: 50%;
+    visibility: visible;
+    z-index: 9999;
+
+    @media (max-width: 37.5rem){
+        transform: translate(-50%, -50%) scale(1);
+        top: 60%;
+        left: 50%;
+        visibility: visible;
     }
 }
