@@ -659,9 +659,32 @@ body {
   width: 100%;
   text-align: center;
   padding: 50px 0;
+  margin-top: 1rem;
+}
+.step-order:hover {
+  border: 2px solid rgb(255, 255, 255);
 }
 
 .step-order h1 {
   margin-bottom: 25px;
   margin-top: 20px;
+}
+
+.order-box1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+.order-box {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.order-box > a > img {
+  border: 5px solid #E87E1C;
+  padding: 10px;
+  border-radius: 10px;
+}
+.order-box > small {
+  font-weight: 600;
 }

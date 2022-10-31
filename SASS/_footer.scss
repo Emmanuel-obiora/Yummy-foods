@@ -2,6 +2,10 @@
     width: 100%;
     text-align: center;
     padding: 50px 0;
+    margin-top: 1rem;
+    &:hover{
+        border: 2px solid $color-white;
+    }
 }
 
 .step-order h1{
@@ -9,6 +13,21 @@
     margin-top: 20px;
 }
 
-.order-box .i{
-    
+.order-box1{
+    display: flex;
+    justify-content: space-around;
+}
+
+.order-box{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    & > a > img{
+        border: 5px solid $color-pry;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    & > small{
+        font-weight: 600
+    }
 }
