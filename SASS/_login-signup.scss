@@ -11,6 +11,7 @@
     left: 87%;
     visibility: hidden;
     transition: $transition;
+    border: 1px solid $color-border;
 
     @media (max-width: 37.5rem){
         left: 15%;
@@ -18,7 +19,7 @@
         width: 80%;
     }
 
-    & b{
+    & > b{
         display: block;
         text-align: right;
         cursor: pointer;
@@ -89,15 +90,16 @@
                 border: none;
                 flex-grow: 1;
                 color: rgb(146, 143, 143);
-                font-size: 300;
+                font-size: 16PX;
                 height: 2.5rem;
                 border: 2px solid $color-bg2;
                 letter-spacing: 0.5px;
-                padding: 0.5rem;
+                padding: 1.5rem;
                 border-radius: 5px;
 
                 &::placeholder{
                     font-weight: 300;
+                    text-align: center;
 
                 }
                 

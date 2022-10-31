@@ -15,14 +15,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    
-    <!--=====================================JAVASCRIPT CDN===================================-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    
-
     <!--=====================================PROJECT TITLE=======================================-->
     <title>Yummy foods</title>
 
+    <!--=====================================JAVASCRIPT===================================-->
+    <script src="./main.js" async></script>
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -39,7 +36,10 @@
                 <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
                 <i class="fas fa-user-circle"></i>
                 <i class="fas fa-bell"></i>
-                <i class="fas fa-shopping-cart" onclick="openCart()"></i>
+                <div class="notification">
+                    <i class="fas fa-shopping-cart" onclick="openCart(); removeBadge()"></i>
+                    <span class="note" id="badge">1</span>
+                </div>
             </div> 
 
         </header>
@@ -74,143 +74,315 @@
                 </ul>
             </nav>
     </div>
+        
+    <!-- ==========================SIGN IN FORM============================================== -->
+
+<section class="sign_container" id="signPopup">
+    <b><i class="fas fa-close" onclick="closeSignin()"></i></b>
+    <form class="form" id="login">
+        
+        <h1 class="form__title">Sign in</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+            <div class="logInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" class="form__input" autofocus placeholder="    Email Address">
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
+                <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <p class="form__text">
+            <a href="#" class="form__link"><b>Forgot password</b></a>
+        </p>
+
+        <p class="form__text2">
+            <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+        </p>
+        <button class="form__button" type="submit">Sign in</button>
+        <div class="form__foot">
+            <div class="ior">
+                <hr/>
+                <b>Or</b>
+                <hr/>
+            </div>
+            <b>Sign in using</b>
+            <div class="socials">
+                <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </form>
+<!-- ======================================SIGN UP FORM================================================= -->
+    
+    <form class="form form--hidden" id="createAccount">
+        <h1 class="form__title">Sign Up</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+            <div class="logInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="text" class="form__input" autofocus placeholder="    Email Address">
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
+                <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+            <div class="logInput">
+                <i class="fas fa-light fa-key"></i>
+                <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
+                <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+            </div>
+            <div class="form__input-error-message"></div>
+        </div>
+        <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+        <p class="form__text4">
+            <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+        </p>
+        <button class="form__button" type="submit">Sign Up</button>
+        <div class="form__foot">
+            <div class="ior">
+                <hr/>
+                <b>Or</b>
+                <hr/>
+            </div>
+            <b>Sign in using</b>
+            <div class="socials">
+                <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+        
+    </form>
+</section>
+
+<!-- =======================================SHOPPING CART=================================-->
+
+<section class="cart-container" id="showCart">
+    <b><i class="fas fa-close" onclick="closeCart(); removeBadge()"></i></b>
+    <div class="cart_cont">  
+        <h2 class="section-header">Cart</h2>
+        <div class="cart_cont-date">
+            <span class ="hrs">00</span>
+            <span>:</span>
+            <span class ="min">00</span>
+            <span class="space" id="mode">am</span>
+            <span >,</span>
+            <span class="space" id="day">Tuesday</span>
+            <span >,</span>
+            <span class="space date">1</span>
+            <span>-</span>
+            <span class ="month">1</span>
+            <span>-</span>
+            <span class ="year">2022</span>
+        </div>
+        <div class="cart_cont-table cart-row">
+            <span class="cart-item cart-header cart-column">Item</span>
+            <span class="cart-price cart-header cart-column">Quantity</span>
+            <span class="cart-quantity cart-header cart-column">Cost</span>
+        </div>
+        <div class="cart_cont-table-list cart-items">
+            
+        </div>
+        <div class="cart_cont-total">
+            <span class="dark-rule"></span>
+            <div class="cart_cont-total-cost cart-total">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price">#0</span>
+            </div>
+            <span class="dark-rule"></span>
+        </div>
+        <button class="btn-confirm btn-purchase" type="button" onClick="openInfo(); closeCart()">Confirm Order</button>
+    </div>
+</section>
+
+<!--====================================DELIVERY INFORMATION=========================================-->
+<section class="info-container" id="showInfo">
+    <b><i class="fas fa-close" onclick="closeInfo()"></i></b>
+    <div class="cart_cont">  
+        <h2 class="section-header">Delivery Information</h2>
+        <div class="cart_cont-date">
+            <span class ="hrs">00</span>
+            <span>:</span>
+            <span class="min">00</span>
+            <span class="space" id="modeT">am</span>
+            <span >,</span>
+            <span class="space" id="dayT">Tuesday</span>
+            <span >,</span>
+            <span class="space date">1</span>
+            <span>-</span>
+            <span class="month">1</span>
+            <span>-</span>
+            <span class="year">2022</span>
+        </div>
+        <form>
+            <div class="info_group">
+                <div class="info_group-item" >
+                    <i class="fas fa-regular fa-phone"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Phone Number" required>
+                </div>
+                <div class="info_group-item" >
+                    <i class="fa-regular fa-envelope"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Address" required>
+                </div>
+                <div class="info_group-item" >
+                    <i class="fas fa-regular fa-book"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Name" required>
+                </div>
+            </div>
+            <button class="btn-confirm btn-purchase" type="button">Confirm Delivery Information</button>
+        </form>
+    </div>
+</section>
 
     <!--=======================================DESERTS=============================================-->
     <div class="food_container">
         <div class="food_container-top">Desserts</div>
         <div class="food_container-buttom">
             
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Mixed Fruit Sticks.jpg" alt="Mixed Fruit Sticks">
+                    <img class="shop-item-image" src="/Assets/Desserts/Mixed Fruit Sticks.jpg" alt="Mixed Fruit Sticks">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Mixed Fruit Sticks</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Mixed Fruit Sticks</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Chocolate Peps.jpg" alt="Chocolate Peps">
+                    <img class="shop-item-image" src="/Assets/Desserts/Chocolate Peps.jpg" alt="Chocolate Peps">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Chocolate Peps</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Chocolate Peps</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Coke Cups.jpg" alt="Coke Cups">
+                    <img class="shop-item-image" src="/Assets/Desserts/Coke Cups.jpg" alt="Coke Cups">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Coke Cups</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Coke Cups</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Chocolate Bars.jpg" alt="Chocolate Bars">
+                    <img class="shop-item-image" src="/Assets/Desserts/Chocolate Bars.jpg" alt="Chocolate Bars">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Chocolate Bars</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Chocolate Bars</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Fruit Sorbets.jpg" alt="Fruit Sorbets">
+                    <img class="shop-item-image" src="/Assets/Desserts/Fruit Sorbets.jpg" alt="Fruit Sorbets">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Fruit Sorbets</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Fruit Sorbets</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Biscuff Creme Cups.jpg" alt="Biscuff Creme Cups">
+                    <img class="shop-item-image" src="/Assets/Desserts/Biscuff Creme Cups.jpg" alt="Biscuff Creme Cups">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Biscuff Creme Cups</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Biscuff Creme Cups</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Vanilla Ice Creams.jpg" alt="Vanilla Ice Creams">
+                    <img class="shop-item-image" src="/Assets/Desserts/Vanilla Ice Creams.jpg" alt="Vanilla Ice Creams">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Vanilla Ice Creams</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Vanilla Ice Creams</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
 
-            <article class = "menu_list">
+            <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img src="/Assets/Desserts/Cheese Cake.jpg" alt="Cheese Cake">
+                    <img class="shop-item-image" src="/Assets/Desserts/Cheese Cake.jpg" alt="Cheese Cake">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
-                        <h3>Cheese Cake</h3>
-                        <b>#2450</b>
+                        <h3 class="shop-item-title">Cheese Cake</h3>
+                        <span class="shop-item-price"><b>#2450.00</b></span>
                     </div>
-                    <div class="menu_list-summary-icons">
+                    <div class="menu_list-summary-icons shop-item-details">
                         <span><i class="fas fa-heart"></i></span>
-                        <span><i class="fas fa-shopping-cart"></i></span>
+                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
                     </div>
                 </div>
             </article>
         </div>
     </div>
 
-    <!--==================================TOBY=======================================-->
-    <script src="./main.js"></script>
 </body>
 </html>
