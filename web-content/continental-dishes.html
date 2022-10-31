@@ -202,21 +202,21 @@
             <span class="dark-rule"></span>
             <div class="cart_cont-total-cost cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="oldP">#0</span>
             </div>
         </div>
         <div class="link_total" id="isTime">
             <div class="vat">
                 <strong class="cart-total-title">VAT</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="vatP">#350.45</span>
             </div>
             <div class="vat two">
                 <strong class="cart-total-title">Delivery</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="delivP">#500</span>
             </div>
             <div class="vat">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="mainP">#0</span>
             </div>
         </div>
         <span class="dark-rule2"></span>
@@ -261,7 +261,7 @@
                     <input type="text" class="form__input" autofocus placeholder="    Name" required>
                 </div>
             </div>
-            <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+            <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo(); payUpdate()">Confirm Delivery Information</button>
         </form>
     </div>
 </section>
