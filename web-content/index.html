@@ -32,7 +32,7 @@
                 </div>
                 <div class="search-bar">
                     <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
-                    <button title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></button>
+                    <span title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></span>
                 </div>
                 <div class="left">
                     <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
@@ -107,7 +107,7 @@
             <p class="form__text2">
                 <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
             </p>
-            <button class="form__button" type="submit">Sign in</button>
+            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
@@ -154,7 +154,7 @@
             <p class="form__text4">
                 <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
             </p>
-            <button class="form__button" type="submit">Sign Up</button>
+            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
@@ -175,7 +175,7 @@
 <!-- =======================================SHOPPING CART=================================-->
 
 <section class="cart-container" id="showCart">
-    <b><i class="fas fa-close" onclick="closeCart(); removeBadge()"></i></b>
+    <b><i class="fas fa-close" onclick="closeCart(); removeBadge(); hideUpdate()"></i></b>
     <div class="cart_cont">  
         <h2 class="section-header">Cart</h2>
         <div class="cart_cont-date">
@@ -204,11 +204,28 @@
             <span class="dark-rule"></span>
             <div class="cart_cont-total-cost cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="oldP">#0</span>
             </div>
-            <span class="dark-rule"></span>
         </div>
-        <button class="btn-confirm btn-purchase" type="button" onClick="openInfo(); closeCart()">Confirm Order</button>
+        <div class="link_total" id="isTime">
+            <div class="vat">
+                <strong class="cart-total-title">VAT</strong>
+                <span class="cart-total-price" id="vatP">#350.45</span>
+            </div>
+            <div class="vat two">
+                <strong class="cart-total-title">Delivery</strong>
+                <span class="cart-total-price" id="delivP">#500</span>
+            </div>
+            <div class="vat">
+                <strong class="cart-total-title">Total</strong>
+                <span class="cart-total-price" id="mainP">#0</span>
+            </div>
+        </div>
+        <span class="dark-rule2"></span>
+        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+
+        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
     </div>
 </section>
 
@@ -246,7 +263,7 @@
                     <input type="text" class="form__input" autofocus placeholder="    Name" required>
                 </div>
             </div>
-            <button class="btn-confirm btn-purchase" type="button">Confirm Delivery Information</button>
+            <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
         </form>
     </div>
 </section>
