@@ -175,11 +175,11 @@
         <section class="step-order">
             <h1>Steps to order</h1>
             <div class="order-box">
-                <a href="#"><img src="img/" alt=""></a>
-                <a href="#"><img src="img/" alt=""></a>
-                <a href="#"><img src="img/" alt=""></a>
-                <a href="#"><img src="img/" alt=""></a>
-                <a href="#"><img src="img/" alt=""></a>
+                <a href="#"><img src="img/menu_book_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                <a href="#"><img src="img/brunch_dining_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                <a href="#"><img src="img/credit_card_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                <a href="#"><img src="img/agriculture_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
+                <a href="#"><img src="img/restaurant_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
             </div>
         </section>
 
@@ -212,5 +212,15 @@
 
     <!--==================================TOBY=======================================-->
     <script src="./main.js"></script>
+    <script type="text/javascript">
+        var counter = 1;
+        setInterval(function(){
+            document.getElementById('radio' + counter).checked = true;
+            counter++;
+            if(counter > 4){
+                counter = 1;
+            }
+        }, 5000);
+    </script>
 </body>
 </html>
