@@ -170,7 +170,7 @@ function ready() {
 }
 
 function purchaseClicked() {
-    alert('Thank you for your purchase')
+    alert('We do hope you would purchase items from us next time')
     var cartItems = document.getElementsByClassName('cart-items')[0]
     while (cartItems.hasChildNodes()) {
         cartItems.removeChild(cartItems.firstChild)
@@ -213,8 +213,7 @@ function addItemToCart(title, price, imageSrc) {
             return
         }
     }
-    var cartRowContents = `
-        <article class = "cart-item cart-column menu_list">
+    var cartRowContents = `<article class = "cart-item cart-column menu_list">
             <div class="image">
                 <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
             </div>
@@ -364,3 +363,40 @@ function closeInfo() {
     info.classList.remove("open-info");
 }
 
+// DISPLAYING UPDATED CART
+
+function showUpdate() {
+    let vatSection = document.querySelector(".link_total");
+    let catTitle = document.querySelector(".cart-total-title");
+    let cofBot = document.querySelector(".btn-confirm");
+    let nextBot = document.querySelector(".pre-order");
+    let present = document.querySelector(".present-order");
+    let isShow = true;
+
+    if (isShow){
+        vatSection.style.display = "block";
+        catTitle.style.display = "none";
+        cofBot.style.display = "none";
+        nextBot.style.display = "flex";
+        present.style.display = "flex";
+        isShow = false;
+    }
+}
+
+function hideUpdate() {
+    let vatSection = document.querySelector(".link_total");
+    let catTitle = document.querySelector(".cart-total-title");
+    let cofBot = document.querySelector(".btn-confirm");
+    let nextBot = document.querySelector(".pre-order");
+    let present = document.querySelector(".present-order");
+    let isShow = true;
+
+    if (isShow) {
+        vatSection.style.display = "none";
+        catTitle.style.display = "block";
+        cofBot.style.display = "flex";
+        nextBot.style.display = "none";
+        present.style.display = "none";
+        isShow = true;
+    }
+}

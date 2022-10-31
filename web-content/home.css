@@ -333,7 +333,7 @@ body {
   border: none;
   flex-grow: 1;
   color: rgb(146, 143, 143);
-  font-size: 300;
+  font-size: 16PX;
   height: 2.5rem;
   border: 2px solid #f5dec8;
   letter-spacing: 0.5px;
@@ -342,15 +342,15 @@ body {
 }
 .sign_container .form__input-group .logInput .form__input::-moz-placeholder {
   font-weight: 300;
-  text-align: left;
+  text-align: center;
 }
 .sign_container .form__input-group .logInput .form__input:-ms-input-placeholder {
   font-weight: 300;
-  text-align: left;
+  text-align: center;
 }
 .sign_container .form__input-group .logInput .form__input::placeholder {
   font-weight: 300;
-  text-align: left;
+  text-align: center;
 }
 .sign_container .form__input-group .logInput .form__input:focus {
   background: rgb(255, 255, 255);
@@ -730,22 +730,24 @@ body {
 }
 .cart_cont-total {
   display: block;
-  text-align: center;
+  text-align: right;
   margin-top: 1.5rem;
+  margin-right: 18%;
+  font-size: 16px;
 }
 .cart_cont-total .dark-rule {
   display: flex;
   height: 3px;
-  width: 14rem;
+  width: 62%;
   margin-left: 40%;
   background: rgb(0, 0, 0);
 }
 .cart_cont-total-cost {
   display: flex;
-  align-content: center;
-  justify-content: center;
+  align-content: right;
+  justify-content: right;
   gap: 4rem;
-  margin: 1rem 0;
+  margin: 1rem 0 1rem 10%;
 }
 .cart_cont .btn-confirm {
   display: flex;
@@ -849,6 +851,51 @@ body {
 
 .cart_cont-table-list {
   display: block;
+}
+
+.dark-rule2 {
+  display: flex;
+  height: 3px;
+  width: 50%;
+  margin-left: 34%;
+  background: rgb(0, 0, 0);
+  margin-bottom: 2rem;
+}
+
+.link_total {
+  display: none;
+  text-align: right;
+  margin-right: 23%;
+  font-size: 16px;
+}
+.link_total .vat {
+  display: flex;
+  align-content: right;
+  justify-content: right;
+  gap: 4rem;
+  margin: 0.5rem 0 0.5rem 43%;
+}
+.link_total .vat:nth-last-child(2) {
+  display: center;
+  border-bottom: 3px solid rgb(0, 0, 0);
+  width: 62%;
+  margin-left: 45%;
+}
+.link_total .two > .cart-total-price {
+  margin-right: 12%;
+}
+
+.pre-order {
+  display: none;
+  height: 2.5rem;
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 8px;
+  padding: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  background: #E87E1C;
+  color: rgb(255, 255, 255);
 }
 
 .info-container {

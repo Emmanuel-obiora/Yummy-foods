@@ -80,23 +80,25 @@
     }
     &-total{
         display: block;
-        text-align: center;
+        text-align: right;
         margin-top: 1.5rem;
+        margin-right: 18%;
+        font-size: 16px;
 
         .dark-rule{
             display: flex;
             height: 3px;
-            width: 14rem;
+            width: 62%;
             margin-left: 40%;
             background: $color-black;
         }
 
         &-cost{
             display: flex;
-            align-content: center;
-            justify-content: center;
+            align-content: right;
+            justify-content: right;
             gap: 4rem;
-            margin: 1rem 0;
+            margin: 1rem 0 1rem 10%;
 
         }
     }
@@ -217,4 +219,55 @@
 
 .cart_cont-table-list{
     display: block;
+}
+
+.dark-rule2{
+    display: flex;
+    height: 3px;
+    width: 50%;
+    margin-left: 34%;
+    background: $color-black;
+    margin-bottom: 2rem;
+}
+
+.link_total{
+    display: none;
+    text-align: right;
+    margin-right: 23%;
+    font-size: 16px;
+
+    & .vat{
+        display: flex;
+        align-content: right;
+        justify-content: right;
+        gap: 4rem;
+        margin: 0.5rem 0 0.5rem 43%;
+
+
+        &:nth-last-child(2){
+            display: center;
+            border-bottom: 3px solid $color-black;
+            width: 62%;
+            margin-left: 45%;
+        }
+    }
+    .two{
+        & > .cart-total-price{
+            margin-right: 12%;
+        }
+    }
+
+}
+
+.pre-order {
+    display: none;
+    height: 2.5rem;
+    width: 100%;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    background: $color-pry;
+    color: $color-white;
 }
