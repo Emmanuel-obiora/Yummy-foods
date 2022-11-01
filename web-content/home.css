@@ -772,11 +772,6 @@ body {
 }
 .order-box > small {
   font-weight: 600;
-=======
-.order-box .a {
-  color: #E87E1C;
-  margin: 0 33px;
-  cursor: pointer;
 }
 
 .cart-container {
