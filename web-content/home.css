@@ -113,6 +113,7 @@ body {
   top: -3px;
   right: -3px;
   visibility: hidden;
+  pointer-events: none;
 }
 .notification .show-badge {
   visibility: visible;

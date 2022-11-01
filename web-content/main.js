@@ -400,3 +400,16 @@ function hideUpdate() {
         isShow = true;
     }
 }
+
+// function payUpdate(){
+//     let previousP = parseInt(document.getElementById("oldP").value);
+//     console.log(previousP);
+//     var vatP = parseInt(document.getElementById("vatP").value);
+//     var deliveryP = parseInt(document.getElementById("delivP").value);
+//     var mainP = document.getElementById("mainP");
+
+
+//     mainP.value = deliveryP + vatP;
+
+//     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + mainP
+// }

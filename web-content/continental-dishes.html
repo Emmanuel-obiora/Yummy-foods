@@ -30,7 +30,7 @@
             </div>
             <div class="search-bar">
                 <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
-                <button title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></button>
+                <span title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></span>
             </div>
             <div class="left">
                 <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
@@ -202,21 +202,21 @@
             <span class="dark-rule"></span>
             <div class="cart_cont-total-cost cart-total">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="oldP">#0</span>
             </div>
         </div>
         <div class="link_total" id="isTime">
             <div class="vat">
                 <strong class="cart-total-title">VAT</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="vatP">#350.45</span>
             </div>
             <div class="vat two">
                 <strong class="cart-total-title">Delivery</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="delivP">#500</span>
             </div>
             <div class="vat">
                 <strong class="cart-total-title">Total</strong>
-                <span class="cart-total-price">#0</span>
+                <span class="cart-total-price" id="mainP">#0</span>
             </div>
         </div>
         <span class="dark-rule2"></span>
