@@ -82,7 +82,7 @@ function menuBar(){
         document.getElementById("onOff").style.display="block";
         menuItem = true;
     }
-}
+};
 
 // Reveal Passwords
 var state = false;
@@ -219,9 +219,9 @@ function addItemToCart(title, price, imageSrc) {
             </div>
             <h3 class="cart-item-title">${title}</h3>
             <div class="item-adder">
-            <button type="button" title="reduce">-</button>
-            <input class="numD cart-quantity-input" type="number" title="item-number" value="1"></input>
-            <button type="button" title="increase">+</button>
+            <button type="button" title="reduce" class="minus-d">-</button>
+            <input class="num-d cart-quantity-input" id="numD" type="number" title="item-number" value="1"></input>
+            <button type="button" title="increase" class="plus-d">+</button>
             </div>
             <span class="amf cart-price cart-column">${price}</span>
             <div class="split">
@@ -252,6 +252,7 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
 }
+
 
 // DISPLAYING NOTIFICATION BADGE
 
@@ -401,15 +402,120 @@ function hideUpdate() {
     }
 }
 
-// function payUpdate(){
-//     let previousP = parseInt(document.getElementById("oldP").value);
-//     console.log(previousP);
-//     var vatP = parseInt(document.getElementById("vatP").value);
-//     var deliveryP = parseInt(document.getElementById("delivP").value);
-//     var mainP = document.getElementById("mainP");
+// FUNCTION TO SEARCH THE SEARCH INPUT BOX
+// function openSearch(){
+//     var x = document.getElementById("search").value
+
+//     if (x == "dog") {
+
+//         window.open("./index.html");
+
+//     }
+// }
 
 
-//     mainP.value = deliveryP + vatP;
+// FUNCTION TO OPEN AND CLOSE PAYMENT CHANNEL
+function openPay() {
+    var paymentD = document.getElementById("payD");
 
-//     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + mainP
+    paymentD.classList.add("open-pay");
+}
+function closePay() {
+    var paymentD = document.getElementById("payD");
+
+    paymentD.classList.remove("open-pay");
+}
+
+// FUNCTION TO OPEN AND CLOSE PAYMENT STATUS FOR BOTH SUCCESSFUL AND DECLINED
+function showS() {
+    var statusSuc = document.getElementById("statB");
+
+    statusSuc.classList.add("open-status");
+}
+function hideS() {
+    var statusSuc = document.getElementById("statB");
+
+    statusSuc.classList.remove("open-status");
+}
+
+// 
+function showD() {
+    var statusDec = document.getElementById("statB2");
+
+    statusDec.classList.add("open-status");
+}
+function hideD() {
+    var statusDec = document.getElementById("statB2");
+
+    statusDec.classList.remove("open-status");
+}
+
+// FUNCTION TO DELETE ITEMS FROM FAVOURITE LIST AND ALSO ADD ITEMS TO CART
+
+if (document.readyState == 'loading') {
+    document.addEventListener('DOMContentLoaded', green)
+} else {
+    green()
+}
+
+function green() {
+    var removeFavItemButtons = document.getElementsByClassName('fav-del')
+    for (var i = 0; i < removeFavItemButtons.length; i++) {
+        var button = removeFavItemButtons[i]
+        button.addEventListener('click', removeFavItem)
+    }
+
+    // var addToFavButtons = document.getElementsByClassName('fav-item-but')
+    // for (var i = 0; i < addToFavButtons.length; i++) {
+    //     var button = addToFavButtons[i]
+    //     button.addEventListener('click', addToFavClicked)
+    // }
+}
+
+function removeFavItem(event) {
+    var buttonClicked = event.target
+    buttonClicked.parentElement.parentElement.parentElement.remove()
+    console.log(buttonClicked);
+}
+
+// function addToFavClicked(event) {
+//     var button = event.target
+//     var favItem = button.parentElement.parentElement.parentElement.parentElement
+//     var tit = favItem.getElementsByClassName('fav-title')[0].innerText
+//     var pri = favItem.getElementsByClassName('fav-price')[0].innerText
+//     var imgSrc = favItem.getElementsByClassName('fav-image')[0].src
+//     addItemToCart(tit, pri, imgSrc)
+//     updateCartTotal()
+// }
+
+// function addItemToCart(tit, pri, imgSrc) {
+//     var fav2Row = document.createElement('div')
+//     fav2Row.classList.add('fav2-row')
+//     var favItems = document.getElementsByClassName('fav-items')[0]
+//     var favItemNames = favItems.getElementsByClassName('fav-row_title')
+//     for (var i = 0; i < favItemNames.length; i++) {
+//         if (favItemNames[i].innerText == tit) {
+//             alert('This item has already been added to your favourite list')
+//             return
+//         }
+//     }
+//     var favRowContents = `<article class="fav-row">
+//     <div>
+//         <img class="fav-row_img" src="${imgSrc}" alt="${tit}" />
+//     </div>
+//     <div>
+//         <h4 class="fav-row_title">${tit}</h4>
+//     </div>
+//     <div >
+//         <span class="fav-row_price">${pri}</span>
+//     </div>
+//     <div class="fav-row_icons">
+//         <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
+//         <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
+//     </div>
+// </article>`
+
+//     fav2Row.innerHTML = favRowContents
+//     favItems.append(fav2Row)
+//     fav2Row.getElementsByClassName('fav-del')[0].addEventListener('click', removeFavItem)
 // }

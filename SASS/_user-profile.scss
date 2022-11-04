@@ -1,0 +1,142 @@
+.u-profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-container{
+    background: $color-white;
+    display: block;
+    font-weight: 400;
+    width: 40%;
+    margin-top: 1rem;
+
+    @media(max-width: 37.5rem){
+        width: 80%;
+    }
+
+    &_top{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        background: $color-success;
+        color: $color-white;
+        height: 2rem;
+    }
+
+    &_bottom{
+        margin-top: 0.5rem;
+        padding: 0.5rem;
+        display: block;
+        background: $color-bg2;
+
+        &-m{
+            display: flex;
+            height: auto;
+            width: 100%;
+
+            &-img {
+                display: flex;
+                width: 25%;
+                margin-right: 5%;
+                height: auto;
+
+                & > img{
+                    width: 100%;
+                    height: 27vh;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                    flex-grow: 1px 1px 0px;
+                }
+            }
+
+            &-details{
+                width: 70%;
+                height: 27vh;
+                            
+                        .form__input{
+                            
+            
+                            &::placeholder{
+                                font-weight: 300;
+                                text-align: left;
+            
+                            }
+                            
+                            &:focus{
+                                background: $color-white;
+                                color: $color-black;
+                                border: 2px solid $color-pry;
+                            }
+                        }
+
+                .profile-input{
+                    display: flex;
+                    margin-bottom: 0.55rem;
+                    background: $color-bg3;
+                    align-items: center;
+                    justify-content: space-between;
+                    border-radius: 5px;
+                    height: 2.4rem;
+                    position: relative;
+                    width: 100%;
+
+                    & > i{
+                        color: grey;
+                        margin: 1px;
+                        position: absolute;
+                        pointer-events: none;
+                    }
+
+                    & > input{
+                        background: transparent;
+                        border: none;
+                        outline: none;
+                        flex-grow: 1;
+                        color: grey;
+                        padding: 1.2rem;
+                        width: 100%;
+                        height: 2rem;
+                        letter-spacing: 0.5px;
+                        border-radius: 5px;
+
+
+                        &::placeholder{
+                            font-weight: 300;
+                            text-align: left;
+        
+                        }
+                        
+                        &:focus{
+                            background: $color-white;
+                            color: $color-black;
+                            border: 2px solid $color-pry;
+                        }
+                    }
+                }
+            }
+        }
+
+        &-bottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 13.5rem 0 1.5rem 0;
+            
+            & button{
+                width: 30%;
+                height: 2rem;
+                background: $color-pry;
+                color: $color-white;
+                border-radius: 10px;
+
+                &:hover{
+                    background: $color-success;
+                }
+            }
+        }
+    }
+}
