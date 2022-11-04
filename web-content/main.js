@@ -465,11 +465,11 @@ function green() {
         button.addEventListener('click', removeFavItem)
     }
 
-    var addToFavButtons = document.getElementsByClassName('fav-item-but')
-    for (var i = 0; i < addToFavButtons.length; i++) {
-        var button = addToFavButtons[i]
-        button.addEventListener('click', addToFavClicked)
-    }
+    // var addToFavButtons = document.getElementsByClassName('fav-item-but')
+    // for (var i = 0; i < addToFavButtons.length; i++) {
+    //     var button = addToFavButtons[i]
+    //     button.addEventListener('click', addToFavClicked)
+    // }
 }
 
 function removeFavItem(event) {
@@ -478,46 +478,44 @@ function removeFavItem(event) {
     console.log(buttonClicked);
 }
 
-function addToFavClicked(event) {
-    var button = event.target
-    var favItem = button.parentElement.parentElement.parentElement.parentElement
-    var tit = favItem.getElementsByClassName('fav-title')[0].innerText
-    var pri = favItem.getElementsByClassName('fav-price')[0].innerText
-    var imgSrc = favItem.getElementsByClassName('fav-image')[0].src
-    addItemToCart(tit, pri, imgSrc)
-    updateCartTotal()
-}
+// function addToFavClicked(event) {
+//     var button = event.target
+//     var favItem = button.parentElement.parentElement.parentElement.parentElement
+//     var tit = favItem.getElementsByClassName('fav-title')[0].innerText
+//     var pri = favItem.getElementsByClassName('fav-price')[0].innerText
+//     var imgSrc = favItem.getElementsByClassName('fav-image')[0].src
+//     addItemToCart(tit, pri, imgSrc)
+//     updateCartTotal()
+// }
 
-function addItemToCart(tit, pri, imgSrc) {
-    var fav2Row = document.createElement('div')
-    fav2Row.classList.add('fav2-row')
-    var favItems = document.getElementsByClassName('fav-items')[0]
-    var favItemNames = favItems.getElementsByClassName('fav-row_title')
-    for (var i = 0; i < favItemNames.length; i++) {
-        if (favItemNames[i].innerText == tit) {
-            alert('This item has already been added to your favourite list')
-            return
-        }
-    }
-    var favRowContents = `<article class="fav-row">
-    <div>
-        <img class="fav-row_img" src="${imgSrc}" alt="${tit}" />
-    </div>
-    <div>
-        <h4 class="fav-row_title">${tit}</h4>
-    </div>
-    <div >
-        <span class="fav-row_price">${pri}</span>
-    </div>
-    <div class="fav-row_icons">
-        <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
-        <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
-    </div>
-</article>`
+// function addItemToCart(tit, pri, imgSrc) {
+//     var fav2Row = document.createElement('div')
+//     fav2Row.classList.add('fav2-row')
+//     var favItems = document.getElementsByClassName('fav-items')[0]
+//     var favItemNames = favItems.getElementsByClassName('fav-row_title')
+//     for (var i = 0; i < favItemNames.length; i++) {
+//         if (favItemNames[i].innerText == tit) {
+//             alert('This item has already been added to your favourite list')
+//             return
+//         }
+//     }
+//     var favRowContents = `<article class="fav-row">
+//     <div>
+//         <img class="fav-row_img" src="${imgSrc}" alt="${tit}" />
+//     </div>
+//     <div>
+//         <h4 class="fav-row_title">${tit}</h4>
+//     </div>
+//     <div >
+//         <span class="fav-row_price">${pri}</span>
+//     </div>
+//     <div class="fav-row_icons">
+//         <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
+//         <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
+//     </div>
+// </article>`
 
-    fav2Row.innerHTML = favRowContents
-    favItems.append(fav2Row)
-    fav2Row.getElementsByClassName('fav-del')[0].addEventListener('click', removeFavItem)
-    // cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
-    // updateCartTotal()
-}
+//     fav2Row.innerHTML = favRowContents
+//     favItems.append(fav2Row)
+//     fav2Row.getElementsByClassName('fav-del')[0].addEventListener('click', removeFavItem)
+// }

@@ -21,7 +21,7 @@
 
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
-<!-- <script src="./menu.js" ></script> -->
+<script src="./fav.js" defer></script>
 
 </head>
 <body>
@@ -36,10 +36,6 @@
                         <input type="search" placeholder="Search the food menu" class="search-bar-input__header" id="search" onChange="openSearch()" aria-label="search"/>
                         <span title="Submit" class="search-bar-input__submit" onclick="openSearch()"><i class="fas fa-search"></i></span>
                     </div>
-                    <div class="search-bar-menu-cards" data-menu-cards-container></div>
-                    <template data-menu-template>
-                        <div class="search-bar-menu-cards__card" data-title></div>
-                    </template>
                 </div>
                 <div class="left">
                     <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>

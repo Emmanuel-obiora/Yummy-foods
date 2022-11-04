@@ -19,7 +19,8 @@
     <title>Yummy foods</title>
 
 <!--=====================================JAVASCRIPT===================================-->
-    <script src="./main.js" async></script>
+    <script src="./main.js" defer></script>
+    <script src="./fav.js" defer></script>
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -29,8 +30,10 @@
                 <h1><b> YummyFoods </b></h1>
             </div>
             <div class="search-bar">
-                <input type="text" placeholder="Search" class="search-bar__input" aria-label="search"/>
-                <span title="submit-btn" class="search-bar__submit"><i class="fas fa-search"></i></span>
+                <div class="search-bar-input">
+                    <input type="search" placeholder="Search the food menu" class="search-bar-input__header" id="search" onChange="openSearch()" aria-label="search"/>
+                    <span title="Submit" class="search-bar-input__submit" onclick="openSearch()"><i class="fas fa-search"></i></span>
+                </div>
             </div>
             <div class="left">
                 <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
@@ -435,7 +438,7 @@
 
             <article class = "menu_list shop-item">
                 <div class="menu_list-image">
-                    <img  class="shop-item-image fav-image"src="/Assets/Continental Dishes/Local Salad.jpg" alt="Vegetable Soup">
+                    <img  class="shop-item-image fav-image"src="/Assets/Continental Dishes/Vegetable Soup.jpg" alt="Vegetable Soup">
                 </div>
                 <div class="menu_list-summary">
                     <div class="menu_list-summary-about">
