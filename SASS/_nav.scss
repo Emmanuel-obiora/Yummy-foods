@@ -1,6 +1,12 @@
 .toggle{
     cursor: pointer;
     padding: 0.5rem;
+    width: max-content;
+
+    &:hover{
+        background: $color-pry-varient;
+        border-radius: 7px;
+    }
 
     @media (min-width: 601px){
         display: none;

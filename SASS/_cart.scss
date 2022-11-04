@@ -152,7 +152,7 @@
         align-items: center;
         gap: 2px;
         
-        & > button{
+        & > button {
             width: 1.8rem;
             height: 2rem;
             text-align: center;
@@ -160,9 +160,10 @@
             border-radius: 5px;
             background: transparent;
             color: $color-pry;
+            cursor: pointer;
         }
 
-        .numD{
+        .num-d{
             border: 2px solid rgb(3, 3, 100);
             width: 2.2rem;
             height: 2rem;
@@ -270,4 +271,8 @@
     justify-content: center;
     background: $color-pry;
     color: $color-white;
+
+    &:hover{
+        background: $color-success;
+    }
 }
