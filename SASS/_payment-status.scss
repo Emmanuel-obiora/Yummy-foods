@@ -13,6 +13,10 @@
     justify-content: center;
     position: absolute;
 
+    @media (max-width: 64rem){
+        width: 45%
+    }
+
     @media (max-width: 37.5rem){
         left: 35%;
         top: 0;
@@ -103,6 +107,10 @@
     transition: $transition;
     justify-content: center;
     position: absolute;
+
+    @media (max-width: 64rem){
+        width: 45%
+    }
 
     @media (max-width: 37.5rem){
         left: 35%;

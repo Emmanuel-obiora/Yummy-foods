@@ -2,15 +2,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    // width: 100%;
 
     &-main{
         display: block;
-        width: 40%;
+        width: 50%;
         background: $color-white;
         margin-top: 1rem;
 
+        @media(max-width: 64rem){
+            width: 70%;
+        }
+
         @media(max-width: 37.5rem){
-            width: 80%;
+            width: 90%;
         }
 
         &-top{
@@ -35,7 +40,7 @@
                 gap: 1rem;
                 padding: 1rem;
                 align-items: center;
-                justify-content: center;
+                justify-content: space-around;
                 width: 100%;
                 border: 1px solid $color-black;
                 margin-bottom: .5rem;

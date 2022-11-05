@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
 
     <!--====================================FONT AWESOME ICON =====================================-->
+    <link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -320,40 +323,106 @@
     </div>
 </section>
 
-<!--=======================================USERS PROFILE==================================================-->
+<!--======================================TRACK ORDERS=======================================================-->
+<section class="track-orders">
+    <div class="track-orders-cont">
+        <div class="track-orders-cont_top">
+            <strong>Track Orders</strong>
+        </div>
+        <div class="track-orders-cont_bottom">
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
 
-<section class="u-profile">
-    <div class="profile-container">
-        <div class="profile-container_top">
-            <strong>Profile</strong>
-        </div>
-        <div class="profile-container_bottom">
-            <div class="profile-container_bottom-m">
-                <div class="profile-container_bottom-m-img">
-                    <img src="../Assets/users-profile/avatar1.jpg" alt="user -1"/>
-                </div>
-                <div class="profile-container_bottom-m-details">
-                    <div class="profile-input">
-                        <i class="fas fa-regular fa-id-card-clip"></i>
-                        <input type="text" placeholder="  Name" autofocus title="User Name" />
-                    </div>
-                    <div class="profile-input">
-                        <i class="fa-regular fa-envelope"></i>
-                        <input type="text" placeholder="  Email Address" autofocus title="User Name" />
-                    </div>
-                    <div class="profile-input">
-                        <i class="fas fa-regular fa-phone"></i>
-                        <input type="text" placeholder="  Phone Number" autofocus title="User Name" />
-                    </div>
-                    <div class="profile-input">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="  Address" autofocus title="User Name" />
-                    </div>
-                </div>
+<!--====================================TRACK ORDER POP-UP======================-->
+<section class="track-pop-up-cont" id="trackO">
+    <b><i class="fas fa-close" onclick="hideTrack()"></i></b>
+    <div class="track-pop-up-cont-body">
+        <h3>Track Order</h3>
+        <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
+        <div class="track-pop-up-cont-body_mid">
+            <div class="side-ways">
+                <h2>1
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Placed</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
-            <div class="profile-container_bottom-bottom">
-                <button type="submit" title="Save">Save</button>
+            <div class="side-ways second-wave">
+                <h2>2
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Processed</small>
+                <i class="check-confirm fas fa-check"></i>
+            </div>
+            <div class="side-ways third-wave">
+                <h2>3
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Dispatched</small>
+                <i class="check-confirm fas fa-check"></i>
+            </div>
+            <div class="side-ways fourth-wave">
+                <h2>4</h2>
+                <small>Order Delivered</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
         </div>
+        <div class="track-pop-up-cont-body_bottom">
+            <button type="submit" onClick="showRating()">Review Order</button>
+            <button type="submit">Reorder</button>
+        </div>
+    </div>
+</section>
+
+<!--===============================STAR REVIEW POP-UP============================-->
+<section class="review-order" id="ratings">
+    <b><i class="fas fa-close" onClick="hideRating()"></i></b>
+    <div class="review-order_body">
+        <h3>Review Order</h3>
+        <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
+        <div class="star-rating">
+            <h4>Rating</h4>
+            <div class="star-rating_class">
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+            </div>
+            <p class="current_rating">0 of 5</p>
+        </div>
+        <div class="review-form">
+            <h4>Review</h4>
+            <textarea title="Review" name="Review" class="review-box" cols="30" rows="10"></textarea>
+        </div>
+        <button class="send-r" type="submit" >Send Review</button>
     </div>
 </section>

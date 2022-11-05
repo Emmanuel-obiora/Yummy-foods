@@ -13,6 +13,10 @@
     transition: $transition;
     border: 1px solid $color-border;
 
+    @media (max-width: 64rem){
+        width: 60%
+    }
+
     @media (max-width: 37.5rem){
         left: 15%;
         top: 0;
