@@ -1,0 +1,84 @@
+.track-orders{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-cont{
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1rem;
+        background: $color-white;
+
+        @media (max-width: 64rem){
+            width: 70%
+        }
+
+        @media(max-width: 37.5rem){
+            width: 90%;
+        }
+
+        &_top{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: $color-success;
+            height: 2rem;
+            color: $color-white;
+            font-weight: 500;
+        }
+
+        &_bottom{
+            display: block;
+            margin-top: .5rem;
+            background: $color-bg2;
+            padding: 10px;
+            width: 100%;
+            font-weight: 400;
+            height: auto;
+
+            .orders-record{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                width: 100%;
+                margin-bottom: 1rem;
+
+                @media(max-width: 37.5rem){
+                    gap: .5rem;
+                }
+
+                .order-icon{
+                    display: flex;
+                    flex-direction: column;
+                    position: relative;
+                    color: $color-success;
+                    cursor: pointer;
+                    align-items: center;
+                    justify-content: center;
+    
+                    & > i{
+                        border: 1.5px solid $color-success;
+                        border-radius: 2px;
+                        background: $color-bg2;
+                    }
+
+                    & .timer{
+                        color: $color-pry;
+                        border: 2px solid $color-pry;
+                        position: absolute;
+                        // right: 0;
+                    }
+
+                    & .hour-t{
+                        z-index: 5;
+                    }
+                }
+            }
+        }
+    }
+}

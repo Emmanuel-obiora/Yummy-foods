@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-// nav bar responsive
+// =============================nav bar responsive=============================================
 var menuItem = false;
 function menuBar(){
     if(menuItem){
@@ -84,7 +84,7 @@ function menuBar(){
     }
 };
 
-// Reveal Passwords
+// ==============================Reveal Passwords=================================
 var state = false;
 function toggle(){
     if(state){
@@ -115,7 +115,7 @@ function tog(){
     }
 }
 
-// FOR OPENING AND CLOSING SIGNIN/SIGNUP POPUP
+// ======================FOR OPENING AND CLOSING SIGNIN/SIGNUP POPUP==========================
 let logPop = document.getElementById("signPopup");
 
 function openSignin() {
@@ -126,9 +126,9 @@ function closeSignin() {
     logPop.classList.remove("open-popup");
 }
 
-// SHOPPING CART (FOR ONCLICK FUNCTION, VIEW, ADD ITEM, PURCHASE ETC)
+// ===================SHOPPING CART (FOR ONCLICK FUNCTION, VIEW, ADD ITEM, PURCHASE ETC)======================
 
-// CART POP-UP
+// =================CART POP-UP=================================
 let cartPop = document.getElementById("showCart");
 
 function openCart() {
@@ -139,7 +139,7 @@ function closeCart() {
     cartPop.classList.remove("open-cart");
 }
 
-// FUNCTIONALITIES FOR CART. (FROM ADD, DELETE AND PRICING ETC)
+// =======================FUNCTIONALITIES FOR CART. (FROM ADD, DELETE AND PRICING ETC)=====================
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', ready)
@@ -254,7 +254,7 @@ function updateCartTotal() {
 }
 
 
-// DISPLAYING NOTIFICATION BADGE
+// =============================DISPLAYING NOTIFICATION BADGE========================================
 
 function showBadge() {
     var noteB = document.getElementById("badge");
@@ -269,7 +269,7 @@ function removeBadge() {
 }
 
 
-// CART DATE DISPLAY
+// ========================CART DATE DISPLAY==========================================
 
 function displayDate(){
 
@@ -284,8 +284,9 @@ function displayDate(){
     let greeting = document.getElementById('mode');
     let welcome = document.getElementById('modeT');
     let net = document.getElementById('dayT');
+    let greet;
 
-// day switch for cart pop up
+// =======================day switch for cart pop up=================
     days = (dy == 1)? weekDays.innerHTML = "Monday":
         (dy == 2)? weekDays.innerHTML = "Tuesday":
         (dy == 3)? weekDays.innerHTML = "Wednesday":
@@ -301,12 +302,15 @@ function displayDate(){
         if (hr > 12){
             hr = hr - 12;
             greet = greeting.innerHTML = "pm";
+            bush = welcome.innerHTML = 'pm';
         }
         else {
             greet = greeting.innerHTML = "am" ;
+            bush = welcome.innerHTML = 'am';
         }
 
-// day switch for delivery pop-up
+
+// ========================day switch for delivery pop-up===========================================
         if (dy >= 0){
             switch(dy){
                 case 0: 
@@ -332,26 +336,25 @@ function displayDate(){
             }
         }
         
-    // mode for delivery pop-up
-      if (mins < 720){
-        welcome = welcome.innerHTML = "pm";
-      }
-      else {
-        welcome = welcome.innerHTML = "am";
-      }
+    //============================== mode for delivery pop-up==========================================
 
+      let hourT = hr + ':' + mins + ' ' + greet + ',' + '  ' + dat + '-' + mth + '-' + yr;
 
+      let fullT = hr + ':' + mins + ' ' + greet + ',' + '  ' + days + ',' + ' ' + dat + '-' + mth + '-' + yr;
     
-// FUNCTION TO DISPLAY TIME ON POP-UP BOXES
+// ==================FUNCTION TO DISPLAY TIME ON POP-UP BOXES==========================
 document.querySelectorAll('.min').forEach((dateElement) => dateElement.innerHTML = mins)
 document.querySelectorAll('.hrs').forEach((dateElement) => dateElement.innerHTML = hr)
 document.querySelectorAll('.date').forEach((dateElement) => dateElement.innerHTML = dat)
 document.querySelectorAll('.month').forEach((dateElement) => dateElement.innerHTML = mth)
 document.querySelectorAll('.year').forEach((dateElement) => dateElement.innerHTML = yr)
+
+document.querySelectorAll('.time-guide').forEach((dateElement) => dateElement.innerHTML = hourT)
+document.querySelectorAll('.full-time').forEach((dateElement) => dateElement.innerHTML = fullT)
 }
 setInterval(displayDate, 10);
 
-// DISPLAYING DELIVERY INFORMATION
+// =========================DISPLAYING DELIVERY INFORMATION==================================
 
 function openInfo() {
     var info = document.getElementById("showInfo");
@@ -364,7 +367,7 @@ function closeInfo() {
     info.classList.remove("open-info");
 }
 
-// DISPLAYING UPDATED CART
+// ======================DISPLAYING UPDATED CART===========================
 
 function showUpdate() {
     let vatSection = document.querySelector(".link_total");
@@ -402,7 +405,7 @@ function hideUpdate() {
     }
 }
 
-// FUNCTION TO SEARCH THE SEARCH INPUT BOX
+// ====================FUNCTION TO SEARCH THE SEARCH INPUT BOX==========================
 // function openSearch(){
 //     var x = document.getElementById("search").value
 
@@ -414,7 +417,7 @@ function hideUpdate() {
 // }
 
 
-// FUNCTION TO OPEN AND CLOSE PAYMENT CHANNEL
+// =====================FUNCTION TO OPEN AND CLOSE PAYMENT CHANNEL=======================
 function openPay() {
     var paymentD = document.getElementById("payD");
 
@@ -426,7 +429,7 @@ function closePay() {
     paymentD.classList.remove("open-pay");
 }
 
-// FUNCTION TO OPEN AND CLOSE PAYMENT STATUS FOR BOTH SUCCESSFUL AND DECLINED
+// ================FUNCTION TO OPEN AND CLOSE PAYMENT STATUS FOR BOTH SUCCESSFUL AND DECLINED=====
 function showS() {
     var statusSuc = document.getElementById("statB");
 
@@ -438,7 +441,7 @@ function hideS() {
     statusSuc.classList.remove("open-status");
 }
 
-// 
+// DECLINED POP-UP
 function showD() {
     var statusDec = document.getElementById("statB2");
 
@@ -450,7 +453,7 @@ function hideD() {
     statusDec.classList.remove("open-status");
 }
 
-// FUNCTION TO DELETE ITEMS FROM FAVOURITE LIST AND ALSO ADD ITEMS TO CART
+// =======FUNCTION TO DELETE ITEMS FROM FAVOURITE LIST AND ALSO ADD ITEMS TO CART===========
 
 if (document.readyState == 'loading') {
     document.addEventListener('DOMContentLoaded', green)
@@ -465,11 +468,11 @@ function green() {
         button.addEventListener('click', removeFavItem)
     }
 
-    // var addToFavButtons = document.getElementsByClassName('fav-item-but')
-    // for (var i = 0; i < addToFavButtons.length; i++) {
-    //     var button = addToFavButtons[i]
-    //     button.addEventListener('click', addToFavClicked)
-    // }
+    var addToFavButtons = document.getElementsByClassName('fav-item-but')
+    for (var i = 0; i < addToFavButtons.length; i++) {
+        var button = addToFavButtons[i]
+        button.addEventListener('click', addToFavClicked)
+    }
 }
 
 function removeFavItem(event) {
@@ -478,44 +481,89 @@ function removeFavItem(event) {
     console.log(buttonClicked);
 }
 
-// function addToFavClicked(event) {
-//     var button = event.target
-//     var favItem = button.parentElement.parentElement.parentElement.parentElement
-//     var tit = favItem.getElementsByClassName('fav-title')[0].innerText
-//     var pri = favItem.getElementsByClassName('fav-price')[0].innerText
-//     var imgSrc = favItem.getElementsByClassName('fav-image')[0].src
-//     addItemToCart(tit, pri, imgSrc)
-//     updateCartTotal()
-// }
+function addToFavClicked(event) {
+    var button = event.target
+    var favItem = button.parentElement.parentElement.parentElement.parentElement
+    var tit = favItem.getElementsByClassName('fav-title')[0].innerText
+    var pri = favItem.getElementsByClassName('fav-price')[0].innerText
+    var imgSrc = favItem.getElementsByClassName('fav-image')[0].src
+    addItemToFav(tit, pri, imgSrc)
+    updateCartTotal()
+}
 
-// function addItemToCart(tit, pri, imgSrc) {
-//     var fav2Row = document.createElement('div')
-//     fav2Row.classList.add('fav2-row')
-//     var favItems = document.getElementsByClassName('fav-items')[0]
-//     var favItemNames = favItems.getElementsByClassName('fav-row_title')
-//     for (var i = 0; i < favItemNames.length; i++) {
-//         if (favItemNames[i].innerText == tit) {
-//             alert('This item has already been added to your favourite list')
-//             return
-//         }
-//     }
-//     var favRowContents = `<article class="fav-row">
-//     <div>
-//         <img class="fav-row_img" src="${imgSrc}" alt="${tit}" />
-//     </div>
-//     <div>
-//         <h4 class="fav-row_title">${tit}</h4>
-//     </div>
-//     <div >
-//         <span class="fav-row_price">${pri}</span>
-//     </div>
-//     <div class="fav-row_icons">
-//         <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
-//         <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
-//     </div>
-// </article>`
+function addItemToFav(tit, pri, imgSrc) {
+    var fav2Row = document.createElement('div')
+    fav2Row.classList.add('fav2-row')
+    var favItems = document.getElementsByClassName('fav-items')[0]
+    var favItemNames = favItems.getElementsByClassName('fav-row_title')
+    for (var i = 0; i < favItemNames.length; i++) {
+        if (favItemNames[i].innerText == tit) {
+            alert('This item has already been added to your favourite list')
+            return
+        }
+    }
+    var favRowContents = `<article class="fav-row">
+    <div>
+        <img class="fav-row_img" src="${imgSrc}" alt="${tit}" />
+    </div>
+    <div>
+        <h4 class="fav-row_title">${tit}</h4>
+    </div>
+    <div >
+        <span class="fav-row_price">${pri}</span>
+    </div>
+    <div class="fav-row_icons">
+        <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
+        <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
+    </div>
+</article>`
 
-//     fav2Row.innerHTML = favRowContents
-//     favItems.append(fav2Row)
-//     fav2Row.getElementsByClassName('fav-del')[0].addEventListener('click', removeFavItem)
-// }
+    fav2Row.innerHTML = favRowContents
+    favItems.append(fav2Row)
+    fav2Row.getElementsByClassName('fav-del')[0].addEventListener('click', removeFavItem)
+}
+
+// ===================================FUNCTION TO DISPLAY TRACK ORDER=========================================
+
+function showTrack() {
+    var orderT = document.getElementById("trackO");
+
+    orderT.classList.add("show-track");
+}
+function hideTrack() {
+    var orderT = document.getElementById("trackO");
+
+    orderT.classList.remove("show-track");
+}
+
+// ==================FUNCTION TO MAKE STAR ELEMENTS CLICKABLE AND ALSO REVEAL THEM==========
+
+const allStars = document.querySelectorAll('.star');
+let current_rating = document.querySelector('.current_rating');
+
+allStars.forEach((star, i) => {
+    star.onclick = function () { 
+        let current_star_level = i + 1;
+        current_rating.innerText = `${current_star_level} of 5`;
+
+        allStars.forEach((star, j) => {
+            if(current_star_level >= j + 1) {
+                star.innerHTML = '&#9733;';
+            } else {
+                star.innerHTML = '&#9734;';
+            }
+        })
+    }
+});
+
+// REVEALING RATING POP-UP
+function showRating() {
+    var rate = document.getElementById("ratings");
+
+    rate.classList.add("open-ratings");
+}
+function hideRating() {
+    var rate = document.getElementById("ratings");
+
+    rate.classList.remove("open-ratings");
+}

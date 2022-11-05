@@ -12,6 +12,10 @@
     width: 40%;
     margin-top: 1rem;
 
+    @media (max-width: 64rem){
+        width: 60%;
+    }
+
     @media(max-width: 37.5rem){
         width: 80%;
     }
