@@ -536,7 +536,7 @@ function hideTrack() {
     orderT.classList.remove("show-track");
 }
 
-// ==================FUNCTION TO MAKE START ELEMENTS CLICKABLE AND ALSO REVEAL THEM==========
+// ==================FUNCTION TO MAKE STAR ELEMENTS CLICKABLE AND ALSO REVEAL THEM==========
 
 const allStars = document.querySelectorAll('.star');
 let current_rating = document.querySelector('.current_rating');
