@@ -1490,11 +1490,13 @@ body {
   width: 50%;
   background: rgb(255, 255, 255);
 }
+
 @media (max-width: 64rem) {
   .contact-us {
     width: 70%;
   }
 }
+
 @media (max-width: 37.5rem) {
   .contact-us {
     width: 85%;
@@ -1595,11 +1597,13 @@ body {
   width: 40%;
   margin-top: 1rem;
 }
+
 @media (max-width: 64rem) {
   .profile-container {
     width: 60%;
   }
 }
+
 @media (max-width: 37.5rem) {
   .profile-container {
     width: 80%;
