@@ -1,6 +1,6 @@
 /* Toby's part */
 
-.hero-btn-content {
+  .hero-btn-content {
     display: flex;
     align-items: center;
   }
@@ -27,6 +27,11 @@
     border: 10px solid #D9D9D9;
     background-position: center;
     padding-top: 1rem;
+
+    @media(max-width:37.5rem){
+      display: grid;
+      grid-template-columns: 1fr;
+    }
   }
 
   /* slides start */
@@ -171,9 +176,34 @@
   } 
   
 
-  
-  .foods{
+
+  .food-hub{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .foods{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    row-gap: 1rem;
+    column-gap: 2rem;
+    padding: 2rem;
+    align-items: center;
+    justify-content: center;
+
+    @media(max-width: 64rem){
+      grid-template-columns: 1fr 1fr;
+      column-gap: 2rem;
+      row-gap: 1rem;
+    }
+
+    @media(max-width: 37.5rem){
+      grid-template-columns: 1fr;
+      width: 90%;
+    }
   }
   
   .food-container {
@@ -181,19 +211,22 @@
     height: 250px;
     position: relative;
     margin: 20px auto;
-    padding: 20px;
   }
   
   .food-container img {
     width: 100%;
     height: 250px;
     background: rgba(0, 0, 0, 0.3);
+    background-size: cover;
+    background-blend-mode: darken;
+    border-radius: 10px;
   }
   
   .foods .food-container .layer2 h1{
+    display: inline;
+    text-align: center;
     color: #FFFFFF;
     font-size: 20px;
-    padding-top: 3rem;
     position: absolute;
     top: 50%;
     left: 50%;
