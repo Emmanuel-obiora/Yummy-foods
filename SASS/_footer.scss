@@ -11,23 +11,43 @@
 .step-order h1{
     margin-bottom: 25px;
     margin-top: 20px;
+
+    @media(max-width: 37.5rem){
+        font-size: 40px;
+      }
 }
 
 .order-box1{
     display: flex;
     justify-content: space-around;
+
+    @media(max-width: 37.5rem){
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 1.5rem;
+      }
 }
 
 .order-box{
     display: grid;
     justify-content: center;
     align-items: center;
+
     & > a > img{
         border: 5px solid $color-pry;
         padding: 10px;
         border-radius: 10px;
+        
+        @media(max-width: 37.5rem){
+            grid-template-columns: 1fr;
+            width: 10rem;
+          }
     }
     & > small{
-        font-weight: 600
+        font-weight: 600;
+
+        @media(max-width: 37.5rem){
+            font-size: 20px;
+          }
     }
 }
