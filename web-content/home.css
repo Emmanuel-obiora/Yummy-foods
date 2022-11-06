@@ -1986,7 +1986,7 @@ body {
   top: 62.35%;
   left: 50%;
   visibility: visible;
-  z-index: 9999;
+  z-index: 999;
 }
 @media (max-width: 37.5rem) {
   .show-track {
