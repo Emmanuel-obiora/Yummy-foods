@@ -4,22 +4,14 @@
     width: 30%;
     border: 2px solid $color-border;
     height: auto;
-    transform: translate(-50%, -50%) scale(0.1);
-    top: 0;
-    left: 30%;
     align-items: center;
-    visibility: hidden;
-    transition: $transition;
     justify-content: center;
-    position: absolute;
 
     @media (max-width: 64rem){
         width: 45%
     }
 
     @media (max-width: 37.5rem){
-        left: 35%;
-        top: 0;
         width: 60%;
     }
 
@@ -187,15 +179,12 @@
 
 .open-status{
     transform: translate(-50%, -50%) scale(1);
-    top: 25%;
-    left: 38%;
+    top: 62.35%;
+    left: 50%;
     visibility: visible;
     z-index: 9999;
 
     @media (max-width: 37.5rem){
-        transform: translate(-50%, -50%) scale(1);
-        top: 35%;
-        left: 25%;
-        visibility: visible;
+        top: 68.5%;
     }
 }

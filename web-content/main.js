@@ -567,3 +567,16 @@ function hideRating() {
 
     rate.classList.remove("open-ratings");
 }
+
+// =================SHOWING MODAL BOX FOR NOTIFICATION AND ENBLING PUSH NOTIFICATION=================
+
+function showNotify() {
+    var notification = document.getElementById("notify");
+
+    notification.classList.add("show-notification");
+}
+function hideNotify() {
+    var notification = document.getElementById("notify");
+
+    notification.classList.remove("show-notification");
+}

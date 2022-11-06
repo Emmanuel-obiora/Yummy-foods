@@ -4,12 +4,6 @@
     width: auto;
     justify-content: center;
     background: $color-white;
-    transform: translate(-50%, -50%) scale(0.1);
-    position: absolute;
-    top: 0;
-    left: 25%;
-    visibility: hidden;
-    transition: $transition;
     border: 1px solid $color-border;
 
     @media (max-width: 64rem){
@@ -17,8 +11,6 @@
     }
     
     @media (max-width: 37.5rem){
-        left: 15%;
-        top: 0;
         width: 90%;
     }
 
@@ -132,15 +124,12 @@
 
 .open-pay{
     transform: translate(-50%, -50%) scale(1);
-    top: 60%;
+    top: 62.35%;
     left: 50%;
     visibility: visible;
     z-index: 9999;
 
     @media (max-width: 37.5rem){
-        transform: translate(-50%, -50%) scale(1);
-        top: 80%;
-        left: 50%;
-        visibility: visible;
+        top: 68.5%;
     }
 }

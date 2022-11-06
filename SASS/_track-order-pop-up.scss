@@ -1,13 +1,6 @@
 .track-pop-up-cont{
     display: block;
     background: $color-white;
-    width: 40%;
-    transform: translate(-50%, -50%) scale(0.1);
-    position: absolute;
-    top: 12%;
-    left: 50%;
-    visibility: hidden;
-    transition: $transition;
     border: 1px solid $color-border;
 
     @media (max-width: 64rem){
@@ -15,8 +8,6 @@
     }
     
     @media (max-width: 37.5rem){
-        top: 30%;
-        left: 8%;
         width: 85%;
     }
 
@@ -143,14 +134,13 @@
 
 .show-track{
     transform: translate(-50%, -50%) scale(1);
-    top: 56%;
+    top: 62.35%;
     left: 50%;
     visibility: visible;
-    z-index: 999;
-    
+    z-index: 9999;
+
     @media (max-width: 37.5rem){
-        top: 67%;
-        left: 50%;
+        top: 68.5%;
     }
 }
 
