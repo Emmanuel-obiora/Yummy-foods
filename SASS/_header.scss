@@ -1,6 +1,5 @@
 .container{
     width: 100%;
-    // position: fixed;
 }
 
 .head{
@@ -23,44 +22,74 @@
 
 
     .search-bar{
-        border: 2px solid $color-border;
-        display: flex;
+        display: block;
         width: 30%;
-        border-radius: 15px;
+        height: 2.1rem;
+        border-radius: 5px;
         background: $color-white;
-        height: 2rem;
-        position: relative;
+        border: 2px solid $color-border;
+        z-index: 5;
 
-          @media (max-width: 37.5rem){
+        @media (max-width: 37.5rem){
             width: auto;
-          }
-
-
-        &__input{
-            flex-grow: 1;
-            font-size: 0.9rem;
-            padding: 0 0.5em;
-            border: 0;
-            background: transparent;
-
-            &:focus{
-                outline: 0;
-            }
         }
 
-        &__submit{
-            font-size: 1rem;
-            cursor: pointer;
-            border: 0;
-            background: transparent;
-            position: absolute;
-            right: 0;
-            
-            & i{
-                padding: 0.3rem;
-                color: $color-pry;
+        &-input{
+            display: flex;
+            width: 100%;
+            position: relative;
+
+
+            &__header{
+                font-size: 0.7rem;
+                padding: 0 0.5em;
+                border: 0;
+                background: transparent;
+                overflow: hidden;
+                width: 96%;
+
+                &:focus{
+                    outline: 0;
+                }
+            }
+
+            &__submit{
+                font-size: 1.1rem;
+                cursor: pointer;
+                border-radius: 5px;
+                background: $color-white;
+                z-index: 50;
+
+                &:hover{
+                    background: $color-border;
+                }
+                
+                & i{
+                    padding: 0.3rem;
+                    color: $color-pry;
+                }
             }
         }
+    
+    //     &-menu-cards{
+    //         display: grid;
+    //         grid-template-columns: repeat (auto-fill, minmax(150px, 1fr));
+    //         gap: .25rem;
+    //         margin-top: .4rem;
+    //         border-radius: 5px;
+    //         background: $color-white;
+    //         border: 2px solid $color-border;
+
+    //         &__card{
+    //             background: $color-white;
+    //             padding: .5rem;
+    //             color: $color-black;
+    //             font-size: 0.9rem;
+    //         }
+    //     }
+    //     .hide{
+    //         display: none;
+    //     }
     }
 
     .left{
@@ -76,10 +105,19 @@
             border: none;
             background: transparent;
             font-size: 15px;
+            padding: 0.3rem;
 
             &:hover{
                 background: $color-pry-varient;
                 border-radius: 5px;
+            }
+        }
+
+        & > a{
+            color: $color-pry;
+
+            &:hover{
+                background: $color-border;
             }
         }
 

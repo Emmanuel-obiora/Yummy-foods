@@ -12,6 +12,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
 
     <!--====================================FONT AWESOME ICON =====================================-->
+    <link 
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -68,9 +71,6 @@
                         <li class="menu-nav__item" ><a href="#" class="menu-nav__link">Orders</a>
                             <div class="sub-menu1"> 
                                 <ul>
-                                    <li><a href="orderhistry.html">Order History</a></li>
-                                    <li><a href="#">Track Orders</a></li>
-
                                     <li><a href="#">Order History</a></li>
                                     <li><a href="./track-order.html">Track Orders</a></li>
                                 </ul>
@@ -83,6 +83,7 @@
         </div>
             
         <!-- ==========================SIGN IN FORM============================================== -->
+
     <section class="sign_container" id="signPopup">
         <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
         <form class="form" id="login">
@@ -322,140 +323,106 @@
     </div>
 </section>
 
-    <!--==================================TOBY=======================================-->
-        <section class="display-front">
-            <div class="display-text1">
-                <h1>Yummy and <br> delicious food <br> delivered to <br> your doorstep</h1>
+<!--======================================TRACK ORDERS=======================================================-->
+<section class="track-orders">
+    <div class="track-orders-cont">
+        <div class="track-orders-cont_top">
+            <strong>Track Orders</strong>
+        </div>
+        <div class="track-orders-cont_bottom">
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+            <article class="orders-record">
+                <span class="time-guide">2:34 p.m 24-jan-2022</span>
+                <span>Rice, Chicken, Chivita, ...</span>
+                <span>#2,450</span>
+                <div class="order-icon">
+                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<!--====================================TRACK ORDER POP-UP======================-->
+<section class="track-pop-up-cont" id="trackO">
+    <b><i class="fas fa-close" onclick="hideTrack()"></i></b>
+    <div class="track-pop-up-cont-body">
+        <h3>Track Order</h3>
+        <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
+        <div class="track-pop-up-cont-body_mid">
+            <div class="side-ways">
+                <h2>1
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Placed</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
-
-            <!--picture slides start-->
-            <div class="slider"> 
-                <div class="slides">
-                    <input title="kaitlin" type="radio" name="radio-btn" id="radio1">
-                    <input title="continental" type="radio" name="radio-btn" id="radio2">
-                    <input title="meat" type="radio" name="radio-btn" id="radio3">
-
-                    <div class="slide-first">   
-                        <img src="img/kaitlin.jpg" alt=""/>
-                        <div class="layer">
-                            <h3>Seafood Rice</h3>
-                        </div>
-                    </div>    
-                    <div class="slide">   
-                        <img src="img/continental.jpg" alt=""/>
-                        <div class="layer">
-                            <h3></h3>
-                        </div>
-                    </div>    
-                    <div class="slide">   
-                        <img src="img/meat.jpg" alt=""/>
-                        <div class="layer">
-                            <h3></h3>
-                        </div>
-                    </div>
-                    
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                    </div>
-                </div>
-
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                </div>
+            <div class="side-ways second-wave">
+                <h2>2
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Processed</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
-            <!--picture slides end-->
-            <div class="display-text2">    
-                <h1>Special menu for the <br> day</h1>
-                <a href="" class="hero-btn-2">
-                    <div class="hero-btn-content">
-                        Add to cart
-                    </div>  
-                </a>
+            <div class="side-ways third-wave">
+                <h2>3
+                    <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
+                </h2>
+                <small>Order Dispatched</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
-        </section>
-
-        <section class="food-hub">
-            <div class="foods">
-                <div class="food-container">
-                    <a href="meats-and-grills.html"><img src="img/meat.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Meats and Grills</h1>
-                    </div>
-                </div>
-                <div class="food-container">
-                    <a href="continental-dishes.html"><img src="img/continental.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Continental Dishes</h1>
-                    </div>
-                </div>
-                <div class="food-container">
-                    <a href="native-delicacies.html"><img src="img/native.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Native Delicacies</h1>
-                    </div>
-                </div>  
-                <div class="food-container">
-                    <a title="pastries" href="pasteries.html"><img src="img/pastries.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Pastries</h1>
-                    </div>
-                </div>
-                <div class="food-container">
-                    <a title="desserts" href="desserts.html"><img src="img/desert.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Desert</h1> 
-                    </div>
-                </div>
-                <div class="food-container">
-                    <a title="drinks" href="drinks.html"><img src="img/drinks.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Drinks</h1>
-                    </div>
-                </div>   
+            <div class="side-ways fourth-wave">
+                <h2>4</h2>
+                <small>Order Delivered</small>
+                <i class="check-confirm fas fa-check"></i>
             </div>
-        </section>
+        </div>
+        <div class="track-pop-up-cont-body_bottom">
+            <button type="submit" onClick="showRating()">Review Order</button>
+            <button type="submit">Reorder</button>
+        </div>
+    </div>
+</section>
 
-        <section class="step-order">
-            <h1>Steps to order</h1>
-
-            <div class="order-box1">
-                <div class="order-box">
-                    <a title="menu" href="#"><img src="img/menu_book_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
-                    <small>Browse menu</small>  
-                </div>
-                <div class="order-box">
-                    <a title="brunch" href="#"><img src="img/brunch_dining_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
-                    <small>Select payment</small>
-                </div>
-                <div class="order-box">
-                    <a title="card" href="#"><img src="img/credit_card_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
-                    <small>Make payment</small>
-                </div>
-                <div class="order-box">
-                    <a title="delivery" href="#"><img src="img/agriculture_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
-                    <small>Delivery</small>
-                </div>
-                <div class="order-box">
-                    <a title="Enjoy" href="#"><img src="img/restaurant_FILL0_wght400_GRAD0_opsz48.svg" alt=""></a>
-                    <small>Enjoy</small>
-                </div>
+<!--===============================STAR REVIEW POP-UP============================-->
+<section class="review-order" id="ratings">
+    <b><i class="fas fa-close" onClick="hideRating()"></i></b>
+    <div class="review-order_body">
+        <h3>Review Order</h3>
+        <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
+        <div class="star-rating">
+            <h4>Rating</h4>
+            <div class="star-rating_class">
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
+                <button type="button" class="star">&#9734</button>
             </div>
-        </section>    
-
-    <!--==================================TOBY=======================================-->
-    <script type="text/javascript">
-        var counter = 1;
-        setInterval(function(){
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if(counter > 4){
-                counter = 1;
-            }
-        }, 5000);
-    </script>
-</body>
-</html>
+            <p class="current_rating">0 of 5</p>
+        </div>
+        <div class="review-form">
+            <h4>Review</h4>
+            <textarea title="Review" name="Review" class="review-box" cols="30" rows="10"></textarea>
+        </div>
+        <button class="send-r" type="submit" >Send Review</button>
+    </div>
+</section>
