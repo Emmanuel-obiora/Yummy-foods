@@ -1220,7 +1220,6 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  visibility: hidden;
   position: relative;
 }
 
@@ -1231,9 +1230,14 @@ body {
   position: relative;
   margin-top: 1rem;
 }
+@media (max-width: 64rem) {
+  .order-container1 {
+    width: 70%;
+  }
+}
 @media (max-width: 37.5rem) {
   .order-container1 {
-    width: 80%;
+    width: 90%;
   }
 }
 
@@ -1900,10 +1904,23 @@ body {
 .track-orders {
   display: flex;
   flex-direction: column;
+  visibility: hidden;
   position: absolute;
   width: 45%;
   left: 27.5%;
   z-index: 1;
+}
+@media (max-width: 64rem) {
+  .track-orders {
+    width: 70%;
+    left: 15%;
+  }
+}
+@media (max-width: 37.5rem) {
+  .track-orders {
+    width: 90%;
+    left: 5%;
+  }
 }
 .track-orders-cont {
   display: flex;
@@ -1913,16 +1930,6 @@ body {
   justify-content: center;
   margin-top: 1rem;
   background: rgb(255, 255, 255);
-}
-@media (max-width: 64rem) {
-  .track-orders-cont {
-    width: 70%;
-  }
-}
-@media (max-width: 37.5rem) {
-  .track-orders-cont {
-    width: 90%;
-  }
 }
 .track-orders-cont_top {
   display: flex;
