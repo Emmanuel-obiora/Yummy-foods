@@ -580,3 +580,15 @@ function hideNotify() {
 
     notification.classList.remove("show-notification");
 }
+
+// ================FUNCTION TO DISPLAY ORDER POP-UP=========================
+function showOrder() {
+    var order = document.getElementById("popOrd");
+
+    order.classList.add("reveal-order");
+}
+function hideOrder() {
+    var order = document.getElementById("popOrd");
+
+    order.classList.remove("reveal-order");
+}

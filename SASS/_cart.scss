@@ -228,9 +228,11 @@
 
 .dark-rule2{
     display: flex;
+    align-items: right;
+    justify-content: right;
     height: 3px;
     width: 50%;
-    margin-left: 34%;
+    margin-left: 33.5%;
     background: $color-black;
     margin-bottom: 2rem;
 }
@@ -238,7 +240,7 @@
 .link_total{
     display: none;
     text-align: right;
-    margin-right: 23%;
+    margin-right: 18%;
     font-size: 16px;
 
     & .vat{
@@ -253,12 +255,12 @@
             display: center;
             border-bottom: 3px solid $color-black;
             width: 62%;
-            margin-left: 45%;
+            margin-left: 40%;
         }
     }
     .two{
         & > .cart-total-price{
-            margin-right: 12%;
+            margin-right: 3.5%;
         }
     }
 
