@@ -761,21 +761,27 @@ body {
 .food-container img {
   width: 100%;
   height: 250px;
-  background: rgba(0, 0, 0, 0.3);
   background-size: cover;
-  background-blend-mode: darken;
   border-radius: 10px;
 }
 
 .foods .food-container .layer2 h1 {
-  display: inline;
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   color: #FFFFFF;
   font-size: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+.foods .food-container .layer2 h1:hover {
+  background-color: transparent;
 }
 
 .step-order {
