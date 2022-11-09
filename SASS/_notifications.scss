@@ -1,0 +1,105 @@
+.disable{
+    background: transparent;
+    position: fixed;
+    width: 100vw;
+    height: 100%;
+    margin-top: -5rem;
+    display: flex;
+    overflow-y: initial;
+    transform: translate(-50%, -50%) scale(0.1);
+    left: 92%;
+    visibility: hidden;
+    transition: $transition;
+    
+   @media(max-width: 37.5rem){
+    margin-top: -7.5rem;
+    top: 40%;
+    left: 70%;
+   }
+}
+
+.notification-container{
+    background: $color-white;
+    width: 40%;
+    height: 70vh;
+    overflow-y: auto;
+    margin: 7% 3% 0 57%;
+    display: block;
+
+    @media(max-width: 64rem){
+        width: 55%;
+        margin: 15% 5% 0 40%;
+    }
+
+    @media(max-width: 37.5rem){
+        width: 80%;
+        margin: 25% 5% 0 15%;
+    }
+
+    & > b{
+        display: flex;
+        align-items: right;
+        justify-content: right;
+        padding: .2rem;
+
+        &>i{
+            color: $color-error;
+            cursor: pointer;
+        }
+    }
+
+    & > h3{
+        margin-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    &_main{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+
+        &_parag{
+            display: flex;
+            width: 100%;
+            align-items: top;
+            justify-content: left;
+            height: 6rem;
+            background: $color-bg2;
+            border-radius: 10px;
+            padding: 1rem;
+            font-weight: 300;
+            overflow: hidden;
+        }
+
+        & .time-marker{
+            margin-top: .4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            font-weight: 400;
+        }
+
+    }
+
+}
+
+.show-notification{
+    transform: translate(-50%, -50%) scale(1);
+    left: 50%;
+    top: 62.3%;
+    visibility: visible;
+    z-index: 999;
+
+    @media(max-width: 64rem){
+        left: 50%;
+        top: 62.3%;
+    }
+
+    @media(max-width: 37.5rem){
+        left: 50%;
+        top: 68%;
+    }
+}

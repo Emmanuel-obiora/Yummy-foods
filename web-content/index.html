@@ -39,7 +39,7 @@
                 <div class="left">
                     <button type="button" onclick="openSignin()"> Sign-Up/Sign-in</button>
                     <a href='./user-profile.html' title="User-profile"><i class="fas fa-user-circle"></i></a>
-                    <i class="fas fa-bell"></i>
+                    <i class="fas fa-bell" onclick="showNotify()"></i>
                     <div class="notification">
                     <i class="fas fa-shopping-cart" onclick="openCart(); removeBadge()"></i>
                     <span class="note" id="badge">1</span>
@@ -68,10 +68,7 @@
                         <li class="menu-nav__item" ><a href="#" class="menu-nav__link">Orders</a>
                             <div class="sub-menu1"> 
                                 <ul>
-                                    <li><a href="orderhistry.html">Order History</a></li>
-                                    <li><a href="#">Track Orders</a></li>
-
-                                    <li><a href="#">Order History</a></li>
+                                    <li><a href="./orderhistry.html">Order History</a></li>
                                     <li><a href="./track-order.html">Track Orders</a></li>
                                 </ul>
                             </div>
@@ -83,97 +80,99 @@
         </div>
             
         <!-- ==========================SIGN IN FORM============================================== -->
-    <section class="sign_container" id="signPopup">
-        <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
-        <form class="form" id="login">
-            
-            <h1 class="form__title">Sign in</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <div class="logInput" >
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Email Address">
+    <section class="disable-box" id="signPopup">
+        <div class="sign_container">
+            <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
+            <form class="form" id="login">
+                
+                <h1 class="form__title">Sign in</h1>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <div class="logInput" >
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Email Address">
+                    </div>
+                    <div class="form__input-error-message"></div>
                 </div>
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <div class="logInput">
-                    <i class="fas fa-light fa-key"></i>
-                    <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
-                    <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                <div class="form__input-group">
+                    <div class="logInput">
+                        <i class="fas fa-light fa-key"></i>
+                        <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
+                        <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                    </div>
+                    <div class="form__input-error-message"></div>
                 </div>
-                <div class="form__input-error-message"></div>
-            </div>
-            <p class="form__text">
-                <a href="#" class="form__link"><b>Forgot password</b></a>
-            </p>
+                <p class="form__text">
+                    <a href="#" class="form__link"><b>Forgot password</b></a>
+                </p>
 
-            <p class="form__text2">
-                <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
-            </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
-            <div class="form__foot">
-                <div class="ior">
-                    <hr/>
-                    <b>Or</b>
-                    <hr/>
+                <p class="form__text2">
+                    <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+                </p>
+                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
+                <div class="form__foot">
+                    <div class="ior">
+                        <hr/>
+                        <b>Or</b>
+                        <hr/>
+                    </div>
+                    <b>Sign in using</b>
+                    <div class="socials">
+                        <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                        <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
                 </div>
-                <b>Sign in using</b>
-                <div class="socials">
-                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
-                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
-                </div>
-            </div>
-        </form>
-<!-- ======================================SIGN UP FORM================================================= -->
-        
-        <form class="form form--hidden" id="createAccount">
-            <h1 class="form__title">Sign Up</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <div class="logInput" >
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Email Address">
-                </div>
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <div class="logInput">
-                    <i class="fas fa-light fa-key"></i>
-                    <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
-                    <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
-                </div>
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <div class="logInput">
-                    <i class="fas fa-light fa-key"></i>
-                    <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
-                    <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
-                </div>
-                <div class="form__input-error-message"></div>
-            </div>
-            <p class="form__text3"><b>Password must be up to 8 characters</b></p>
-            <p class="form__text4">
-                <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
-            </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
-            <div class="form__foot">
-                <div class="ior">
-                    <hr/>
-                    <b>Or</b>
-                    <hr/>
-                </div>
-                <b>Sign in using</b>
-                <div class="socials">
-                    <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                    <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
-                    <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
-                </div>
-            </div>
+            </form>
+    <!-- ======================================SIGN UP FORM================================================= -->
             
-        </form>
+            <form class="form form--hidden" id="createAccount">
+                <h1 class="form__title">Sign Up</h1>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <div class="logInput" >
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Email Address">
+                    </div>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <div class="logInput">
+                        <i class="fas fa-light fa-key"></i>
+                        <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
+                        <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+                    </div>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <div class="form__input-group">
+                    <div class="logInput">
+                        <i class="fas fa-light fa-key"></i>
+                        <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
+                        <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+                    </div>
+                    <div class="form__input-error-message"></div>
+                </div>
+                <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+                <p class="form__text4">
+                    <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+                </p>
+                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
+                <div class="form__foot">
+                    <div class="ior">
+                        <hr/>
+                        <b>Or</b>
+                        <hr/>
+                    </div>
+                    <b>Sign in using</b>
+                    <div class="socials">
+                        <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                        <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
     </section>
 
 <!-- =======================================SHOPPING CART=================================-->
@@ -234,94 +233,169 @@
 </section>
 
 <!--====================================DELIVERY INFORMATION=========================================-->
-<section class="info-container" id="showInfo">
-    <b><i class="fas fa-close" onclick="closeInfo()"></i></b>
-    <div class="cart_cont">  
-        <h2 class="section-header">Delivery Information</h2>
-        <div class="cart_cont-date">
-            <span class ="hrs">00</span>
-            <span>:</span>
-            <span class="min">00</span>
-            <span class="space" id="modeT">am</span>
-            <span >,</span>
-            <span class="space" id="dayT">Tuesday</span>
-            <span >,</span>
-            <span class="space date">1</span>
-            <span>-</span>
-            <span class="month">1</span>
-            <span>-</span>
-            <span class="year">2022</span>
-        </div>
-        <form>
-            <div class="info_group">
-                <div class="info_group-item" >
-                    <i class="fas fa-regular fa-phone"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Phone Number" required>
-                </div>
-                <div class="info_group-item" >
-                    <i class="fa-regular fa-envelope"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Address" required>
-                </div>
-                <div class="info_group-item" >
-                    <i class="fas fa-regular fa-book"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Name" required>
-                </div>
+<section class="disable-box" id="showInfo">
+    <div class="info-container">
+        <b><i class="fas fa-close" onclick="closeInfo()"></i></b>
+        <div class="cart_cont">  
+            <h2 class="section-header">Delivery Information</h2>
+            <div class="cart_cont-date">
+                <span class ="hrs">00</span>
+                <span>:</span>
+                <span class="min">00</span>
+                <span class="space" id="modeT">am</span>
+                <span >,</span>
+                <span class="space" id="dayT">Tuesday</span>
+                <span >,</span>
+                <span class="space date">1</span>
+                <span>-</span>
+                <span class="month">1</span>
+                <span>-</span>
+                <span class="year">2022</span>
             </div>
-            <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
-        </form>
+            <form>
+                <div class="info_group">
+                    <div class="info_group-item" >
+                        <i class="fas fa-regular fa-phone"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Phone Number" required>
+                    </div>
+                    <div class="info_group-item" >
+                        <i class="fa-regular fa-envelope"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Address" required>
+                    </div>
+                    <div class="info_group-item" >
+                        <i class="fas fa-regular fa-book"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Name" required>
+                    </div>
+                </div>
+                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+            </form>
+        </div>
     </div>
 </section>
 
 <!--=========================================PAYMENT DETAILS================================================================-->
-<section class="payment-details" id="payD">
-    <b><i class="fas fa-close" onClick="closePay()"></i></b>
-    <div class="payment-details-body">
-        <div class="payment-details-body_top">
-            <h2 class="section-header">Payment Details</h2>
-            <div class="info_group-item" >
-                <i class="fa-regular fa-credit-card"></i>
-                <input type="text" class="form__input" autofocus placeholder="    Card Number*" required>
-            </div>
-            <div class="payment-details-body_top-mid">
+<section class="disable-box" id="payD">
+    <div class="payment-details">
+        <b><i class="fas fa-close" onClick="closePay()"></i></b>
+        <div class="payment-details-body">
+            <div class="payment-details-body_top">
+                <h2 class="section-header">Payment Details</h2>
                 <div class="info_group-item" >
-                    <i class="fa-regular fa-calendar"></i>
-                    <input type="text" class="form__input" autofocus placeholder="    Expiry-Date*" required>
+                    <i class="fa-regular fa-credit-card"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Card Number*" required>
+                </div>
+                <div class="payment-details-body_top-mid">
+                    <div class="info_group-item" >
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="text" class="form__input" autofocus placeholder="    Expiry-Date*" required>
+                    </div>
+                    <div class="info_group-item" >
+                        <input type="text" class="form__input cvv-adjust" autofocus placeholder="    CVV" required>
+                    </div>
                 </div>
                 <div class="info_group-item" >
-                    <input type="text" class="form__input cvv-adjust" autofocus placeholder="    CVV" required>
+                    <i class="fas fa-regular fa-id-card-clip"></i>
+                    <input type="text" class="form__input" autofocus placeholder="    Name" required>
                 </div>
             </div>
-            <div class="info_group-item" >
-                <i class="fas fa-regular fa-id-card-clip"></i>
-                <input type="text" class="form__input" autofocus placeholder="    Name" required>
-            </div>
+            <button class="btn-confirm" type="button">Complete Payment</button>
         </div>
-        <button class="btn-confirm" type="button">Complete Payment</button>
     </div>
 </section>
 
 <!--===========================================PAYMENT SUCCESSFUL========================================-->
-<section class="status-bar" id="statB">
-    <b><i class="fas fa-close"></i></b>
-    <div class="status-bar-successful_body">
-        <h4>Payment Status</h4>
-        <span class="border-success"><i class="fas fa-check"></i></span>
-        <button type="submit" class="btn-sub pay-success">Payment Successful</button>
-        <button type="submit" class="btn-sub order-pla">Order Placed</button>
+<section class="disable-box" id="statB">
+    <div class="status-bar">
+        <b><i class="fas fa-close"></i></b>
+        <div class="status-bar-successful_body">
+            <h4>Payment Status</h4>
+            <span class="border-success"><i class="fas fa-check"></i></span>
+            <button type="submit" class="btn-sub pay-success">Payment Successful</button>
+            <button type="submit" class="btn-sub order-pla">Order Placed</button>
+        </div>
     </div>
 </section>
 
 <!--===========================================PAYMENT SUCCESSFUL========================================-->
-<section class="status-bar2" id="statB2">
-    <b><i class="fas fa-close"></i></b>
-    <div class="status-bar2-error_body">
-        <h4>Payment Status</h4>
-        <span class="border-error"><i class="fas fa-times"></i></span>
-        <button type="submit" class="btn-sub pay-dec">Payment Declined</button>
-        <button type="submit" class="btn-sub btn-back">Back</button>
+<section class="disable-box" id="statB2">
+    <div class="status-bar2">
+        <b><i class="fas fa-close"></i></b>
+        <div class="status-bar2-error_body">
+            <h4>Payment Status</h4>
+            <span class="border-error"><i class="fas fa-times"></i></span>
+            <button type="submit" class="btn-sub pay-dec">Payment Declined</button>
+            <button type="submit" class="btn-sub btn-back">Back</button>
+        </div>
     </div>
 </section>
 
+<!--==========================================NOTIFICATION=============================================-->
+<section class="disable" id=notify>
+    <div class="notification-container">
+        <b><i class="fas fa-close" onClick="hideNotify()"></i></b>
+        <h3>Notifications</h3>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+        <article class="notification-container_main">
+            <div class="notification-container_main_parag">
+                <p>Lorem ipsum dolor sit amet consectetur 
+                    adipisicing elit. Repellat, eveniet!</p>
+            </div>
+            <div class="time-marker">
+                <span class="hour-clock">12:45 p.m.</span>
+                <span class="date-holder">28/11/2022</span>
+            </div>
+        </article>
+    </div>
+</section>
     <!--==================================TOBY=======================================-->
         <section class="display-front">
             <div class="display-text1">
@@ -381,19 +455,19 @@
         <section class="food-hub">
             <div class="foods">
                 <div class="food-container">
-                    <a title="meat" href="meats-and-grills.html"><img src="img/meat.jpg" alt=""/></a>
+                    <a href="meats-and-grills.html" title="meat and grill"><img src="img/meat.jpg" alt=""/></a>
                     <div class="layer2">
                         <h1>Meats and Grills</h1>
                     </div>
                 </div>
                 <div class="food-container">
-                    <a title="continental" href="continental-dishes.html"><img src="img/continental.jpg" alt=""/></a>
+                    <a href="continental-dishes.html" title="continental"><img src="img/continental.jpg" alt=""/></a>
                     <div class="layer2">
                         <h1>Continental Dishes</h1>
                     </div>
                 </div>
                 <div class="food-container">
-                    <a title="native" href="native-delicacies.html"><img src="img/native.jpg" alt=""/></a>
+                    <a href="native-delicacies.html" title="native delicacies"><img src="img/native.jpg" alt=""/></a>
                     <div class="layer2">
                         <h1>Native Delicacies</h1>
                     </div>

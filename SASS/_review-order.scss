@@ -2,13 +2,6 @@
     width: 35%;
     display: block;
     background: $color-white;
-    transform: translate(-50%, -50%) scale(0.1);
-    position: absolute;
-    top: 10%;
-    left: 45%;
-    visibility: hidden;
-    transition: $transition;
-    z-index: 10000;
     border: 2px solid $color-border;
 
     @media (max-width: 64rem){
@@ -16,8 +9,6 @@
     }
     
     @media (max-width: 37.5rem){
-        top: 30%;
-        left: 20%;
         width: 80%;
     }
 

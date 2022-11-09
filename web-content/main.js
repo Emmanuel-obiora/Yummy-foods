@@ -567,3 +567,28 @@ function hideRating() {
 
     rate.classList.remove("open-ratings");
 }
+
+// =================SHOWING MODAL BOX FOR NOTIFICATION AND ENBLING PUSH NOTIFICATION=================
+
+function showNotify() {
+    var notification = document.getElementById("notify");
+
+    notification.classList.add("show-notification");
+}
+function hideNotify() {
+    var notification = document.getElementById("notify");
+
+    notification.classList.remove("show-notification");
+}
+
+// ================FUNCTION TO DISPLAY ORDER POP-UP=========================
+function showOrder() {
+    var order = document.getElementById("popOrd");
+
+    order.classList.add("reveal-order");
+}
+function hideOrder() {
+    var order = document.getElementById("popOrd");
+
+    order.classList.remove("reveal-order");
+}
