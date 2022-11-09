@@ -1,0 +1,109 @@
+.contact-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-us{
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    width: 50%;
+    background: $color-white;
+
+    @media (max-width: 64rem){
+        width: 70%;
+    }
+
+    @media(max-width: 37.5rem){
+        width: 85%;
+    }
+
+    .contact-us_top{
+        display: flex;
+        background: $color-success;
+        align-items: center;
+        justify-content: center;
+        height: 2.5rem;
+        color: $color-white;
+    }
+
+    .contact-us_bottom{
+        height: auto;
+        margin-top: 1rem;
+        display: block;
+        align-content: center;
+        justify-items: center;
+        background: $color-bg2;
+        padding: 0.5rem;
+
+        &-top {
+            color: $color-pry;
+            font-weight: 600;
+            font-size: 23px;
+            font-family: $font-family;
+        }
+
+        &-mid{
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            align-items: left;
+            text-align: left;
+            margin: 5% 20% 0% 20%;
+            font-weight: 400;
+
+            @media(max-width: 37.5rem){
+                margin: 5% 14% 0% 14%;
+            }
+
+            & span{
+                display: flex;
+                border: 2px solid $color-pry;
+                color: $color-pry;
+                height: max-content;
+                align-items: center;
+            }
+
+            &-1st{
+                display: flex;
+                justify-content: space-between;
+                text-align: center;
+                gap: 0.4rem;
+            }
+
+            &-2nd{
+                display: flex;
+                gap: 3.5rem;
+                text-align: center;
+            }
+
+            &-3rd{
+                display: flex;
+                gap: 3.5rem;
+                text-align: center;
+            }
+        }
+
+        &-bottom{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14rem;
+            font-weight: 400;
+            gap: 1rem;
+
+            .contact-icons{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: .5rem;
+                cursor: pointer;
+
+                &:hover{
+                    background: $color-border;
+                    border-radius: 8px 8px 0 0;
+                }
+            }
+        }
+    }
+}
