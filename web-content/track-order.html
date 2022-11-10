@@ -412,9 +412,9 @@
                 <span class="time-guide">2:34 p.m 24-jan-2022</span>
                 <span>Rice, Chicken, Chivita, ...</span>
                 <span>#2,450</span>
-                <div class="order-icon">
+                <div class="order-icon hour-dis">
                     <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
+                    <i class="timer fas fa-hourglass-end" id="prev-del" onclick="showTrack(); timeMole()"></i>
                 </div>
             </article>
             <article class="orders-record">
@@ -446,36 +446,36 @@
         <div class="track-pop-up-cont-body">
             <h3>Track Order</h3>
             <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
-            <div class="track-pop-up-cont-body_mid">
-                <div class="side-ways">
+            <div class="track-pop-up-cont-body_mid" id="soSimple">
+                <div class="side-ways first-wave" id="div1">
                     <h2>1
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Placed</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways second-wave">
+                <div class="side-ways second-wave" id="div2">
                     <h2>2
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Processed</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways third-wave">
+                <div class="side-ways third-wave" id="div3">
                     <h2>3
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Dispatched</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways fourth-wave">
+                <div class="side-ways fourth-wave" id="div4">
                     <h2>4</h2>
                     <small>Order Delivered</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
             </div>
             <div class="track-pop-up-cont-body_bottom">
-                <button type="submit" onClick="showRating()">Review Order</button>
+                <button type="submit" onclick="showRating()">Review Order</button>
                 <button type="submit">Reorder</button>
             </div>
         </div>
@@ -522,3 +522,6 @@
         </div>
     </div>
 </section>
+
+</body>
+</html>

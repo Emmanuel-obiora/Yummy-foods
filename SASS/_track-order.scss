@@ -1,7 +1,7 @@
 .track-orders{
     display: flex;
     flex-direction: column;
-    visibility: hidden;
+    // visibility: hidden;
     position: absolute;
     width: 45%;
     left: 27.5%;
@@ -82,6 +82,11 @@
                     & .hour-t{
                         z-index: 5;
                     }
+                }
+            }
+            .hour-dis{
+                .timer{
+                    z-index: 7;
                 }
             }
         }

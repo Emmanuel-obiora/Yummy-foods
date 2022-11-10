@@ -12,6 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet"> 
 
     <!--====================================FONT AWESOME ICON =====================================-->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" 
     integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
@@ -21,6 +22,13 @@
 
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
+<script src="./food.js" defer></script>
+
+<!--===============================JQUERY==================================================-->
+<script
+			  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+			  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+			  crossorigin="anonymous"></script>
 
 </head>
 <body>
@@ -405,33 +413,38 @@
         <div class="profile-container_top">
             <strong>Profile</strong>
         </div>
-        <div class="profile-container_bottom">
+        <form class="profile-container_bottom" method="post" id="userPro">
             <div class="profile-container_bottom-m">
                 <div class="profile-container_bottom-m-img">
-                    <img src="../Assets/users-profile/avatar1.jpg" alt="user -1"/>
+                    <div id="displayPhoto" class="img-preview"></div>
+                    <label for="picUp" class="pics-adjust"><i class="fas fa-camera"></i></label>
+                    <input title="Upload photo" id="picUp" type="file" class="my-file" accepts="image/png, image/jpg">
                 </div>
                 <div class="profile-container_bottom-m-details">
                     <div class="profile-input">
                         <i class="fas fa-regular fa-id-card-clip"></i>
-                        <input type="text" placeholder="  Name" autofocus title="User Name" />
+                        <input type="text" placeholder="  Name" autofocus title="Full Name" id="fullname"/>
                     </div>
                     <div class="profile-input">
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" placeholder="  Email Address" autofocus title="User Name" />
+                        <input type="text" placeholder="  Email Address" autofocus title="Email" id="pEmail"/>
                     </div>
                     <div class="profile-input">
                         <i class="fas fa-regular fa-phone"></i>
-                        <input type="text" placeholder="  Phone Number" autofocus title="User Name" />
+                        <input type="text" placeholder="  Phone Number" autofocus title="Phone" id="phone"/>
                     </div>
                     <div class="profile-input">
                         <i class="fas fa-map-marker-alt"></i>
-                        <input type="text" placeholder="  Address" autofocus title="User Name" />
+                        <input type="text" placeholder="  Address" autofocus title="Address" id='address'/>
                     </div>
                 </div>
             </div>
             <div class="profile-container_bottom-bottom">
-                <button type="submit" title="Save">Save</button>
+                <button type="submit" value="Add" title="Save">Save</button>
             </div>
-        </div>
+        </form>
     </div>
 </section>
+
+</body>
+</html>

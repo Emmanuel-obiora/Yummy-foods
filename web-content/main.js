@@ -1,28 +1,20 @@
 // =====================JAVASCRIPT FOR LOGIN/SIGNUP PAGE =============================
-var pass = document.getElementById("signupPassword");
-var conf = document.getElementById("confirmPass");
-
-let first = pass.innerHTML;
-let last = conf.innerHTML;
-
-function setFormMessage(formElement, type, message) {
-    const messageElement = formElement.querySelector(".form__message");
-
-    messageElement.textContent = message;
-    messageElement.classList.remove(".form__message--success", ".form__message--error");
-    message.Element.classList.add(`.form__message--${type}`);
-}
-
-// setForMessage(loginForm, "success", "You're logged in!");
-
-function setInputError(inputElement, message) {
-    inputElement.classList.add("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
-}
-
-function clearInputError(inputElement) {
-    inputElement.classList.remove("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
+function validate() {
+    var userEmail = document.getElementById("emailL").value;
+    var password = document.getElementById("password").value;
+    if (userEmail == null || userEmail == "") {
+        alert("Please enter the Email address.");
+        return false;
+    }
+    if (password == null || password == "") {
+        alert("Please enter the password.");
+        return false;
+    }
+    if (password && password.length > 0 && password.length < 8){
+        alert("Password must be up to 8 characters");
+        return false;
+    }
+    
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -41,34 +33,104 @@ document.addEventListener("DOMContentLoaded", () => {
         createAccountForm.classList.add("form--hidden");
     });
 
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
+        //=================== perform your AJAX/Fetch login===============
+    var form=document.getElementById('login');
 
-        // perform your AJAX/Fetch login
+    form.addEventListener('submit', function(e){
+    e.preventDefault()
 
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
+    var mailL =document.getElementById('emailL').value
+    var passL =document.getElementById('password').value
+
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signin', {
+    method: 'POST',
+    body: JSON.stringify({
+    email:mailL,
+    password:passL,
+
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+       }
+       })
+       .then(res => {
+        if (res.ok) { 
+            alert('Login successful');
+            console.log("HTTP request successful") }
+        else { 
+            alert('Wrong Email or Password combination')
+            console.log("HTTP request unsuccessful") }
+        // return res
+    })
+       .then(function(response){ 
+        return response.json()})
+        .then(function(data)
+        {console.log(data)
+        }).catch(error => console.error('Error:', error)); 
     });
 
-    document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e => {
-            if(e.target.id === "signupPassword" && e.target.value.length > 0 && e.target.value.length < 8) {
-                setInputError(inputElement, "Password must be at least 8 character in length");
-            }
-        });
-
-        inputElement.addEventListener("input", e => {
-            clearInputError(inputElement);
-        });
     });
     
-    createAccountForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        if (first == last) {
-            setFormMessage(createAccountForm, "error", "Please try again");
+    // ======VERIFYING USER SIGN UP===============
+    function verify() {
+        var userEmail = document.getElementById("email").value;
+        var password = document.getElementById("signUpPassword").value;
+        var passwordCheck = document.getElementById("confirmPass").value;       
+        if (userEmail == null || userEmail == "") {
+            alert("Please enter the Email address.");
+            return false;
         }
+        if (password == null || password == "") {
+            alert("Please enter the password.");
+            return false;
+        }
+        if (password !== passwordCheck){
+            alert("Password did not match");
+            return true;
+        }
+        if (password.length > 0 && password.length < 8){
+            alert("Password must be up to 8 characters");
+            return false;
+        }
+    } 
+
+    var form=document.getElementById('createAccount');
+
+    form.addEventListener('submit', function(e){
+    e.preventDefault()
+
+    var mail =document.getElementById('email').value
+    var pass =document.getElementById('signUpPassword').value
+    var confPass =document.getElementById('confirmPass').value
+
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signup', {
+    method: 'POST',
+    body: JSON.stringify({
+    email:mail,
+    password:pass,
+    confirmPassword:confPass,
+
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+       }
+       })
+       .then(res => {
+        if (res.ok) { 
+            alert("Signup successful");
+            console.log("HTTP request successful") 
+        }
+        else { 
+            alert("Invalid Email and Password combination");
+            console.log("HTTP request unsuccessful") }
+    })
+       .then(function(response){ 
+        return response.json()})
+        .then(function(data)
+        {console.log(data)
+        }).catch(error => console.error('Error:', error)); 
     });
-});
+// });
 
 
 // =============================nav bar responsive=============================================
@@ -89,13 +151,13 @@ var state = false;
 function toggle(){
     if(state){
         document.getElementById("password").setAttribute("type", "password");
-        document.getElementById("signupPassword").setAttribute("type", "password");
+        document.getElementById("signUpPassword").setAttribute("type", "password");
         document.getElementById("eye").style.colour="#7a797e";
         state = false;
     }
     else {
         document.getElementById("password").setAttribute("type", "text");
-        document.getElementById("signupPassword").setAttribute("type", "text");
+        document.getElementById("signUpPassword").setAttribute("type", "text");
         document.getElementById("eye").style.colour="#5887ef";
         state = true;
     }
@@ -220,7 +282,7 @@ function addItemToCart(title, price, imageSrc) {
             <h3 class="cart-item-title">${title}</h3>
             <div class="item-adder">
             <button type="button" title="reduce" class="minus-d">-</button>
-            <input class="num-d cart-quantity-input" id="numD" type="number" title="item-number" value="1"></input>
+            <input class="num-d cart-quantity-input" type="number" title="item-number" value="1"></input>
             <button type="button" title="increase" class="plus-d">+</button>
             </div>
             <span class="amf cart-price cart-column">${price}</span>
@@ -252,7 +314,6 @@ function updateCartTotal() {
     total = Math.round(total * 100) / 100
     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
 }
-
 
 // =============================DISPLAYING NOTIFICATION BADGE========================================
 
@@ -402,19 +463,81 @@ function hideUpdate() {
         nextBot.style.display = "none";
         present.style.display = "none";
         isShow = true;
-    }
+    };
 }
 
 // ====================FUNCTION TO SEARCH THE SEARCH INPUT BOX==========================
-// function openSearch(){
-//     var x = document.getElementById("search").value
+    const menu =[
+        {title: 'Seafood'},
+        {title: 'Rice'},
+        {title: 'Fufu'},
+        {title: 'Corn'},
+        {title: 'Beans'},
+        {title: 'Africa salad'},
+        {title: 'Agbogbo'},
+        {title: 'Tuwo'},
+        {title: 'Amala'},
+        {title: 'Iyan'},
+        {title: 'Beef'}
+    ];
 
-//     if (x == "dog") {
+    const list = document.getElementById('list');
 
-//         window.open("./index.html");
+    function setList(group){
+        clearList();
+        for (const food of group) {
+            const item = document.createElement('li');
+            item.classList.add('list-group-item');
+            const text = document.createTextNode(food.title);
+            item.appendChild(text);
+            list.appendChild(item);
+        }
+        if (group.length === 0) {
+            setNoResults();
+        }
+    }
 
-//     }
-// }
+    function clearList() {
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+    }
+
+    function setNoResults(){
+        const item = document.createElement('li');
+        item.classList.add('list-group-item');
+        const text = document.createTextNode(food.title);
+        item.appendChild(text);
+        list.appendChild(item);
+    }
+
+    function getRelevancy(value, searchTerm) {
+        if (value === searchTerm) {
+            return 2;
+        } else if (value.startsWith(searchTerm)) {
+            return 1;
+        }else if (value.includes(searchTerm)) {
+            return 0;
+        }else{
+            return -1;
+        }
+    }
+
+    const searchInput = document.getElementById('search');
+
+    searchInput.addEventListener('input', (event) => {
+        let value = event.target.value;
+        if (value && value.trim().length > 0){
+            value = value.trim().toLowerCase();
+            setList(menu.filter(food => {
+                return food.title.includes(value);
+            }).sort((foodA, foodB) => {
+                return getRelevancy(foodB.title, value) - getRelevancy(foodA.title, value);
+            }));
+        }else{
+            clearList();
+        }
+    });
 
 
 // =====================FUNCTION TO OPEN AND CLOSE PAYMENT CHANNEL=======================
@@ -592,3 +715,55 @@ function hideOrder() {
 
     order.classList.remove("reveal-order");
 }
+
+// ================FUNCTION TO UPLOAD IMAGE=============================
+const image_input = document.querySelector('#picUp');
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+    const reader = new FileReader();
+    reader.addEventListener("load", () => {
+        uploaded_image = reader.result;
+        document.querySelector("#displayPhoto").style.backgroundImage = `url(${uploaded_image})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+})
+
+
+
+// ===========SETTING TIMING FOR TRACK POP-UP DISPLAY================
+function timeMole(){
+    function myIntervalFunction() {
+        let first = document.getElementById('div1').style.visibility="visible";
+        let second = document.getElementById('div2').style.visibility="hidden";
+        let third = document.getElementById('div3').style.visibility="hidden";
+        let fourth = document.getElementById('div4').style.visibility="hidden";
+        
+        setInterval(function () {
+            second = document.getElementById('div2').style.visibility="visible";
+        },180000);
+
+        setInterval(function () {
+            third = document.getElementById('div3').style.visibility="visible";
+        },300000);
+
+        setInterval(function () {
+            fourth = document.getElementById('div4').style.visibility="visible";
+        },590000);
+
+        setInterval(function () {
+            document.getElementById('prev-del').style.zIndex="0";
+            document.getElementById('trackO').classList.remove("show-track");
+        },600000);
+
+    };
+
+    var myInterval = setInterval(myIntervalFunction, 10);
+
+    function myTimeoutFunction() {
+    clearInterval(myInterval);
+}
+
+var myTimeout = setTimeout(myTimeoutFunction, 2000);
+
+};
