@@ -600,18 +600,22 @@ body {
 }
 
 .display-front {
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   background: #F5F5F5;
   border: 10px solid #D9D9D9;
   background-position: center;
   padding-top: 1rem;
 }
-@media (max-width: 37.5rem) {
+@media (max-width: 64rem) {
   .display-front {
-    display: grid;
-    grid-template-columns: 1fr;
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
   }
 }
 
@@ -622,6 +626,12 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media (max-width: 64rem) {
+  .swiper-container {
+    width: 80%;
+    height: 40%;
+  }
 }
 
 .swiper {
@@ -640,6 +650,11 @@ body {
   height: 450px;
   border-radius: 10px;
 }
+@media (max-width: 37.5rem) {
+  .swiper-slide img {
+    height: 10%;
+  }
+}
 
 .swiper-slide h3 {
   color: #FFFFFF;
@@ -648,22 +663,35 @@ body {
   top: 90%;
   left: 75%;
 }
+@media (max-width: 37.5rem) {
+  .swiper-slide h3 {
+    left: 60%;
+  }
+}
 
 .swiper .swiper-pagination-bullet-active {
   background: orangered;
 }
 
 /* slide ends */
-.display-front .display-text1 h1 {
-  width: 100%;
-  font-size: 25px;
-  text-align: center;
-  color: #E87E1C;
-}
-
 .display-front .display-text1 {
   width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #E87E1C;
+}
+@media (max-width: 64rem) {
+  .display-front .display-text1 {
+    width: 100%;
+  }
+}
+
+.display-text1 h1 {
+  width: 50%;
+  font-size: 25px;
   text-align: center;
+  justify-content: center;
 }
 
 .display-front .display-text2 {
