@@ -35,105 +35,41 @@
   }
 
   /* slides start */
-  .slider{
-    width: 800px;
-    height: 500px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-
-  .slides{
-    width: 800px;
-    height: 400px;
+  .swiper-container{
+    width: 50%;
+    height: 70vh;
     display: flex;
-  }
-
-  .slides input{
-    display: none;
-  }
-
-  .slide{
-    width: 20%;
-    transition: 2s;
-  }
-
-  .slide img{
-    width: 800px;
-    height: 400px;
-  }
-
-/* slides end */
-
-/* manual navigation starts */
-  .navigation-manual{
-    position: absolute;
-    width: 800px;
-    margin-top: -40px;
-    display: flex;
+    align-items: center;
     justify-content: center;
-    margin-left: -150px;
-  }  
+  }
 
-  .manual-btn{
-    border: 2px solid #E87E1C;
-    padding: 5px;
+  .swiper{
+    width: 100%;
+    height: fit-content;
+  }
+
+  .swiper-slide{
+    position: relative;
+  }
+
+  .swiper-slide img{
+    width: 100%;
+    height: 450px;
     border-radius: 10px;
-    cursor: pointer;
-    transition: 1s;
   }
 
-  .manual-btn:not(:last-child){
-    margin-right: 40px;
-  }
-
-  .manual-btn:hover{
-    background: #E87E1C;
-  }
-
-  #radio1:checked ~ .first{
-    margin-left: 0;
-  }
-
-  #radio2:checked ~ .first{
-    margin-left: -20%;
-  }
-
-  #radio3:checked ~ .first{
-    margin-left: -40%;
-  }
-
-  /* automatic navigation */
-
-  .navigation-auto{
+  .swiper-slide h3{
+    color: #FFFFFF;
+    font-size: 25px;
     position: absolute;
-    display: flex;
-    width: 800px;
-    justify-content: center;
-    margin-top: 360px;
-    margin-left: -150px;
+    top: 90%;
+    left: 75%;
   }
 
-  .navigation-auto div{
-    border: 2px solid #E87E1C;
-    padding: 5px;
-    border-radius: 10px;
-    transition: 1s;
+  .swiper .swiper-pagination-bullet-active{
+    background: orangered;
   }
-
-  .navigation-auto div:not(:last-child){
-    margin-right: 40px;
-  }
-
-  #radio1:checked ~ .navigation-auto .auto-btn1{
-    background: #E87E1C;
-  }
-
-  #radio2:checked ~ .navigation-auto .auto-btn2{
-    background: #E87E1C;
-  }
-  #radio3:checked ~ .navigation-auto .auto-btn3{
-    background: #E87E1C;
-  }
+  /* slide ends */
 
   .display-front .display-text1 h1 {
     width: 100%;

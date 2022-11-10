@@ -22,6 +22,9 @@
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
 
+<!--===================================PICTURE PREVIEW======================-->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -403,42 +406,26 @@
             </div>
 
             <!--picture slides start-->
-            <div class="slider"> 
-                <div class="slides">
-                    <input title="kaitlin" type="radio" name="radio-btn" id="radio1">
-                    <input title="continental" type="radio" name="radio-btn" id="radio2">
-                    <input title="meat" type="radio" name="radio-btn" id="radio3">
-
-                    <div class="slide-first">   
-                        <img src="img/kaitlin.jpg" alt=""/>
-                        <div class="layer">
-                            <h3>Seafood Rice</h3>
-                        </div>
-                    </div>    
-                    <div class="slide">   
-                        <img src="img/continental.jpg" alt=""/>
-                        <div class="layer">
-                            <h3></h3>
-                        </div>
-                    </div>    
-                    <div class="slide">   
-                        <img src="img/meat.jpg" alt=""/>
-                        <div class="layer">
-                            <h3></h3>
-                        </div>
+            <div class="swiper-container">
+                <div class="swiper">
+                    <!-- Additional required wrapper -->
+                    <div class="swiper-wrapper">
+                      <!-- Slides -->
+                      <div class="swiper-slide">
+                        <img src="img/kaitlin.jpg">
+                        <h3>Seafood rice</h3>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/continental.jpg">
+                        <h3>Continental</h3>
+                      </div>
+                      <div class="swiper-slide">
+                        <img src="img/desert.jpg">
+                        <h3>Desert food</h3>
+                      </div>
                     </div>
-                    
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                    </div>
-                </div>
-
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
+                    <!-- If we need pagination -->
+                    <div class="swiper-pagination"></div>
                 </div>
             </div>
             <!--picture slides end-->
@@ -521,15 +508,21 @@
         </section>    
 
     <!--==================================TOBY=======================================-->
-    <script type="text/javascript">
-        var counter = 1;
-        setInterval(function(){
-            document.getElementById('radio' + counter).checked = true;
-            counter++;
-            if(counter > 4){
-                counter = 1;
-            }
-        }, 5000);
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script>
+        const swiper = new Swiper('.swiper', {
+          autoplay: {
+              delay: 3000,
+              disableOnInteraction: false,
+          },
+        loop: true,
+        
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+      });
     </script>
 </body>
 </html>
