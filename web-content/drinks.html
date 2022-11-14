@@ -20,6 +20,8 @@
 
     <!--=====================================JAVASCRIPT===================================-->
     <script src="./main.js" defer></script>
+    <script src="./food.js" defer></script>
+
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -97,7 +99,7 @@
                 <div class="logInput">
                     <i class="fas fa-light fa-key"></i>
                     <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
-                    <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                    <i class="fas fa-light fa-eye second" id="eye" autofocus onclick="toggle()"></i>
                 </div>
                 <div class="form__input-error-message"></div>
             </div>
@@ -108,7 +110,7 @@
             <p class="form__text2">
                 <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
             </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
+            <button class="form__button" type="submit">Sign in</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
@@ -139,7 +141,7 @@
                 <div class="logInput">
                     <i class="fas fa-light fa-key"></i>
                     <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
-                    <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+                    <i class="fas fa-light fa-eye second" id="eye" onclick="toggle()"></i>
                 </div>
                 <div class="form__input-error-message"></div>
             </div>
@@ -147,7 +149,7 @@
                 <div class="logInput">
                     <i class="fas fa-light fa-key"></i>
                     <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
-                    <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+                    <i class="fas fa-light fa-eye second" id="iron" onclick="tog()"></i>
                 </div>
                 <div class="form__input-error-message"></div>
             </div>
@@ -155,7 +157,7 @@
             <p class="form__text4">
                 <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
             </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
+            <button class="form__button" type="submit">Sign Up</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
@@ -224,10 +226,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate(); openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+        <button class="pre-order" type="button">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
+        <button class="btn-confirm" type="button">Confirm Order</button>
     </div>
 </section>
 
@@ -266,7 +268,7 @@
                         <input type="text" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -399,135 +401,8 @@
     <!--============================================DRINKS=========================================-->
     <div class="food_container">
         <div class="food_container-top">Drinks</div>
-        <div class="food_container-buttom">
+        <div class="food_container-buttom" id="drinks">
             
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Ice Tea.jpg" alt="Ice Tea">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Ice Tea</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Soda.jpg" alt="Soda">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Soda</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Strawberry Milkshake.jpg" alt="Strawberry Milkshake">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Strawberry Milkshake</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Banana Milkshake.jpg" alt="Banana Milkshake">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Banana Milkshake</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Ice coffee.jpg" alt="Ice coffee">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Ice coffee</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Coffee.jpg" alt="Coffee">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Coffee</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Zobo Drink.jpg" alt="Zobo Drink">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Zobo Drink</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Drinks/Water.jpg" alt="Water">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Water</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
         </div>
     </div>
 

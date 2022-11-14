@@ -24,6 +24,7 @@
 
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
+<script src="./food.js" defer></script>
 
 </head>
 <body>
@@ -102,7 +103,7 @@
                     <div class="logInput">
                         <i class="fas fa-light fa-key"></i>
                         <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
-                        <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                        <i class="fas fa-light fa-eye second" id="eye" autofocus onclick="toggle()"></i>
                     </div>
                     <div class="form__input-error-message"></div>
                 </div>
@@ -113,7 +114,7 @@
                 <p class="form__text2">
                     <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
                 </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
+                <button class="form__button" type="submit">Sign in</button>
                 <div class="form__foot">
                     <div class="ior">
                         <hr/>
@@ -144,7 +145,7 @@
                     <div class="logInput">
                         <i class="fas fa-light fa-key"></i>
                         <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
-                        <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
+                        <i class="fas fa-light fa-eye second" id="eye" onclick="toggle()"></i>
                     </div>
                     <div class="form__input-error-message"></div>
                 </div>
@@ -152,7 +153,7 @@
                     <div class="logInput">
                         <i class="fas fa-light fa-key"></i>
                         <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
-                        <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
+                        <i class="fas fa-light fa-eye second" id="iron" onclick="tog()"></i>
                     </div>
                     <div class="form__input-error-message"></div>
                 </div>
@@ -160,7 +161,7 @@
                 <p class="form__text4">
                     <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
                 </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
+                <button class="form__button" type="submit">Sign Up</button>
                 <div class="form__foot">
                     <div class="ior">
                         <hr/>
@@ -229,10 +230,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate(); openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+        <button class="pre-order" type="button">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
+        <button class="btn-confirm" type="button">Confirm Order</button>
     </div>
 </section>
 
@@ -271,7 +272,7 @@
                         <input type="text" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -407,34 +408,7 @@
         <div class="track-orders-cont_top">
             <strong>Track Orders</strong>
         </div>
-        <div class="track-orders-cont_bottom">
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon hour-dis">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" id="prev-del" onclick="showTrack(); timeMole()"></i>
-                </div>
-            </article>
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
-                </div>
-            </article>
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
-                </div>
-            </article>
+        <div class="track-orders-cont_bottom" id="trackOrders">
         </div>
     </div>
 </section>
@@ -485,8 +459,8 @@
 <!--===============================STAR REVIEW POP-UP============================-->
 <section class="disable-box" id="ratings">
     <div class="review-order">
-        <b><i class="fas fa-close" onClick="hideRating()"></i></b>
-        <div class="review-order_body">
+        <b><i class="fas fa-close" onclick="hideRating()"></i></b>
+        <form class="review-order_body" id="starRatings">
             <h3>Review Order</h3>
             <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
             <div class="star-rating">
@@ -498,14 +472,14 @@
                     <button type="button" class="star">&#9734</button>
                     <button type="button" class="star">&#9734</button>
                 </div>
-                <p class="current_rating">0 of 5</p>
+                <p class="current_rating" id="currentRating">0</p>
             </div>
             <div class="review-form">
                 <h4>Review</h4>
-                <textarea title="Review" name="Review" class="review-box" cols="30" rows="10"></textarea>
+                <textarea title="Review" name="Review" id="review" class="review-box" cols="30" rows="10"></textarea>
             </div>
             <button class="send-r" type="submit" >Send Review</button>
-        </div>
+        </form>
     </div>
 </section>
 

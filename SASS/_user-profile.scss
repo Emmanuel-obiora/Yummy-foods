@@ -83,6 +83,15 @@
                     visibility: hidden;
                     
                 }
+
+                & > p{
+                    font-weight: 400;
+                    padding: 1rem;
+
+                    &>b{
+                        color:blue;
+                    }
+                }
             }
 
             &-details{

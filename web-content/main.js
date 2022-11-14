@@ -16,7 +16,7 @@ function validate() {
     }
     
 }
-
+// ===============TO TOGGLE BETWEEN SIGN-UP AND LOG-IN PAGES=================
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector('#login');
     const createAccountForm = document.querySelector('#createAccount');
@@ -32,15 +32,25 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
     });
+});
+        //================PERFORMING FETCH LOGIN===============
+    var localEmail = JSON.parse(localStorage.getItem('email'));
+    // console.log(localEmail);
+    var login=document.getElementById('login');
 
-        //=================== perform your AJAX/Fetch login===============
-    var form=document.getElementById('login');
-
-    form.addEventListener('submit', function(e){
+    login.addEventListener('submit', function(e){
     e.preventDefault()
 
     var mailL =document.getElementById('emailL').value
     var passL =document.getElementById('password').value
+
+    // ===VERIFYING A USER'S SIGN IN STATUS=====
+    if(localEmail == mailL){
+        alert(`You are already signed in ${mailL}`);
+        window.history.go(-0);
+        return;
+    } 
+    else{
 
         fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signin', {
     method: 'POST',
@@ -51,27 +61,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }),
     headers: {
         'Content-type': 'application/json; charset=UTF-8',
-       }
-       })
-       .then(res => {
+    }
+    })
+    .then(res => {
         if (res.ok) { 
             alert('Login successful');
+            window.history.go(-0);
             console.log("HTTP request successful") }
         else { 
-            alert('Wrong Email or Password combination')
+            alert('Wrong Email or Password combination');
             console.log("HTTP request unsuccessful") }
-        // return res
+        return res
     })
-       .then(function(response){ 
+    .then(function(response){ 
         return response.json()})
         .then(function(data)
-        {console.log(data)
+        {
+            localStorage.setItem('token', JSON.stringify(data.token));
+            localStorage.setItem('userId', JSON.stringify(data.data.user._id));
+            localStorage.setItem('email', JSON.stringify(data.data.user.email));
+            console.log(data);
         }).catch(error => console.error('Error:', error)); 
+    } 
     });
+    // ===========LOG-OUT A USER==================
+    function logOut(){
+        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+        localStorage.removeItem('userId');
+        alert('You have been logged out');
+        window.location.href=('index.html');
 
-    });
-    
-    // ======VERIFYING USER SIGN UP===============
+    };
+
+    // ===============================VERIFYING USER SIGN UP==================================
     function verify() {
         var userEmail = document.getElementById("email").value;
         var password = document.getElementById("signUpPassword").value;
@@ -103,6 +127,8 @@ document.addEventListener("DOMContentLoaded", () => {
     var pass =document.getElementById('signUpPassword').value
     var confPass =document.getElementById('confirmPass').value
 
+    localStorage.setItem('email', mail );
+
         fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signup', {
     method: 'POST',
     body: JSON.stringify({
@@ -118,6 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
        .then(res => {
         if (res.ok) { 
             alert("Signup successful");
+            window.history.go(-0);
             console.log("HTTP request successful") 
         }
         else { 
@@ -128,6 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json()})
         .then(function(data)
         {console.log(data)
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', JSON.stringify(data.data.user._id));
+            localStorage.setItem('email', JSON.stringify(data.data.user.email));
         }).catch(error => console.error('Error:', error)); 
     });
 // });
@@ -203,117 +233,117 @@ function closeCart() {
 
 // =======================FUNCTIONALITIES FOR CART. (FROM ADD, DELETE AND PRICING ETC)=====================
 
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
+// if (document.readyState == 'loading') {
+//     document.addEventListener('DOMContentLoaded', ready)
+// } else {
+//     ready()
+// }
 
-function ready() {
-    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
-    for (var i = 0; i < removeCartItemButtons.length; i++) {
-        var button = removeCartItemButtons[i]
-        button.addEventListener('click', removeCartItem)
-    }
+// function ready() {
+//     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+//     for (var i = 0; i < removeCartItemButtons.length; i++) {
+//         var button = removeCartItemButtons[i]
+//         button.addEventListener('click', removeCartItem)
+//     }
 
-    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i]
-        input.addEventListener('change', quantityChanged)
-    }
+//     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+//     for (var i = 0; i < quantityInputs.length; i++) {
+//         var input = quantityInputs[i]
+//         input.addEventListener('change', quantityChanged)
+//     }
 
-    var addToCartButtons = document.getElementsByClassName('shop-item-button')
-    for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i]
-        button.addEventListener('click', addToCartClicked)
-    }
+//     var addToCartButtons = document.getElementsByClassName('shop-item-button')
+//     for (var i = 0; i < addToCartButtons.length; i++) {
+//         var button = addToCartButtons[i]
+//         button.addEventListener('click', addToCartClicked)
+//     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
-}
+//     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+// }
 
-function purchaseClicked() {
-    alert('We do hope you would purchase items from us next time')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    updateCartTotal()
-}
+// function purchaseClicked() {
+//     alert('We do hope you would purchase items from us next time')
+//     var cartItems = document.getElementsByClassName('cart-items')[0]
+//     while (cartItems.hasChildNodes()) {
+//         cartItems.removeChild(cartItems.firstChild)
+//     }
+//     updateCartTotal()
+// }
 
-function removeCartItem(event) {
-    var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.parentElement.remove()
-    updateCartTotal()
-}
+// function removeCartItem(event) {
+//     var buttonClicked = event.target
+//     buttonClicked.parentElement.parentElement.parentElement.remove()
+//     updateCartTotal()
+// }
 
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
+// function quantityChanged(event) {
+//     var input = event.target
+//     if (isNaN(input.value) || input.value <= 0) {
+//         input.value = 1
+//     }
+//     updateCartTotal()
+// }
 
-function addToCartClicked(event) {
-    var button = event.target
-    var shopItem = button.parentElement.parentElement.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
-    updateCartTotal()
-}
+// function addToCartClicked(event) {
+//     var button = event.target
+//     var shopItem = button.parentElement.parentElement.parentElement.parentElement
+//     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+//     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+//     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+//     addItemToCart(title, price, imageSrc)
+//     updateCartTotal()
+// }
 
-function addItemToCart(title, price, imageSrc) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to the cart')
-            return
-        }
-    }
-    var cartRowContents = `<article class = "cart-item cart-column menu_list">
-            <div class="image">
-                <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
-            </div>
-            <h3 class="cart-item-title">${title}</h3>
-            <div class="item-adder">
-            <button type="button" title="reduce" class="minus-d">-</button>
-            <input class="num-d cart-quantity-input" type="number" title="item-number" value="1"></input>
-            <button type="button" title="increase" class="plus-d">+</button>
-            </div>
-            <span class="amf cart-price cart-column">${price}</span>
-            <div class="split">
-            <span><i class="fas fa-heart"></i></span>
-            <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
-            </div>
-        </article>`
+// function addItemToCart(title, price, imageSrc) {
+//     var cartRow = document.createElement('div')
+//     cartRow.classList.add('cart-row')
+//     var cartItems = document.getElementsByClassName('cart-items')[0]
+//     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+//     for (var i = 0; i < cartItemNames.length; i++) {
+//         if (cartItemNames[i].innerText == title) {
+//             alert('This item is already added to the cart')
+//             return
+//         }
+//     }
+//     var cartRowContents = `<article class = "cart-item cart-column menu_list">
+//             <div class="image">
+//                 <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
+//             </div>
+//             <h3 class="cart-item-title">${title}</h3>
+//             <div class="item-adder">
+//             <button type="button" title="reduce" class="minus-d">-</button>
+//             <input class="num-d cart-quantity-input" type="number" title="item-number" value="1"></input>
+//             <button type="button" title="increase" class="plus-d">+</button>
+//             </div>
+//             <span class="amf cart-price cart-column">${price}</span>
+//             <div class="split">
+//             <span><i class="fas fa-heart"></i></span>
+//             <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
+//             </div>
+//         </article>`
 
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
-    updateCartTotal()
-}
+//     cartRow.innerHTML = cartRowContents
+//     cartItems.append(cartRow)
+//     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+//     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+//     updateCartTotal()
+// }
 
-function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var total = 0;
-    for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('#', ''))
-        var quantity = quantityElement.value
-        total = total + (price * quantity)
-    }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
-}
+// function updateCartTotal() {
+//     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+//     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+//     var total = 0;
+//     for (var i = 0; i < cartRows.length; i++) {
+//         var cartRow = cartRows[i]
+//         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+//         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+//         var price = parseFloat(priceElement.innerText.replace('#', ''))
+//         var quantity = quantityElement.value
+//         total = total + (price * quantity)
+//     }
+//     total = Math.round(total * 100) / 100
+//     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
+// }
 
 // =============================DISPLAYING NOTIFICATION BADGE========================================
 
@@ -717,18 +747,20 @@ function hideOrder() {
 }
 
 // ================FUNCTION TO UPLOAD IMAGE=============================
-const image_input = document.querySelector('#picUp');
+const image_input = document.querySelector('#picup');
+// console.log(image_input);
 var uploaded_image = "";
 
 image_input.addEventListener("change", function(){
     const reader = new FileReader();
+    // console.log(reader);
     reader.addEventListener("load", () => {
         uploaded_image = reader.result;
+        // console.log(uploaded_image);
         document.querySelector("#displayPhoto").style.backgroundImage = `url(${uploaded_image})`;
     });
     reader.readAsDataURL(this.files[0]);
 })
-
 
 
 // ===========SETTING TIMING FOR TRACK POP-UP DISPLAY================

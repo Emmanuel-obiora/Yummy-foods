@@ -110,7 +110,7 @@
                 <p class="form__text2">
                     <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
                 </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
+                <button class="form__button" type="submit">Sign in</button>
                 <div class="form__foot">
                     <div class="ior">
                         <hr/>
@@ -157,7 +157,7 @@
                 <p class="form__text4">
                     <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
                 </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
+                <button class="form__button" type="submit">Sign Up</button>
                 <div class="form__foot">
                     <div class="ior">
                         <hr/>
@@ -226,10 +226,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate(); openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+        <button class="pre-order" type="button">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
+        <button class="btn-confirm" type="button">Confirm Order</button>
     </div>
 </section>
 
@@ -268,7 +268,7 @@
                         <input type="text" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -404,37 +404,7 @@
         <div class="favourite_container-main-top">
             <strong>Favourites</strong>
         </div>
-        <div class="favourite_container-main-bottom fav-items">
-            <article class="fav-row">
-                <div>
-                    <img class="fav-row_img" src="../Assets/Continental Dishes/Carrot Pasta.jpg" alt="food" />
-                </div>
-                <div>
-                    <h4 class="fav-row_title">Grilled Cheese Burger</h4>
-                </div>
-                <div >
-                    <span class="fav-row_price">#2,450</span>
-                </div>
-                <div class="fav-row_icons">
-                    <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
-                    <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
-                </div>
-            </article>
-            <article class="fav-row">
-                <div>
-                    <img class="fav-row_img" src="../Assets/Continental Dishes/Carrot Pasta.jpg" alt="food" />
-                </div>
-                <div>
-                    <h4 class="fav-row_title">Grilled Cheese Burger</h4>
-                </div>
-                <div >
-                    <span class="fav-row_price">#2,450</span>
-                </div>
-                <div class="fav-row_icons">
-                    <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
-                    <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
-                </div>
-            </article>
+        <div class="favourite_container-main-bottom fav-items" id="favourites">
             <article class="fav-row">
                 <div>
                     <img class="fav-row_img" src="../Assets/Continental Dishes/Carrot Pasta.jpg" alt="food" />

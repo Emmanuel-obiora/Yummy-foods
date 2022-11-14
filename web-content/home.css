@@ -1757,6 +1757,13 @@ body {
   display: none;
   visibility: hidden;
 }
+.profile-container_bottom-m-img > p {
+  font-weight: 400;
+  padding: 1rem;
+}
+.profile-container_bottom-m-img > p > b {
+  color: blue;
+}
 .profile-container_bottom-m-details {
   width: 70%;
   height: 27vh;
@@ -2234,6 +2241,14 @@ body {
   width: 100%;
   background: #f5dec8;
   resize: none;
+  outline: none;
+  font-size: 18px;
+  padding: 5px;
+}
+.review-order_body .review-form .review-box:focus {
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: 2px solid #E87E1C;
 }
 .review-order_body .send-r {
   display: flex;
