@@ -21,6 +21,7 @@
     <!--=====================================JAVASCRIPT===================================-->
     <script src="./main.js" defer></script>
     <script src="./food.js" defer></script>
+    <script src="./post.js" defer></script>
 </head>
 <body>
      <!--==================================PANTHER===================================-->
@@ -154,7 +155,7 @@
                         <b>Or</b>
                         <hr/>
                     </div>
-                    <b>Sign in using</b>
+                    <b>Sign up using</b>
                     <div class="socials">
                         <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
                         <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
@@ -165,6 +166,22 @@
             </form>
         </div>
     </section>
+
+<!--============================FORGOT PASSWORD===================================-->
+<section class="disable-box" id="forgotPass">
+    <div class="recover-page">
+        <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
+        <form class="recover-page_main" id="forgotPasswords">
+            <h4>Forgot Password</h4>
+            <div class="resetInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+            </div>
+            <p>Enter retrieval email address</p>
+            <button type="reset" class="reset-pass">Reset Password</button>
+        </form>
+    </div>
+</section>
 
 <!-- =======================================SHOPPING CART=================================-->
 
@@ -216,10 +233,10 @@
         </div>
     </div>
     <span class="dark-rule2"></span>
-    <button class="pre-order" type="button">Payment</button>
-    <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
+    <button class="pre-order" type="button" onclick="openPay()">Payment</button>
+    <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
 
-    <button class="btn-confirm" type="button">Confirm Order</button>
+    <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
 </div>
 </section>
 
@@ -389,7 +406,7 @@
 </section>
 
      <!--=======================================ORDER HISTORY=============================================-->
-    <section class="order-container">
+    <section class="order-container" id="emptyHistory">
         <div class="order-container1">
             <div class="history">    
                 Order History
@@ -402,7 +419,7 @@
     </section>
 
             <!--==============================WITH ORDER HISTORY===========================-->
-    <section class="track-orders move-up">
+    <section class="track-orders move-up" id="infoHistory">
         <div class="track-orders-cont">
             <div class="track-orders-cont_top">
                 <strong>Order History</strong>

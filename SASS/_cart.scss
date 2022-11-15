@@ -125,6 +125,11 @@
             background: $color-success;
         }
 
+        &:active{
+            transform: scale(0.90);
+            transition: all 400ms ease-in-out;
+        }
+
     }
 }
 
@@ -167,6 +172,11 @@
             background: transparent;
             color: $color-pry;
             cursor: pointer;
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
         }
 
         .num-d{

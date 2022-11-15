@@ -21,6 +21,7 @@
 <!--=====================================JAVASCRIPT===================================-->
     <script src="./main.js" defer></script>
     <script src="./food.js" defer></script>
+    <script src="./post.js" defer></script>
     
 </head>
 <body>
@@ -105,7 +106,7 @@
                 <p class="form__text2">
                     <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
                 </p>
-                <button class="form__button" type="submit" onclick="validate(); reValidateLog ()">Sign in</button>
+                <button class="form__button" type="submit" onclick="validate()">Sign in</button>
                 <div class="form__foot">
                     <div class="ior">
                         <hr/>
@@ -167,6 +168,22 @@
         </div>
     </section>
 
+<!--============================FORGOT PASSWORD===================================-->
+<section class="disable-box" id="forgotPass">
+    <div class="recover-page">
+        <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
+        <form class="recover-page_main" id="forgotPasswords">
+            <h4>Forgot Password</h4>
+            <div class="resetInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+            </div>
+            <p>Enter retrieval email address</p>
+            <button type="reset" class="reset-pass">Reset Password</button>
+        </form>
+    </div>
+</section>
+
 <!-- =======================================SHOPPING CART=================================-->
 
 <section class="cart-container" id="showCart">
@@ -217,10 +234,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
+        <button class="pre-order" type="button" onclick="openPay()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
     
-        <button class="btn-confirm" type="button">Confirm Order</button>
+        <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
 </section>
 

@@ -3,7 +3,7 @@ let storeData = JSON.parse(localStorage.getItem('userId'));
 // console.log(storeData);
 
 // =======CONTINENTAL DISH CATEGORY==============
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Continental').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
@@ -26,7 +26,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods').then((data) =
         </div>
     </article>`
     });
-    document.getElementById("continental").innerHTML=data1;
+    let me = document.getElementById("continental").innerHTML=JSON.stringify(data1);
+    // console.log(me);
 
 }).catch((err) =>{
     // console.log(err);
@@ -156,7 +157,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=contin
 
 // ===================DRINKS==========================
 fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Drinks').then((data) => {
-    // console.log(data);
+    console.log(data);
     return data.json();
 }).then((drinksorder) => {
     // console.log(drinksorder);
@@ -179,7 +180,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Drinks
         </div>
     </article>`
     });
-    document.getElementById("drinks").innerHTML=data6;
+    let obi = document.getElementById("drinks").innerHTML=JSON.stringify(data6);
+    console.log(obi);
 
 }).catch((err) =>{
     // console.log(err);
@@ -202,6 +204,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/').th
     </a>`
     });
     document.getElementById("orderHistory").innerHTML=order;
+    revealHistory();
 
 }).catch((err) =>{
     // console.log(err);
@@ -226,6 +229,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one')
     </article>`
     });
     document.getElementById("trackOrders").innerHTML=order;
+    revealTrack();
 
 }).catch((err) =>{
     // console.log(err);

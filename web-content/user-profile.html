@@ -90,7 +90,7 @@
         </div>
             
         <!-- ==========================SIGN IN FORM============================================== -->
-         <section class="disable-box" id="signPopup">
+        <section class="disable-box" id="signPopup">
             <div class="sign_container">
                 <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
                 <form class="form" method="post" id="login">
@@ -130,7 +130,7 @@
                         </div>
                     </div>
                 </form>
-        <-- ======================================SIGN UP FORM================================================= -->
+        <!-- ======================================SIGN UP FORM================================================= -->
                 
                 <form class="form form--hidden" method="post" id="createAccount">
                     <h1 class="form__title">Sign Up</h1>
@@ -165,7 +165,7 @@
                             <b>Or</b>
                             <hr/>
                         </div>
-                        <b>Sign in using</b>
+                        <b>Sign up using</b>
                         <div class="socials">
                             <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
                             <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
@@ -175,7 +175,23 @@
                     
                 </form>
             </div>
-        </section> -->
+        </section>
+
+<!--============================FORGOT PASSWORD===================================-->
+<section class="disable-box" id="forgotPass">
+    <div class="recover-page">
+        <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
+        <form class="recover-page_main" id="forgotPasswords">
+            <h4>Forgot Password</h4>
+            <div class="resetInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+            </div>
+            <p>Enter retrieval email address</p>
+            <button type="reset" class="reset-pass">Reset Password</button>
+        </form>
+    </div>
+</section>
 
 <!-- =======================================SHOPPING CART=================================-->
 
@@ -227,10 +243,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button">Cancel Order</button>
+        <button class="pre-order" type="button" onclick="openPay()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
 
-        <button class="btn-confirm" type="button">Confirm Order</button>
+        <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
 </section>
 

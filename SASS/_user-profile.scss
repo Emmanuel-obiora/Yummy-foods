@@ -177,7 +177,20 @@
                 &:hover{
                     background: $color-success;
                 }
+
+                &:active{
+                    transform: scale(0.90);
+                    transition: all 400ms ease-in-out;
+                }
             }
         }
     }
+}
+
+.log-out{
+    color: $color-error;
+    font-weight: 600;
+    background: $color-white;
+    font-size: 16px;
+    border-radius: 5px;
 }

@@ -1,7 +1,7 @@
 .track-orders{
     display: flex;
     flex-direction: column;
-    // visibility: hidden;
+    visibility: hidden;
     position: absolute;
     width: 45%;
     left: 27.5%;
@@ -104,4 +104,8 @@
             cursor: pointer;
             border: 1px solid $color-black;
         }
+}
+
+.info-empty-track{
+    visibility: visible;
 }

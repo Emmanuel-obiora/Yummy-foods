@@ -799,3 +799,35 @@ function timeMole(){
 var myTimeout = setTimeout(myTimeoutFunction, 2000);
 
 };
+
+// ===========TO REVEAL HIDDEN RECORDS WITH INFO FOR ORDER/TRACK HISTORY================
+
+function revealHistory(){
+    var emptyHistory = document.getElementById('emptyHistory');
+    var infoHistory = document.getElementById('infoHistory');
+
+    emptyHistory.classList.add("info-empty-history");
+    infoHistory.classList.add("info-empty-track");
+}
+
+function revealTrack(){
+    var emptyTrack = document.getElementById('emptyTrack');
+    var infoTrack = document.getElementById('infoTrack');
+
+    emptyTrack.classList.add("info-empty-history");
+    infoTrack.classList.add("info-empty-track");
+}
+
+// =======FUNCTION TO DISPLAY FORGOT PASSWORD MODAL BOX=================
+function showForgotPass(){
+    var forgotPassword = document.getElementById('forgotPass');
+
+    forgotPassword.classList.add("show-forgot-pass");
+}
+
+function hideForgotPas(){
+    var forgotPassword = document.getElementById('forgotPass');
+
+    forgotPassword.classList.remove("show-forgot-pass");
+}
+

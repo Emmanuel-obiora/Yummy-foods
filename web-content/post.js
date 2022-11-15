@@ -118,7 +118,7 @@ var profile = document.getElementById('usersProfile');
     // =================== POSTING USER RATING =============================
     var form=document.getElementById('starRatings');
     
-    form.addEventListener('submit', function(e){
+    form.submit( function(e){
     e.preventDefault()
     
     var number = document.getElementById('currentRating').value
@@ -155,13 +155,13 @@ var profile = document.getElementById('usersProfile');
     var update=document.getElementById('userDelivery');
     
     update.addEventListener('submit', function(e){
-    e.preventDefault()
+        e.preventDefault()
     
     var deliveryPhone = document.getElementById('delivPhone').value
     var deliveryAddress = document.getElementById('delivAddress').value
     var deliveryName = document.getElementById('delivName').value
     
-        fetch('https://food-delivery-app-lab3.herokuapp.com/api/users/'+proUser, {
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/'+proUser, {
     method: 'PUT',
     body: JSON.stringify({
     phone: deliveryPhone,
@@ -176,7 +176,7 @@ var profile = document.getElementById('usersProfile');
        .then(res => {
         if (res.ok) { 
             alert("Your delivery information has been updated");
-            closeInfo(); openPay();
+            closeInfo(); showUpdate();
             console.log("HTTP request successful") 
         }
         else { 
@@ -193,8 +193,8 @@ var profile = document.getElementById('usersProfile');
     // ===============POSTING USER'S PAYMENT DETAILS===================
     var form=document.getElementById('payment');
 
-    form.addEventListener('submit', function(e){
-    e.preventDefault()
+    form.submit( function(e){
+        e.preventDefault()
     
     var cardNumber = document.getElementById('cardNumber').value
     var expiryDate = document.getElementById('expiryDate').value
@@ -220,6 +220,40 @@ var profile = document.getElementById('usersProfile');
         }
         else { 
             showD();
+            console.log("HTTP request unsuccessful") }
+    })
+       .then(function(response){ 
+        return response.json()})
+        .then(function(data)
+        {console.log(data)
+        }).catch(error => console.error('Error:', error)); 
+    });
+
+    // ==================FORGOT PASSWORD AUTHENTICATION=====================
+    var recovery=document.getElementById('forgotPasswords');
+    
+    recovery.addEventListener('submit', function(e){
+        e.preventDefault()
+    
+    var forgotEmail = document.getElementById('recoverMe').value
+    
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/forgot-password'+proUser, {
+    method: 'PUT',
+    body: JSON.stringify({
+    email: forgotEmail
+    
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+       }
+       })
+       .then(res => {
+        if (res.ok) { 
+            alert("Your email has been verified, please fill the reset password form below.");
+            console.log("HTTP request successful") 
+        }
+        else { 
+            alert("Email address not found");
             console.log("HTTP request unsuccessful") }
     })
        .then(function(response){ 

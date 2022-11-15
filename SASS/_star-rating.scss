@@ -112,6 +112,11 @@
             &:hover{
                 background: $color-success;
             }
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
         }
     }
 
