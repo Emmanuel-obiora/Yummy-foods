@@ -1,0 +1,136 @@
+.review-order{
+    width: 35%;
+    display: block;
+    background: $color-white;
+    border: 2px solid $color-border;
+
+    @media (max-width: 64rem){
+        width: 60%
+    }
+    
+    @media (max-width: 37.5rem){
+        width: 80%;
+    }
+
+    
+    & > b{
+        display: block;
+        text-align: right;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 3px;
+
+        & > i{
+            color: $color-error;
+        }
+    }
+
+    &_body{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        align-items: center;
+        justify-content: center;
+        margin-top: .5rem;
+
+        &>h3{
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        &>span{
+            font-weight: 400;
+        }
+
+        & .star-rating{
+            margin-top: 1.5rem;
+            align-items: left;
+            justify-content: left;
+            width: 100%;
+
+            &_class{
+                display: flex;
+                justify-content: space-around;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                .star{
+                    font-size: 3rem;
+                    border: none;
+                    color: $color-pry;
+                    background-color: unset;
+                    font-weight: 600;
+                    cursor: pointer;
+                }
+            }
+
+            .current_rating{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 400;
+
+            }
+        }
+
+        & .review-form{
+            margin-top: 1rem;
+            width: 100%;
+            align-items: left;
+            justify-content: left;
+            gap: .3rem;
+
+            & .review-box{
+                width: 100%;
+                background: $color-bg2;
+                resize: none;
+                outline: none;
+                font-size: 18px;
+                padding: 5px;
+
+                &:focus{
+                    background: $color-white;
+                    color: $color-black;
+                    border: 2px solid $color-pry;
+                }
+            }
+        }
+
+        & .send-r{
+            display: flex;
+            width: 100%;
+            background: $color-pry;         
+            margin: 2.5rem 0 1rem 0;
+            color: $color-white;
+            border-radius: 8px;
+            align-items: center;
+            justify-content: center;
+            height: 2.4rem;
+
+            &:hover{
+                background: $color-success;
+            }
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
+        }
+    }
+
+}
+
+.open-ratings{
+    transform: translate(-50%, -50%) scale(1);
+    top: 60%;
+    left: 50%;
+    visibility: visible;
+    z-index: 999;
+    
+    @media (max-width: 37.5rem){
+        top: 72%;
+        left: 50%;
+    }
+}

@@ -20,6 +20,9 @@
 
     <!--=====================================JAVASCRIPT===================================-->
     <script src="./main.js" defer></script>
+    <script src="./food.js" defer></script>
+    <script src="./post.js" defer></script>
+    
 </head>
 <body>
     <!--==================================PANTHER===================================-->
@@ -108,7 +111,7 @@
             <p class="form__text2">
                 <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
             </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
+            <button class="form__button" type="submit">Sign in</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
@@ -155,14 +158,14 @@
             <p class="form__text4">
                 <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
             </p>
-            <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
+            <button class="form__button" type="submit">Sign Up</button>
             <div class="form__foot">
                 <div class="ior">
                     <hr/>
                     <b>Or</b>
                     <hr/>
                 </div>
-                <b>Sign in using</b>
+                <b>Sign up using</b>
                 <div class="socials">
                     <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
                     <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
@@ -170,6 +173,22 @@
                 </div>
             </div>
             
+        </form>
+    </div>
+</section>
+
+<!--============================FORGOT PASSWORD===================================-->
+<section class="disable-box" id="forgotPass">
+    <div class="recover-page">
+        <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
+        <form class="recover-page_main" id="forgotPasswords">
+            <h4>Forgot Password</h4>
+            <div class="resetInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+            </div>
+            <p>Enter retrieval email address</p>
+            <button type="reset" class="reset-pass">Reset Password</button>
         </form>
     </div>
 </section>
@@ -224,10 +243,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate(); openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+        <button class="pre-order" type="button" onclick="openPay()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
+        <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
 </section>
 
@@ -266,7 +285,7 @@
                         <input type="text" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -399,135 +418,7 @@
     <!--=======================================DESERTS=============================================-->
     <div class="food_container">
         <div class="food_container-top">Desserts</div>
-        <div class="food_container-buttom">
-            
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Mixed Fruit Sticks.jpg" alt="Mixed Fruit Sticks">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Mixed Fruit Sticks</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Chocolate Peps.jpg" alt="Chocolate Peps">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Chocolate Peps</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Coke Cups.jpg" alt="Coke Cups">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Coke Cups</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Chocolate Bars.jpg" alt="Chocolate Bars">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Chocolate Bars</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Fruit Sorbets.jpg" alt="Fruit Sorbets">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Fruit Sorbets</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Biscuff Creme Cups.jpg" alt="Biscuff Creme Cups">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Biscuff Creme Cups</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Vanilla Ice Creams.jpg" alt="Vanilla Ice Creams">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Vanilla Ice Creams</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
-
-            <article class = "menu_list shop-item">
-                <div class="menu_list-image">
-                    <img class="shop-item-image fav-image" src="/Assets/Desserts/Cheese Cake.jpg" alt="Cheese Cake">
-                </div>
-                <div class="menu_list-summary">
-                    <div class="menu_list-summary-about">
-                        <h3 class="shop-item-title fav-title">Cheese Cake</h3>
-                        <span class="shop-item-price fav-price"><b>#2450.00</b></span>
-                    </div>
-                    <div class="menu_list-summary-icons shop-item-details">
-                        <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                        <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
-                    </div>
-                </div>
-            </article>
+        <div class="food_container-buttom" id="desert">
         </div>
     </div>
 

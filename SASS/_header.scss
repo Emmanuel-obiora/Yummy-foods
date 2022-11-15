@@ -28,7 +28,7 @@
         border-radius: 5px;
         background: $color-white;
         border: 2px solid $color-border;
-        z-index: 5;
+        z-index: 10;
 
         @media (max-width: 37.5rem){
             width: auto;
@@ -38,10 +38,11 @@
             display: flex;
             width: 100%;
             position: relative;
+            font-size: 25px;
+            font-weight: 500;
 
 
             &__header{
-                font-size: 0.7rem;
                 padding: 0 0.5em;
                 border: 0;
                 background: transparent;
@@ -70,26 +71,23 @@
                 }
             }
         }
-    
-    //     &-menu-cards{
-    //         display: grid;
-    //         grid-template-columns: repeat (auto-fill, minmax(150px, 1fr));
-    //         gap: .25rem;
-    //         margin-top: .4rem;
-    //         border-radius: 5px;
-    //         background: $color-white;
-    //         border: 2px solid $color-border;
 
-    //         &__card{
-    //             background: $color-white;
-    //             padding: .5rem;
-    //             color: $color-black;
-    //             font-size: 0.9rem;
-    //         }
-    //     }
-    //     .hide{
-    //         display: none;
-    //     }
+        & > .list-group{
+            display: grid;
+            text-align: left;
+            background: $color-white;
+            border-bottom: 2px solid $color-pry-varient;
+            border-left: 2px solid $color-pry-varient;
+            border-right: 2px solid $color-pry-varient;
+            height: auto;
+            color: $color-black;
+            z-index: 10;
+            position: relative;
+            gap: .5rem;
+            font-weight: 300;
+            margin-top: 6px;
+        }
+    
     }
 
     .left{

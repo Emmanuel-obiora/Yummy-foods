@@ -84,6 +84,11 @@
                     }
                 }
             }
+            .hour-dis{
+                .timer{
+                    z-index: 7;
+                }
+            }
         }
     }
 }
@@ -99,4 +104,8 @@
             cursor: pointer;
             border: 1px solid $color-black;
         }
+}
+
+.info-empty-track{
+    visibility: visible;
 }

@@ -66,6 +66,11 @@
             &:hover{
                 color: $color-white;
             }
+
+            &:active{
+                transform: scale(0.90);
+                transition: all 400ms ease-in-out;
+            }
         }
 
         .pay-success{

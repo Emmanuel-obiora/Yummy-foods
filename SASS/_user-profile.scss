@@ -13,11 +13,11 @@
     margin-top: 1rem;
 
     @media (max-width: 64rem){
-        width: 60%;
+        width: 70%;
     }
 
     @media(max-width: 37.5rem){
-        width: 80%;
+        width: 90%;
     }
 
     &_top{
@@ -42,18 +42,55 @@
             width: 100%;
 
             &-img {
-                display: flex;
-                width: 25%;
-                margin-right: 5%;
                 height: auto;
+                width: 150px;
+                position: relative;
+                border: 5px solid $color-white;
+                margin-right: 2%;
 
-                & > img{
+                & >.img-preview{
+                height: 100%;
+                width: 100%;
+                background: url('../Assets/users-profile/no-face.png');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                overflow: hidden;
+                }
+
+                & .pics-adjust{
+                    position: absolute;
+                    bottom: 0;
+                    color: $color-white;
+                    background: $color-pry-varient;
+                    opacity: 0;
                     width: 100%;
-                    height: 27vh;
-                    background-repeat: no-repeat;
-                    background-position: center;
-                    background-size: cover;
-                    flex-grow: 1px 1px 0px;
+                    text-align: center;
+                    padding: 5px;
+                    font-size: 23px;
+                    cursor: pointer;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    user-select: none;
+
+                    &:hover{
+                        opacity: 1;
+                    }
+                }
+
+                & .my-file{
+                    display: none;
+                    visibility: hidden;
+                    
+                }
+
+                & > p{
+                    font-weight: 400;
+                    padding: 1rem;
+
+                    &>b{
+                        color:blue;
+                    }
                 }
             }
 
@@ -61,21 +98,21 @@
                 width: 70%;
                 height: 27vh;
                             
-                        .form__input{
-                            
-            
-                            &::placeholder{
-                                font-weight: 300;
-                                text-align: left;
-            
-                            }
-                            
-                            &:focus{
-                                background: $color-white;
-                                color: $color-black;
-                                border: 2px solid $color-pry;
-                            }
+                    .form__input{
+                        
+        
+                        &::placeholder{
+                            font-weight: 300;
+                            text-align: left;
+        
                         }
+                        
+                        &:focus{
+                            background: $color-white;
+                            color: $color-black;
+                            border: 2px solid $color-pry;
+                        }
+                    }
 
                 .profile-input{
                     display: flex;
@@ -140,7 +177,20 @@
                 &:hover{
                     background: $color-success;
                 }
+
+                &:active{
+                    transform: scale(0.90);
+                    transition: all 400ms ease-in-out;
+                }
             }
         }
     }
+}
+
+.log-out{
+    color: $color-error;
+    font-weight: 600;
+    background: $color-white;
+    font-size: 16px;
+    border-radius: 5px;
 }

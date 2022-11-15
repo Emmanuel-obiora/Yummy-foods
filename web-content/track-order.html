@@ -24,6 +24,8 @@
 
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
+<script src="./food.js" defer></script>
+<script src="./post.js" defer></script>
 
 </head>
 <body>
@@ -83,101 +85,108 @@
         </div>
             
         <!-- ==========================SIGN IN FORM============================================== -->
-
-    <section class="disable-box" id="signPopup">
-        <div class="sign_container">
-            <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
-            <form class="form" id="login">
+        <section class="disable-box" id="signPopup">
+            <div class="sign_container">
+                <b><i class="fas fa-close" onclick="closeSignin(); removeBadge()"></i></b>
+                <form class="form" method="post" id="login">
+                    <h1 class="form__title">Sign in</h1>
+                    <div class="form__input-group">
+                        <div class="logInput" >
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" id="emailL" class="form__input" autofocus placeholder="    Email Address">
+                        </div>
+                    </div>
+                    <div class="form__input-group">
+                        <div class="logInput">
+                            <i class="fas fa-light fa-key"></i>
+                            <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
+                            <i class="fas fa-light fa-eye second" id="eye" autofocus onclick="toggle()"></i>
+                        </div>
+                    </div>
+                    <p class="form__text">
+                        <a href="#" class="form__link"><b>Forgot password</b></a>
+                    </p>
+    
+                    <p class="form__text2">
+                        <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
+                    </p>
+                    <button class="form__button" type="submit" onclick="validate()">Sign in</button>
+                    <div class="form__foot">
+                        <div class="ior">
+                            <hr/>
+                            <b>Or</b>
+                            <hr/>
+                        </div>
+                        <b>Sign in using</b>
+                        <div class="socials">
+                            <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                            <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                </form>
+        <!-- ======================================SIGN UP FORM================================================= -->
                 
-                <h1 class="form__title">Sign in</h1>
-                <div class="form__message form__message--error"></div>
-                <div class="form__input-group">
-                    <div class="logInput" >
-                        <i class="fa-regular fa-envelope"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Email Address">
+                <form class="form form--hidden" method="post" id="createAccount">
+                    <h1 class="form__title">Sign Up</h1>
+                    <div class="form__input-group">
+                        <div class="logInput" >
+                            <i class="fa-regular fa-envelope"></i>
+                            <input type="email" id="email" class="form__input" autofocus placeholder="    Email Address">
+                        </div>
                     </div>
-                    <div class="form__input-error-message"></div>
-                </div>
-                <div class="form__input-group">
-                    <div class="logInput">
-                        <i class="fas fa-light fa-key"></i>
-                        <input type="password" class="form__input" autofocus placeholder="    Password" id="password">
-                        <i class="fas fa-light fa-eye second" id="eye" autofocus onClick="toggle()"></i>
+                    <div class="form__input-group">
+                        <div class="logInput">
+                            <i class="fas fa-light fa-key"></i>
+                            <input type="password" id="signUpPassword" class="form__input" autofocus placeholder="    Password">
+                            <i class="fas fa-light fa-eye second" id="eye" onclick="toggle()"></i>
+                        </div>
                     </div>
-                    <div class="form__input-error-message"></div>
-                </div>
-                <p class="form__text">
-                    <a href="#" class="form__link"><b>Forgot password</b></a>
-                </p>
+                    <div class="form__input-group">
+                        <div class="logInput">
+                            <i class="fas fa-light fa-key"></i>
+                            <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
+                            <i class="fas fa-light fa-eye second" id="iron" onclick="tog()"></i>
+                        </div>
+                    </div>
+                    <p class="form__text3"><b>Password must be up to 8 characters</b></p>
+                    <p class="form__text4">
+                        <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
+                    </p>
+                    <button class="form__button" type="submit" value="Add" onclick="verify()">Sign Up</button>
+                    <div class="form__foot">
+                        <div class="ior">
+                            <hr/>
+                            <b>Or</b>
+                            <hr/>
+                        </div>
+                        <b>Sign up using</b>
+                        <div class="socials">
+                            <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
+                            <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </section>
 
-                <p class="form__text2">
-                    <a class="form__link" href="#" id="linkCreateAccount">Don't have an account? <b>Sign up</b></a>
-                </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign in</button>
-                <div class="form__foot">
-                    <div class="ior">
-                        <hr/>
-                        <b>Or</b>
-                        <hr/>
-                    </div>
-                    <b>Sign in using</b>
-                    <div class="socials">
-                        <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
-                        <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
-                    </div>
-                </div>
-            </form>
-    <!-- ======================================SIGN UP FORM================================================= -->
-            
-            <form class="form form--hidden" id="createAccount">
-                <h1 class="form__title">Sign Up</h1>
-                <div class="form__message form__message--error"></div>
-                <div class="form__input-group">
-                    <div class="logInput" >
-                        <i class="fa-regular fa-envelope"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Email Address">
-                    </div>
-                    <div class="form__input-error-message"></div>
-                </div>
-                <div class="form__input-group">
-                    <div class="logInput">
-                        <i class="fas fa-light fa-key"></i>
-                        <input type="password" id="signupPassword" class="form__input" autofocus placeholder="    Password">
-                        <i class="fas fa-light fa-eye second" id="eye" onClick="toggle()"></i>
-                    </div>
-                    <div class="form__input-error-message"></div>
-                </div>
-                <div class="form__input-group">
-                    <div class="logInput">
-                        <i class="fas fa-light fa-key"></i>
-                        <input type="password" id="confirmPass" class="form__input" autofocus placeholder="    Confirm Password">
-                        <i class="fas fa-light fa-eye second" id="iron" onClick="tog()"></i>
-                    </div>
-                    <div class="form__input-error-message"></div>
-                </div>
-                <p class="form__text3"><b>Password must be up to 8 characters</b></p>
-                <p class="form__text4">
-                    <a class="form__link" href="#" id="linkLogin">Already have an account?<b>Sign in</b></a>
-                </p>
-                <button class="form__button" type="submit" onclick="openInfo(); closeSignin()">Sign Up</button>
-                <div class="form__foot">
-                    <div class="ior">
-                        <hr/>
-                        <b>Or</b>
-                        <hr/>
-                    </div>
-                    <b>Sign in using</b>
-                    <div class="socials">
-                        <a href="#" title="twitter"><i class="fa-brands fa-twitter"></i></a>
-                        <a href="#" title="google"><i class="fa-brands fa-google"></i></a>
-                        <a href="#" title="facebook"><i class="fa-brands fa-facebook"></i></a>
-                    </div>
-                </div>
-                
-            </form>
-        </div>
-    </section>
+<!--============================FORGOT PASSWORD===================================-->
+<section class="disable-box" id="forgotPass">
+    <div class="recover-page">
+        <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
+        <form class="recover-page_main" id="forgotPasswords">
+            <h4>Forgot Password</h4>
+            <div class="resetInput" >
+                <i class="fa-regular fa-envelope"></i>
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+            </div>
+            <p>Enter retrieval email address</p>
+            <button type="reset" class="reset-pass">Reset Password</button>
+        </form>
+    </div>
+</section>
 
 <!-- =======================================SHOPPING CART=================================-->
 
@@ -229,10 +238,10 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onClick="closeCart(); removeBadge();hideUpdate(); openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onClick="closeCart(); hideUpdate(); removeBadge()">Cancel Order</button>
+        <button class="pre-order" type="button" onclick="openPay()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onClick="openSignin(); closeCart(); removeBadge()">Confirm Order</button>
+        <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
 </section>
 
@@ -271,7 +280,7 @@
                         <input type="text" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button" onClick="openCart();showUpdate();closeInfo()">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -402,39 +411,12 @@
 </section>
 
 <!--======================================TRACK ORDERS=======================================================-->
-<section class="track-orders">
+<section class="track-orders" id="infoTrack">
     <div class="track-orders-cont">
         <div class="track-orders-cont_top">
             <strong>Track Orders</strong>
         </div>
-        <div class="track-orders-cont_bottom">
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
-                </div>
-            </article>
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
-                </div>
-            </article>
-            <article class="orders-record">
-                <span class="time-guide">2:34 p.m 24-jan-2022</span>
-                <span>Rice, Chicken, Chivita, ...</span>
-                <span>#2,450</span>
-                <div class="order-icon">
-                    <i class="hour-t fas fa-check" onclick="showTrack()"></i>
-                    <i class="timer fas fa-hourglass-end" onclick="showTrack()"></i>
-                </div>
-            </article>
+        <div class="track-orders-cont_bottom" id="trackOrders">
         </div>
     </div>
 </section>
@@ -446,36 +428,36 @@
         <div class="track-pop-up-cont-body">
             <h3>Track Order</h3>
             <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
-            <div class="track-pop-up-cont-body_mid">
-                <div class="side-ways">
+            <div class="track-pop-up-cont-body_mid" id="soSimple">
+                <div class="side-ways first-wave" id="div1">
                     <h2>1
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Placed</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways second-wave">
+                <div class="side-ways second-wave" id="div2">
                     <h2>2
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Processed</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways third-wave">
+                <div class="side-ways third-wave" id="div3">
                     <h2>3
                         <i class="side-45 fa fa-arrow-right" aria-hidden="true"></i>
                     </h2>
                     <small>Order Dispatched</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
-                <div class="side-ways fourth-wave">
+                <div class="side-ways fourth-wave" id="div4">
                     <h2>4</h2>
                     <small>Order Delivered</small>
                     <i class="check-confirm fas fa-check"></i>
                 </div>
             </div>
             <div class="track-pop-up-cont-body_bottom">
-                <button type="submit" onClick="showRating()">Review Order</button>
+                <button type="submit" onclick="showRating()">Review Order</button>
                 <button type="submit">Reorder</button>
             </div>
         </div>
@@ -485,8 +467,8 @@
 <!--===============================STAR REVIEW POP-UP============================-->
 <section class="disable-box" id="ratings">
     <div class="review-order">
-        <b><i class="fas fa-close" onClick="hideRating()"></i></b>
-        <div class="review-order_body">
+        <b><i class="fas fa-close" onclick="hideRating()"></i></b>
+        <form class="review-order_body" id="starRatings">
             <h3>Review Order</h3>
             <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
             <div class="star-rating">
@@ -498,20 +480,20 @@
                     <button type="button" class="star">&#9734</button>
                     <button type="button" class="star">&#9734</button>
                 </div>
-                <p class="current_rating">0 of 5</p>
+                <p class="current_rating" id="currentRating">0</p>
             </div>
             <div class="review-form">
                 <h4>Review</h4>
-                <textarea title="Review" name="Review" class="review-box" cols="30" rows="10"></textarea>
+                <textarea title="Review" name="Review" id="review" class="review-box" cols="30" rows="10"></textarea>
             </div>
             <button class="send-r" type="submit" >Send Review</button>
-        </div>
+        </form>
     </div>
 </section>
 
 <!--====================================EMPTY TRACK ORDER================================================-->
 
-<section class="order-container">
+<section class="order-container" id="emptyTrack">
     <div class="order-container1">
         <div class="history">    
             Track History
@@ -522,3 +504,6 @@
         </div>
     </div>
 </section>
+
+</body>
+</html>

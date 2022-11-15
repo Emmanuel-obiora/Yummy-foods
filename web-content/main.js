@@ -1,30 +1,22 @@
 // =====================JAVASCRIPT FOR LOGIN/SIGNUP PAGE =============================
-var pass = document.getElementById("signupPassword");
-var conf = document.getElementById("confirmPass");
-
-let first = pass.innerHTML;
-let last = conf.innerHTML;
-
-function setFormMessage(formElement, type, message) {
-    const messageElement = formElement.querySelector(".form__message");
-
-    messageElement.textContent = message;
-    messageElement.classList.remove(".form__message--success", ".form__message--error");
-    message.Element.classList.add(`.form__message--${type}`);
+function validate() {
+    var userEmail = document.getElementById("emailL").value;
+    var password = document.getElementById("password").value;
+    if (userEmail == null || userEmail == "") {
+        alert("Please enter the Email address.");
+        return false;
+    }
+    if (password == null || password == "") {
+        alert("Please enter the password.");
+        return false;
+    }
+    if (password && password.length > 0 && password.length < 8){
+        alert("Password must be up to 8 characters");
+        return false;
+    }
+    
 }
-
-// setForMessage(loginForm, "success", "You're logged in!");
-
-function setInputError(inputElement, message) {
-    inputElement.classList.add("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = message;
-}
-
-function clearInputError(inputElement) {
-    inputElement.classList.remove("form__input--error");
-    inputElement.parentElement.querySelector(".form__input-error-message").textContent = "";
-}
-
+// ===============TO TOGGLE BETWEEN SIGN-UP AND LOG-IN PAGES=================
 document.addEventListener("DOMContentLoaded", () => {
     const loginForm = document.querySelector('#login');
     const createAccountForm = document.querySelector('#createAccount');
@@ -40,35 +32,135 @@ document.addEventListener("DOMContentLoaded", () => {
         loginForm.classList.remove("form--hidden");
         createAccountForm.classList.add("form--hidden");
     });
-
-    loginForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        // perform your AJAX/Fetch login
-
-        setFormMessage(loginForm, "error", "Invalid username/password combination");
-    });
-
-    document.querySelectorAll(".form__input").forEach(inputElement => {
-        inputElement.addEventListener("blur", e => {
-            if(e.target.id === "signupPassword" && e.target.value.length > 0 && e.target.value.length < 8) {
-                setInputError(inputElement, "Password must be at least 8 character in length");
-            }
-        });
-
-        inputElement.addEventListener("input", e => {
-            clearInputError(inputElement);
-        });
-    });
-    
-    createAccountForm.addEventListener("submit", e => {
-        e.preventDefault();
-
-        if (first == last) {
-            setFormMessage(createAccountForm, "error", "Please try again");
-        }
-    });
 });
+        //================PERFORMING FETCH LOGIN===============
+    var localEmail = JSON.parse(localStorage.getItem('email'));
+    // console.log(localEmail);
+    var login=document.getElementById('login');
+
+    login.addEventListener('submit', function(e){
+    e.preventDefault()
+
+    var mailL =document.getElementById('emailL').value
+    var passL =document.getElementById('password').value
+
+    // ===VERIFYING A USER'S SIGN IN STATUS=====
+    if(localEmail == mailL){
+        alert(`You are already signed in ${mailL}`);
+        window.history.go(-0);
+        return;
+    } 
+    else{
+
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signin', {
+    method: 'POST',
+    body: JSON.stringify({
+    email:mailL,
+    password:passL,
+
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+    }
+    })
+    .then(res => {
+        if (res.ok) { 
+            alert('Login successful');
+            window.history.go(-0);
+            console.log("HTTP request successful") }
+        else { 
+            alert('Wrong Email or Password combination');
+            console.log("HTTP request unsuccessful") }
+        return res
+    })
+    .then(function(response){ 
+        return response.json()})
+        .then(function(data)
+        {
+            localStorage.setItem('token', JSON.stringify(data.token));
+            localStorage.setItem('userId', JSON.stringify(data.data.user._id));
+            localStorage.setItem('email', JSON.stringify(data.data.user.email));
+            console.log(data);
+        }).catch(error => console.error('Error:', error)); 
+    } 
+    });
+    // ===========LOG-OUT A USER==================
+    function logOut(){
+        localStorage.removeItem('token');
+        localStorage.removeItem('email');
+        localStorage.removeItem('password');
+        localStorage.removeItem('userId');
+        alert('You have been logged out');
+        window.location.href=('index.html');
+
+    };
+
+    // ===============================VERIFYING USER SIGN UP==================================
+    function verify() {
+        var userEmail = document.getElementById("email").value;
+        var password = document.getElementById("signUpPassword").value;
+        var passwordCheck = document.getElementById("confirmPass").value;       
+        if (userEmail == null || userEmail == "") {
+            alert("Please enter the Email address.");
+            return false;
+        }
+        if (password == null || password == "") {
+            alert("Please enter the password.");
+            return false;
+        }
+        if (password !== passwordCheck){
+            alert("Password did not match");
+            return true;
+        }
+        if (password.length > 0 && password.length < 8){
+            alert("Password must be up to 8 characters");
+            return false;
+        }
+    } 
+
+    var form=document.getElementById('createAccount');
+
+    form.addEventListener('submit', function(e){
+    e.preventDefault()
+
+    var mail =document.getElementById('email').value
+    var pass =document.getElementById('signUpPassword').value
+    var confPass =document.getElementById('confirmPass').value
+
+    localStorage.setItem('email', mail );
+
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signup', {
+    method: 'POST',
+    body: JSON.stringify({
+    email:mail,
+    password:pass,
+    confirmPassword:confPass,
+
+    }),
+    headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+       }
+       })
+       .then(res => {
+        if (res.ok) { 
+            alert("Signup successful");
+            window.history.go(-0);
+            console.log("HTTP request successful") 
+        }
+        else { 
+            alert("Invalid Email and Password combination");
+            console.log("HTTP request unsuccessful") }
+    })
+       .then(function(response){ 
+        return response.json()})
+        .then(function(data)
+        {console.log(data)
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('userId', JSON.stringify(data.data.user._id));
+            localStorage.setItem('email', JSON.stringify(data.data.user.email));
+        }).catch(error => console.error('Error:', error)); 
+    });
+// });
 
 
 // =============================nav bar responsive=============================================
@@ -89,13 +181,13 @@ var state = false;
 function toggle(){
     if(state){
         document.getElementById("password").setAttribute("type", "password");
-        document.getElementById("signupPassword").setAttribute("type", "password");
+        document.getElementById("signUpPassword").setAttribute("type", "password");
         document.getElementById("eye").style.colour="#7a797e";
         state = false;
     }
     else {
         document.getElementById("password").setAttribute("type", "text");
-        document.getElementById("signupPassword").setAttribute("type", "text");
+        document.getElementById("signUpPassword").setAttribute("type", "text");
         document.getElementById("eye").style.colour="#5887ef";
         state = true;
     }
@@ -141,118 +233,117 @@ function closeCart() {
 
 // =======================FUNCTIONALITIES FOR CART. (FROM ADD, DELETE AND PRICING ETC)=====================
 
-if (document.readyState == 'loading') {
-    document.addEventListener('DOMContentLoaded', ready)
-} else {
-    ready()
-}
+// if (document.readyState == 'loading') {
+//     document.addEventListener('DOMContentLoaded', ready)
+// } else {
+//     ready()
+// }
 
-function ready() {
-    var removeCartItemButtons = document.getElementsByClassName('btn-danger')
-    for (var i = 0; i < removeCartItemButtons.length; i++) {
-        var button = removeCartItemButtons[i]
-        button.addEventListener('click', removeCartItem)
-    }
+// function ready() {
+//     var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+//     for (var i = 0; i < removeCartItemButtons.length; i++) {
+//         var button = removeCartItemButtons[i]
+//         button.addEventListener('click', removeCartItem)
+//     }
 
-    var quantityInputs = document.getElementsByClassName('cart-quantity-input')
-    for (var i = 0; i < quantityInputs.length; i++) {
-        var input = quantityInputs[i]
-        input.addEventListener('change', quantityChanged)
-    }
+//     var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+//     for (var i = 0; i < quantityInputs.length; i++) {
+//         var input = quantityInputs[i]
+//         input.addEventListener('change', quantityChanged)
+//     }
 
-    var addToCartButtons = document.getElementsByClassName('shop-item-button')
-    for (var i = 0; i < addToCartButtons.length; i++) {
-        var button = addToCartButtons[i]
-        button.addEventListener('click', addToCartClicked)
-    }
+//     var addToCartButtons = document.getElementsByClassName('shop-item-button')
+//     for (var i = 0; i < addToCartButtons.length; i++) {
+//         var button = addToCartButtons[i]
+//         button.addEventListener('click', addToCartClicked)
+//     }
 
-    document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
-}
+//     document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+// }
 
-function purchaseClicked() {
-    alert('We do hope you would purchase items from us next time')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    while (cartItems.hasChildNodes()) {
-        cartItems.removeChild(cartItems.firstChild)
-    }
-    updateCartTotal()
-}
+// function purchaseClicked() {
+//     alert('We do hope you would purchase items from us next time')
+//     var cartItems = document.getElementsByClassName('cart-items')[0]
+//     while (cartItems.hasChildNodes()) {
+//         cartItems.removeChild(cartItems.firstChild)
+//     }
+//     updateCartTotal()
+// }
 
-function removeCartItem(event) {
-    var buttonClicked = event.target
-    buttonClicked.parentElement.parentElement.parentElement.remove()
-    updateCartTotal()
-}
+// function removeCartItem(event) {
+//     var buttonClicked = event.target
+//     buttonClicked.parentElement.parentElement.parentElement.remove()
+//     updateCartTotal()
+// }
 
-function quantityChanged(event) {
-    var input = event.target
-    if (isNaN(input.value) || input.value <= 0) {
-        input.value = 1
-    }
-    updateCartTotal()
-}
+// function quantityChanged(event) {
+//     var input = event.target
+//     if (isNaN(input.value) || input.value <= 0) {
+//         input.value = 1
+//     }
+//     updateCartTotal()
+// }
 
-function addToCartClicked(event) {
-    var button = event.target
-    var shopItem = button.parentElement.parentElement.parentElement.parentElement
-    var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
-    var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
-    var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
-    addItemToCart(title, price, imageSrc)
-    updateCartTotal()
-}
+// function addToCartClicked(event) {
+//     var button = event.target
+//     var shopItem = button.parentElement.parentElement.parentElement.parentElement
+//     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+//     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+//     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+//     addItemToCart(title, price, imageSrc)
+//     updateCartTotal()
+// }
 
-function addItemToCart(title, price, imageSrc) {
-    var cartRow = document.createElement('div')
-    cartRow.classList.add('cart-row')
-    var cartItems = document.getElementsByClassName('cart-items')[0]
-    var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-    for (var i = 0; i < cartItemNames.length; i++) {
-        if (cartItemNames[i].innerText == title) {
-            alert('This item is already added to the cart')
-            return
-        }
-    }
-    var cartRowContents = `<article class = "cart-item cart-column menu_list">
-            <div class="image">
-                <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
-            </div>
-            <h3 class="cart-item-title">${title}</h3>
-            <div class="item-adder">
-            <button type="button" title="reduce" class="minus-d">-</button>
-            <input class="num-d cart-quantity-input" id="numD" type="number" title="item-number" value="1"></input>
-            <button type="button" title="increase" class="plus-d">+</button>
-            </div>
-            <span class="amf cart-price cart-column">${price}</span>
-            <div class="split">
-            <span><i class="fas fa-heart"></i></span>
-            <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
-            </div>
-        </article>`
+// function addItemToCart(title, price, imageSrc) {
+//     var cartRow = document.createElement('div')
+//     cartRow.classList.add('cart-row')
+//     var cartItems = document.getElementsByClassName('cart-items')[0]
+//     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+//     for (var i = 0; i < cartItemNames.length; i++) {
+//         if (cartItemNames[i].innerText == title) {
+//             alert('This item is already added to the cart')
+//             return
+//         }
+//     }
+//     var cartRowContents = `<article class = "cart-item cart-column menu_list">
+//             <div class="image">
+//                 <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
+//             </div>
+//             <h3 class="cart-item-title">${title}</h3>
+//             <div class="item-adder">
+//             <button type="button" title="reduce" class="minus-d">-</button>
+//             <input class="num-d cart-quantity-input" type="number" title="item-number" value="1"></input>
+//             <button type="button" title="increase" class="plus-d">+</button>
+//             </div>
+//             <span class="amf cart-price cart-column">${price}</span>
+//             <div class="split">
+//             <span><i class="fas fa-heart"></i></span>
+//             <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
+//             </div>
+//         </article>`
 
-    cartRow.innerHTML = cartRowContents
-    cartItems.append(cartRow)
-    cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
-    cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
-    updateCartTotal()
-}
+//     cartRow.innerHTML = cartRowContents
+//     cartItems.append(cartRow)
+//     cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+//     cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+//     updateCartTotal()
+// }
 
-function updateCartTotal() {
-    var cartItemContainer = document.getElementsByClassName('cart-items')[0]
-    var cartRows = cartItemContainer.getElementsByClassName('cart-row')
-    var total = 0;
-    for (var i = 0; i < cartRows.length; i++) {
-        var cartRow = cartRows[i]
-        var priceElement = cartRow.getElementsByClassName('cart-price')[0]
-        var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
-        var price = parseFloat(priceElement.innerText.replace('#', ''))
-        var quantity = quantityElement.value
-        total = total + (price * quantity)
-    }
-    total = Math.round(total * 100) / 100
-    document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
-}
-
+// function updateCartTotal() {
+//     var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+//     var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+//     var total = 0;
+//     for (var i = 0; i < cartRows.length; i++) {
+//         var cartRow = cartRows[i]
+//         var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+//         var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+//         var price = parseFloat(priceElement.innerText.replace('#', ''))
+//         var quantity = quantityElement.value
+//         total = total + (price * quantity)
+//     }
+//     total = Math.round(total * 100) / 100
+//     document.getElementsByClassName('cart-total-price')[0].innerText = '#' + total
+// }
 
 // =============================DISPLAYING NOTIFICATION BADGE========================================
 
@@ -402,19 +493,81 @@ function hideUpdate() {
         nextBot.style.display = "none";
         present.style.display = "none";
         isShow = true;
-    }
+    };
 }
 
 // ====================FUNCTION TO SEARCH THE SEARCH INPUT BOX==========================
-// function openSearch(){
-//     var x = document.getElementById("search").value
+    const menu =[
+        {title: 'Seafood'},
+        {title: 'Rice'},
+        {title: 'Fufu'},
+        {title: 'Corn'},
+        {title: 'Beans'},
+        {title: 'Africa salad'},
+        {title: 'Agbogbo'},
+        {title: 'Tuwo'},
+        {title: 'Amala'},
+        {title: 'Iyan'},
+        {title: 'Beef'}
+    ];
 
-//     if (x == "dog") {
+    const list = document.getElementById('list');
 
-//         window.open("./index.html");
+    function setList(group){
+        clearList();
+        for (const food of group) {
+            const item = document.createElement('li');
+            item.classList.add('list-group-item');
+            const text = document.createTextNode(food.title);
+            item.appendChild(text);
+            list.appendChild(item);
+        }
+        if (group.length === 0) {
+            setNoResults();
+        }
+    }
 
-//     }
-// }
+    function clearList() {
+        while (list.firstChild) {
+            list.removeChild(list.firstChild);
+        }
+    }
+
+    function setNoResults(){
+        const item = document.createElement('li');
+        item.classList.add('list-group-item');
+        const text = document.createTextNode(food.title);
+        item.appendChild(text);
+        list.appendChild(item);
+    }
+
+    function getRelevancy(value, searchTerm) {
+        if (value === searchTerm) {
+            return 2;
+        } else if (value.startsWith(searchTerm)) {
+            return 1;
+        }else if (value.includes(searchTerm)) {
+            return 0;
+        }else{
+            return -1;
+        }
+    }
+
+    const searchInput = document.getElementById('search');
+
+    searchInput.addEventListener('input', (event) => {
+        let value = event.target.value;
+        if (value && value.trim().length > 0){
+            value = value.trim().toLowerCase();
+            setList(menu.filter(food => {
+                return food.title.includes(value);
+            }).sort((foodA, foodB) => {
+                return getRelevancy(foodB.title, value) - getRelevancy(foodA.title, value);
+            }));
+        }else{
+            clearList();
+        }
+    });
 
 
 // =====================FUNCTION TO OPEN AND CLOSE PAYMENT CHANNEL=======================
@@ -592,3 +745,89 @@ function hideOrder() {
 
     order.classList.remove("reveal-order");
 }
+
+// ================FUNCTION TO UPLOAD IMAGE=============================
+const image_input = document.querySelector('#picup');
+// console.log(image_input);
+var uploaded_image = "";
+
+image_input.addEventListener("change", function(){
+    const reader = new FileReader();
+    // console.log(reader);
+    reader.addEventListener("load", () => {
+        uploaded_image = reader.result;
+        // console.log(uploaded_image);
+        document.querySelector("#displayPhoto").style.backgroundImage = `url(${uploaded_image})`;
+    });
+    reader.readAsDataURL(this.files[0]);
+})
+
+
+// ===========SETTING TIMING FOR TRACK POP-UP DISPLAY================
+function timeMole(){
+    function myIntervalFunction() {
+        let first = document.getElementById('div1').style.visibility="visible";
+        let second = document.getElementById('div2').style.visibility="hidden";
+        let third = document.getElementById('div3').style.visibility="hidden";
+        let fourth = document.getElementById('div4').style.visibility="hidden";
+        
+        setInterval(function () {
+            second = document.getElementById('div2').style.visibility="visible";
+        },180000);
+
+        setInterval(function () {
+            third = document.getElementById('div3').style.visibility="visible";
+        },300000);
+
+        setInterval(function () {
+            fourth = document.getElementById('div4').style.visibility="visible";
+        },590000);
+
+        setInterval(function () {
+            document.getElementById('prev-del').style.zIndex="0";
+            document.getElementById('trackO').classList.remove("show-track");
+        },600000);
+
+    };
+
+    var myInterval = setInterval(myIntervalFunction, 10);
+
+    function myTimeoutFunction() {
+    clearInterval(myInterval);
+}
+
+var myTimeout = setTimeout(myTimeoutFunction, 2000);
+
+};
+
+// ===========TO REVEAL HIDDEN RECORDS WITH INFO FOR ORDER/TRACK HISTORY================
+
+function revealHistory(){
+    var emptyHistory = document.getElementById('emptyHistory');
+    var infoHistory = document.getElementById('infoHistory');
+
+    emptyHistory.classList.add("info-empty-history");
+    infoHistory.classList.add("info-empty-track");
+}
+
+function revealTrack(){
+    var emptyTrack = document.getElementById('emptyTrack');
+    var infoTrack = document.getElementById('infoTrack');
+
+    emptyTrack.classList.add("info-empty-history");
+    infoTrack.classList.add("info-empty-track");
+}
+
+// =======FUNCTION TO DISPLAY FORGOT PASSWORD MODAL BOX=================
+function showForgotPass(){
+    var forgotPassword = document.getElementById('forgotPass');
+
+    forgotPassword.classList.add("show-forgot-pass");
+}
+
+function hideForgotPas(){
+    var forgotPassword = document.getElementById('forgotPass');
+
+    forgotPassword.classList.remove("show-forgot-pass");
+}
+
