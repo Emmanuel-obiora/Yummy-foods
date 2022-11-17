@@ -14,13 +14,23 @@
     }
 
     & > b{
-        display: block;
-        text-align: right;
-        cursor: pointer;
-        padding: 3px;
+        display: flex;
+        align-items: right;
+        justify-content: right;
 
         & > i{
-            color: $color-error;
+            color: $color-white;
+            background: $color-pry;
+            cursor: pointer;
+            width: 1.2rem;
+            height: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background: $color-error;
+            }
         }
     }
 
@@ -109,6 +119,7 @@
             border: 2px solid $color-border;
             border-radius: 8px;
             color: $color-white;
+            cursor: pointer;
 
             &:hover{
                 background: $color-success;

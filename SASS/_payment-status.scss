@@ -17,10 +17,19 @@
 
 
     & > b{
-        color: $color-error;
         display: flex;
         align-items: right;
         justify-content: right;
+
+        & > i{
+            color: $color-white;
+            background: $color-pry;
+            cursor: pointer;
+            width: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &-successful_body{
@@ -62,6 +71,7 @@
             border-radius: 7px;
             font-weight: 600;
             padding: .5rem;
+            cursor: pointer;
 
             &:hover{
                 color: $color-white;
@@ -117,10 +127,24 @@
 
 
     & > b{
-        color: $color-error;
         display: flex;
         align-items: right;
         justify-content: right;
+
+        & > i{
+            color: $color-white;
+            background: $color-pry;
+            cursor: pointer;
+            width: 1.2rem;
+            height: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background: $color-error;
+            }
+        }
     }
 
     &-error_body{
@@ -162,6 +186,7 @@
             border-radius: 7px;
             font-weight: 600;
             padding: .5rem;
+            cursor: pointer;
         }
 
         .pay-dec{
