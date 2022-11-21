@@ -1,8 +1,8 @@
 # YUMMYFOODS
 
-![Logo](./web-content/img/users-profile/logo11_4_205653.jpeg)
+![Logo](./web-content/img/users-profile/logo.png)
 
-## GENERAL iNFORMATION
+## GENERAL INFORMATION
 
 This project involves the development of a responsive website to help people within a locality order for food with less stress and optimize the productivity of employees. Yummyfoods is a project undertaking by students in Seamfix NextGen Academy for the completion of a 6 months training on web development.
 
@@ -28,22 +28,35 @@ Yummyfoods is a concept born out of the desire to help people save time and prom
 
 In order to actaulize this project from the frontend team, the following technologies were used.
 
-1. VScode `v1.70.1`
+1. VScode v1.70.1
 2. JavaScript
-3. Live Sass Compiler `v5.5.1`
+3. Live Sass Compiler v5.5.1
 4. HTML5
-5. Font Awesome Icons `v4.7.0 and v6.1.1`
-6. J-Query `v3.2.1`
+5. Font Awesome Icons v4.7.0 and v6.1.1
+6. J-Query v3.2.1
 
 ## Illusrations
 
 ![Home Page](./web-content/img/illustrations/home.png)
+Image showing the home page of Yummyfoods.
+
 ![Menu](./web-content/img/illustrations/menu-list.png)
+Image showing the menu list and also steps involve to complete an order.
+
 ![Meat and Grills](./web-content/img/illustrations/meat-and-grill.png)
+Image showing one menu list page with eight different items on the menu.
+
 ![Sign in](./web-content/img/illustrations/sign-in.png)
+Preview of the login and sign-up modal box.
+
 ![Profile](./web-content/img/illustrations/profile.png)
+Image showing a customer default profile page.
+
 ![Track Order](./web-content/img/illustrations/track.png)
+An empty track order page of a customer who hasn't made any order.
+
 ![Contact](./web-content/img/illustrations/contact.png)
+The page contains details on how to contact the company Yummyfoods.
 
 ## Scope of Functionalities
 
@@ -71,17 +84,16 @@ This project was inspired by SeamFix NextGen programe. But was able to be a real
 
 ## Launch
 
-``
 To run this project on your local machine, simply follow the steps below.
-    - Install [Vscode](https://code.visualstudio.com/)
-    - Go to [GitHub](https://github.com/Emmanuel-obiora/Yummy-foods)
-    - Click on CODE and copy the HTTPS link to clone the project.
-    - From your VScode terminal clone the project
-    - Finally click GO Live to view on browser if live server is installed.
-    - Else right click on the index file and click on open with (any browser installed on your pc would show here)
+
+* Install [Vscode](https://code.visualstudio.com/)
+* Go to [GitHub](https://github.com/Emmanuel-obiora/Yummy-foods)
+* Click on CODE and copy the HTTPS link to clone the project.
+* From your VScode terminal clone the project
+* Finally click GO Live to view on browser if live server is installed.
+* Else right click on the index file and click on open with (any browser installed on your pc would show here)
 
 Or you can view the publish work by clicking this link [Yummyfoods](https://yummyfoods.com)
-``
 
 ## Room For Improvement
 
