@@ -1,7 +1,7 @@
 .payment-details{
     display: block;
     align-items: center;
-    width: auto;
+    width: 40%;
     justify-content: center;
     background: $color-white;
     border: 1px solid $color-border;
@@ -39,6 +39,7 @@
         width: 100%;
         padding: 1rem;
         display: block;
+        position: relative;
 
         &_top{
             margin-top: .5rem;
@@ -52,10 +53,17 @@
             }
 
             &-mid{
-                display:grid;
-                grid-template-columns: 1fr 1fr;
+                display:flex;
                 width: 100%;
                 gap: 3%;
+
+                .changest{
+                    width: 40%;
+                }
+
+                .cvv-adjust{
+                    width: 20%;
+                }
             }
         }
 
@@ -133,10 +141,6 @@
         }
 
     }
-}
-
-.cvv-adjust{
-    width: 300%;
 }
 
 .open-pay{

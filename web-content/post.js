@@ -1,6 +1,5 @@
 var proUser = JSON.parse(localStorage.getItem('userId'));
-var proToken = JSON.parse(localStorage.getItem('token'));
-
+// console.log(proUser);
 // ===========POSTING USER PROFILE DETAILS =========================
 function profileUpdater(){    
 
@@ -10,18 +9,20 @@ function profileUpdater(){
     var address =document.getElementById('address').value
     var imageSrc = document.getElementById('picup').src
 
-    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/'+proUser+'/'+proToken, {
+    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/636128b01dfbdd7fc95cfc12', {
     method: "PATCH",
     headers: {
-        'Content-type': 'application/json'
+        Accept: 'application.json',
+        'Content-Type': 'application/json'
         },
         body: JSON.stringify(
             { 
+                userId: proUser,
                 fullName: fullname,
                 email:  email,
-                phone: phone,
+                phoneNumber: phone,
                 address: address,
-                image: imageSrc
+                profileImage: imageSrc
             }
         )
     })
@@ -45,7 +46,7 @@ function profileUpdater(){
     var number = document.getElementById('currentRating').value
     var rating = document.getElementById('review').value
     
-    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/reviews'+proUser, {
+    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/reviews', {
     method: "POST",
     headers: {
         'Content-type': 'application/json'
@@ -78,13 +79,13 @@ function profileUpdater(){
         var deliveryAddress = document.getElementById('delivAddress').value
         var deliveryName = document.getElementById('delivName').value
 
-        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/'+proToken, {
+        fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/', {
         method: "PATCH", 
         headers: {
         'Content-type': 'application/json'
         },
         body: JSON.stringify(
-            { 
+            {
                 phone: deliveryPhone,
                 address: deliveryAddress,
                 fullname: deliveryName
@@ -114,7 +115,7 @@ function profileUpdater(){
     var cvv = document.getElementById('cvv').value
     var userName = document.getElementById('userName').value
     
-    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/orders/checkout'+proToken, {
+    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/orders/checkout', {
     method: "POST",
     headers: {
         'Content-type': 'application/json'
@@ -149,17 +150,19 @@ function profileUpdater(){
     fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/forgot-password', {
         method: "POST",
         headers: {
-            'Content-type': 'application/json'
+            'Content-Type': 'application/json'
             },
             body: JSON.stringify(
-                { email: forgotEmail}
+                { 
+                    userId: proUser,
+                    email: forgotEmail}
             )
         })
         .then(res => {
             if (res.ok) { 
-                alert('Enter a new password in the next pop-up');
+                alert('Please check your email to complete your Password Reset');
                 hideForgotPas();
-                openResetLink();
+                window.location.href=('index.html');
                 console.log("HTTP request successful") }
             else { 
                 alert('Email address not found');
@@ -281,8 +284,7 @@ function enterNewPasswords(){
         .then(res => {
             if (res.ok) { 
                 alert('Password accepted, please sign-in');
-                closeResetLink();
-                openSignin();
+                window.location.href = ("/index.html");
                 console.log("HTTP request successful") }
             else { 
                 alert('Something went wrong, please try again');

@@ -50,6 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
         window.history.go(-0);
         return;
     } 
+    else if(localEmail != null){
+        alert(`${localEmail} is signed in, logout the user`);
+    }
     else{
 
         fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/signin', {
@@ -77,23 +80,21 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json()})
         .then(function(data)
         {
-            localStorage.setItem('token', JSON.stringify(data.token));
             localStorage.setItem('userId', JSON.stringify(data.data.user._id));
             localStorage.setItem('email', JSON.stringify(data.data.user.email));
+            setCookie("jwt",data.token, 5);
             console.log(data);
         }).catch(error => console.error('Error:', error)); 
     } 
     });
     // ===========LOG-OUT A USER==================
     function logOut(){
-        var email = JSON.parse(localStorage.getItem('email'));
-        var token = JSON.parse(localStorage.getItem('token'));
         var id = JSON.parse(localStorage.getItem('userId'));
 
-        if(localStorage === ""){
+        if(id == "" || id == null){
             alert('You are currently not logged in');
         } else {
-        localStorage.removeItem('token');
+        deleteCookie('token');
         localStorage.removeItem('email');
         localStorage.removeItem('userId');
         alert('You have been logged out');
@@ -162,9 +163,9 @@ document.addEventListener("DOMContentLoaded", () => {
         return response.json()})
         .then(function(data)
         {console.log(data)
-            localStorage.setItem('token', data.token);
             localStorage.setItem('userId', JSON.stringify(data.data.user._id));
             localStorage.setItem('email', JSON.stringify(data.data.user.email));
+            setCookie("jwt",data.token, 5);
         }).catch(error => console.error('Error:', error)); 
     });
 // });
@@ -669,4 +670,21 @@ function closeResetLink(){
     var passwordReset = document.getElementById('passwordReset');
 
     passwordReset.classList.remove("open-reset");
+}
+
+// ======FUNCTION TO STORE AND DELETE COOKIES STORAGE TO THIS WEBSITE========
+
+// =======SETTING THE COOKIE====
+function setCookie(name,value,exp_days) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exp_days*24*60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+}
+// ======DELETING THE COOKIE====
+function deleteCookie(name) {
+    var d = new Date();
+    d.setTime(d.getTime() - (60*60*1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = name + "=;" + expires + ";path=/";
 }

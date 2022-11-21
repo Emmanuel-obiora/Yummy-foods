@@ -51,7 +51,7 @@
                 & >.img-preview{
                 height: 100%;
                 width: 100%;
-                background: url('../Assets/users-profile/no-face.png');
+                background: url('../web-content/img/users-profile/no-face.png');
                 background-size: cover;
                 background-repeat: no-repeat;
                 background-position: center;
@@ -194,4 +194,5 @@
     background: $color-white;
     font-size: 16px;
     border-radius: 5px;
+    cursor: pointer;
 }

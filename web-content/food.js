@@ -1,10 +1,9 @@
 // ================FECTHING DATA FOR FOOD MENU========================
 let storeData = JSON.parse(localStorage.getItem('userId'));
-let userToken = JSON.parse(localStorage.getItem('token'));
 // console.log(storeData);
 
 // =======CONTINENTAL DISH CATEGORY==============
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=6').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Continental Dishes').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
@@ -34,8 +33,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=6').then((
     // console.log(err);
 });
 
-// ============DESERTS ======================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=3').then((data) => {
+// ============DESSERTS ======================
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Desserts').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
@@ -66,7 +65,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=3').then((
 
 // =============MEATS AND GRILLS======================
 
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=1').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Meats and Grills').then((data) => {
     // console.log(data);
     return data.json();
 }).then((meatdata) => {
@@ -97,7 +96,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=1').then((
 
 // ================NATIVE DELICACIES=======================
 
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=4').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Native Delicacies').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
@@ -126,8 +125,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=4').then((
     // console.log(err);
 });
 
-// ===================PATERIES==============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=5').then((data) => {
+// ===================PASSTERIES==============================
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Pasteries').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
@@ -157,7 +156,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=5').then((
 });
 
 // ===================DRINKS==========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=2').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Drinks').then((data) => {
     // console.log(data);
     return data.json();
 }).then((drinksorder) => {
@@ -188,7 +187,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?page=2').then((
 });
 
 // ================== FETCHING DATA FOR ORDER HISTORY ==========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one/'+userToken).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((orderHis) => {
@@ -211,7 +210,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one/'
 }); 
 
 //=============FETCHING ORDER TO TRACK ORDER =========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/'+userToken).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((trackHis) => {
@@ -236,7 +235,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/'+use
 });
 
 // ============FAVOURITE FOOD ITEMS============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites/'+storeData).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((favList) => {
@@ -267,7 +266,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites/'+storeData
 
 
 // ================FETCHING DATA FOR USERS PROFILE============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/'+userToken).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((userProfile) => {
@@ -315,7 +314,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/'+userToken).th
 
 
 // ==================FETCHING DATA FOR USER'S CART==========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/carts/'+ userToken).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/carts/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((cartContainers) => {
