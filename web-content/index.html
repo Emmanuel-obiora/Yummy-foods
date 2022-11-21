@@ -22,6 +22,7 @@
 <!--=====================================JAVASCRIPT===================================-->
 <script src="./main.js" defer></script>
 <script src="./post.js" defer></script>
+<script src="./food.js" defer></script>
 
 <!--===================================PICTURE PREVIEW======================-->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
@@ -176,15 +177,15 @@
 <section class="disable-box" id="forgotPass">
     <div class="recover-page">
         <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
-        <form class="recover-page_main" id="forgotPasswords">
+        <article class="recover-page_main" id="forgotPasswords">
             <h4>Forgot Password</h4>
             <div class="resetInput" >
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address" required>
             </div>
             <p>Enter retrieval email address</p>
-            <button type="reset" class="reset-pass">Reset Password</button>
-        </form>
+            <button type="button" class="reset-pass" onclick="passwordResets()">Reset Password</button>
+        </article>
     </div>
 </section>
 
@@ -214,22 +215,6 @@
             <span class="cart-quantity cart-header cart-column">Cost</span>
         </div>
         <div class="cart_cont-table-list cart-items" id="userCart">
-            <article class = "cart-item cart-column menu_list">
-                <div class="image">
-                    <img  class="cart-item-image" src="${imageSrc}" alt="${title}" >
-                </div>
-                <h3 class="cart-item-title">${title}</h3>
-                <div class="item-adder">
-                <button type="button" title="reduce" class="minus-d">-</button>
-                <input class="num-d cart-quantity-input" type="number" title="item-number" value="1"></input>
-                <button type="button" title="increase" class="plus-d">+</button>
-                </div>
-                <span class="amf cart-price cart-column">${price}</span>
-                <div class="split">
-                <span><i class="fas fa-heart"></i></span>
-                <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
-                </div>
-            </article>
         </div>
         <div class="cart_cont-total">
             <span class="dark-rule"></span>
@@ -253,8 +238,8 @@
             </div>
         </div>
         <span class="dark-rule2"></span>
-        <button class="pre-order" type="button" onclick="openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
+        <button class="pre-order" type="submit" onclick="openPay()">Payment</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closeCart()">Cancel Order</button>
 
         <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
@@ -288,14 +273,14 @@
                     </div>
                     <div class="info_group-item" >
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" id="deliveAddress" class="form__input" autofocus placeholder="    Address" required>
+                        <input type="text" id="delivAddress" class="form__input" placeholder="    Address" required>
                     </div>
                     <div class="info_group-item" >
                         <i class="fas fa-regular fa-book"></i>
-                        <input type="text" id="delivName" class="form__input" autofocus placeholder="    Name" required>
+                        <input type="text" id="delivName" class="form__input" placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button" onclick=" openPay()">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -315,18 +300,22 @@
                 <div class="payment-details-body_top-mid">
                     <div class="info_group-item" >
                         <i class="fa-regular fa-calendar"></i>
-                        <input type="text" id="expiryDate" class="form__input" autofocus placeholder="    Expiry-Date*" required>
+                        <input type="text" id="expiryMonth" class="form__input changest" placeholder="  Expiry-Month*" required>
                     </div>
                     <div class="info_group-item" >
-                        <input type="text" id="cvv" class="form__input cvv-adjust" autofocus placeholder="    CVV" required>
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="text" id="expiryYear" class="form__input changest" placeholder="  Expiry-Year*" required>
+                    </div>
+                    <div class="info_group-item" >
+                        <input type="text" id="cvv" class="form__input cvv-adjust" placeholder=" CVV*" required>
                     </div>
                 </div>
                 <div class="info_group-item" >
                     <i class="fas fa-regular fa-id-card-clip"></i>
-                    <input type="text" id="userName" class="form__input" autofocus placeholder="    Name" required>
+                    <input type="text" id="userName" class="form__input" placeholder="    Name" required>
                 </div>
             </div>
-            <button class="btn-confirm" type="submit">Complete Payment</button>
+            <button class="btn-confirm" type="button" onclick="makePayment()">Complete Payment</button>
         </form>
     </div>
 </section>
@@ -457,7 +446,7 @@
             <!--picture slides end-->
             <div class="display-text2">    
                 <h1>Special menu for the <br> day</h1>
-                <a href="" class="hero-btn-2">
+                <a href="#" class="hero-btn-2">
                     <div class="hero-btn-content">
                         Add to cart
                     </div>  
@@ -468,40 +457,52 @@
         <section class="food-hub">
             <div class="foods">
                 <div class="food-container">
-                    <a href="meats-and-grills.html" title="meat and grill"><img src="img/meat.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Meats and Grills</h1>
-                    </div>
+                    <a href="./meats-and-grills.html" title="meat and grill">
+                        <img src="img/meat.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Meats and Grills</h1>
+                        </div>
+                    </a>
                 </div>
                 <div class="food-container">
-                    <a href="continental-dishes.html" title="continental"><img src="img/continental.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Continental Dishes</h1>
-                    </div>
+                    <a href="./continental-dishes.html" title="continental">
+                        <img src="img/continental.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Continental Dishes</h1>
+                        </div>
+                        </a>
                 </div>
                 <div class="food-container">
-                    <a href="native-delicacies.html" title="native delicacies"><img src="img/native.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Native Delicacies</h1>
-                    </div>
+                    <a href="./native-delicacies.html" title="native delicacies">
+                        <img src="img/native.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Native Delicacies</h1>
+                        </div>
+                    </a>
                 </div>  
                 <div class="food-container">
-                    <a title="pastries" href="pasteries.html"><img src="img/pastries.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Pastries</h1>
-                    </div>
+                    <a title="pastries" href="./pasteries.html">
+                        <img src="img/pastries.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Pastries</h1>
+                        </div>
+                    </a>
                 </div>
                 <div class="food-container">
-                    <a title="desserts" href="desserts.html"><img src="img/desert.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Desert</h1> 
-                    </div>
+                    <a title="desserts" href="./desserts.html">
+                        <img src="img/desert.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Desert</h1> 
+                        </div>
+                    </a>
                 </div>
                 <div class="food-container">
-                    <a title="drinks" href="drinks.html"><img src="img/drinks.jpg" alt=""/></a>
-                    <div class="layer2">
-                        <h1>Drinks</h1>
-                    </div>
+                    <a title="drinks" href="./drinks.html">
+                        <img src="img/drinks.jpg" alt=""/>
+                        <div class="layer2">
+                            <h1>Drinks</h1>
+                        </div>
+                    </a>
                 </div>   
             </div>
         </section>

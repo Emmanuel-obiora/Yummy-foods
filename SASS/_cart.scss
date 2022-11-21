@@ -28,11 +28,20 @@
         display: flex;
         align-items: right;
         justify-content: right;
-        padding: .2rem;
 
         & > i{
-            color: $color-error;
+            color: $color-white;
+            background: $color-pry;
             cursor: pointer;
+            width: 1.2rem;
+            height: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background: $color-error;
+            }
         }
     
 }
@@ -120,6 +129,7 @@
         justify-content: center;
         background: $color-pry;
         color: $color-white;
+        cursor: pointer;
 
         &:hover{
             background: $color-success;
@@ -289,6 +299,7 @@
     justify-content: center;
     background: $color-pry;
     color: $color-white;
+    cursor: pointer;
 
     &:hover{
         background: $color-success;

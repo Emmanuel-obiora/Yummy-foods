@@ -104,7 +104,7 @@
                         </div>
                     </div>
                     <p class="form__text">
-                        <a href="#" class="form__link"><b>Forgot password</b></a>
+                        <a href="#" class="form__link" onclick="showForgotPass(); closeSignin()"><b>Forgot password</b></a>
                     </p>
     
                     <p class="form__text2">
@@ -176,15 +176,15 @@
 <section class="disable-box" id="forgotPass">
     <div class="recover-page">
         <b onclick="hideForgotPas()"><i class="fas fa-close"></i></b>
-        <form class="recover-page_main" id="forgotPasswords">
+        <article class="recover-page_main" id="forgotPasswords">
             <h4>Forgot Password</h4>
             <div class="resetInput" >
                 <i class="fa-regular fa-envelope"></i>
-                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address">
+                <input type="email" class="reset-input" id="recoverMe" autofocus placeholder="    Email Address" required>
             </div>
             <p>Enter retrieval email address</p>
-            <button type="reset" class="reset-pass">Reset Password</button>
-        </form>
+            <button type="button" class="reset-pass" onclick="passwordResets()">Reset Password</button>
+        </article>
     </div>
 </section>
 
@@ -239,9 +239,9 @@
         </div>
         <span class="dark-rule2"></span>
         <button class="pre-order" type="button" onclick="openPay()">Payment</button>
-        <button class="present-order pre-order btn-purchase" type="button" onclick="closePay()">Cancel Order</button>
+        <button class="present-order pre-order btn-purchase" type="button" onclick="closeCart()">Cancel Order</button>
 
-        <button class="btn-confirm" type="button" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
+        <button class="btn-confirm" type="submit" onclick="closeCart(); removeBadge(); openInfo()">Confirm Order</button>
     </div>
 </section>
 
@@ -269,18 +269,18 @@
                 <div class="info_group">
                     <div class="info_group-item" >
                         <i class="fas fa-regular fa-phone"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Phone Number" required>
+                        <input type="text" id="delivPhone" class="form__input" autofocus placeholder="    Phone Number" required>
                     </div>
                     <div class="info_group-item" >
                         <i class="fa-regular fa-envelope"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Address" required>
+                        <input type="text" id="delivAddress" class="form__input" autofocus placeholder="    Address" required>
                     </div>
                     <div class="info_group-item" >
                         <i class="fas fa-regular fa-book"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Name" required>
+                        <input type="text" id="delivName" class="form__input" autofocus placeholder="    Name" required>
                     </div>
                 </div>
-                <button class="btn-confirm" type="button">Confirm Delivery Information</button>
+                <button class="btn-confirm" type="button" onclick="userDeliveryUpdate()">Confirm Delivery Information</button>
             </form>
         </div>
     </div>
@@ -300,10 +300,14 @@
                 <div class="payment-details-body_top-mid">
                     <div class="info_group-item" >
                         <i class="fa-regular fa-calendar"></i>
-                        <input type="text" class="form__input" autofocus placeholder="    Expiry-Date*" required>
+                        <input type="text" id="expiryMonth" class="form__input changest" placeholder="  Expiry-Month*" required>
                     </div>
                     <div class="info_group-item" >
-                        <input type="text" class="form__input cvv-adjust" autofocus placeholder="    CVV" required>
+                        <i class="fa-regular fa-calendar"></i>
+                        <input type="text" id="expiryYear" class="form__input changest" placeholder="  Expiry-Year*" required>
+                    </div>
+                    <div class="info_group-item" >
+                        <input type="text" id="cvv" class="form__input cvv-adjust" placeholder=" CVV*" required>
                     </div>
                 </div>
                 <div class="info_group-item" >
@@ -311,7 +315,7 @@
                     <input type="text" class="form__input" autofocus placeholder="    Name" required>
                 </div>
             </div>
-            <button class="btn-confirm" type="button">Complete Payment</button>
+            <button class="btn-confirm" type="button" onclick="makePayment()">Complete Payment</button>
         </div>
     </div>
 </section>
@@ -468,7 +472,7 @@
 <section class="disable-box" id="ratings">
     <div class="review-order">
         <b><i class="fas fa-close" onclick="hideRating()"></i></b>
-        <form class="review-order_body" id="starRatings">
+        <artivle class="review-order_body" id="starRatings">
             <h3>Review Order</h3>
             <span class="full-time">2:45 pm, tuesday 24-jan-2022</span>
             <div class="star-rating">
@@ -486,8 +490,8 @@
                 <h4>Review</h4>
                 <textarea title="Review" name="Review" id="review" class="review-box" cols="30" rows="10"></textarea>
             </div>
-            <button class="send-r" type="submit" >Send Review</button>
-        </form>
+            <button class="send-r" type="button" onclick="userStarRatings()">Send Review</button>
+        </article>
     </div>
 </section>
 

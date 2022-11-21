@@ -3,13 +3,13 @@ let storeData = JSON.parse(localStorage.getItem('userId'));
 // console.log(storeData);
 
 // =======CONTINENTAL DISH CATEGORY==============
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Continental').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Continental Dishes').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
     // console.log(completedata);
     let data1 = "";
-    completedata.map((values) => {
+    completedata.data.map((values) => {
         data1+= `<article class = "menu_list shop-item">
         <div class="menu_list-image">
             <img class="shop-item-image fav-image" src=${values.foodImage} alt=${values.name}>
@@ -20,27 +20,27 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Contin
                 <span class="shop-item-price fav-price"><b>${values.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span><i class=" fav-item-but fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="loveHeart"><i class="fav-item-but fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
     });
-    let me = document.getElementById("continental").innerHTML=JSON.stringify(data1);
+    let me = document.getElementById("continental").innerHTML=data1;
     // console.log(me);
 
 }).catch((err) =>{
     // console.log(err);
 });
 
-// ============DESERTS ======================
+// ============DESSERTS ======================
 fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Desserts').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
-    // console.log(completedata[2].title);
+    // console.log(completedata.name);
     let data2 = "";
-    completedata.map((values) => {
+    completedata.data.map((values) => {
         data2+= `<article class = "menu_list shop-item">
         <div class="menu_list-image">
             <img class="shop-item-image fav-image" src=${values.foodImage} alt=${values.name}>
@@ -51,8 +51,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Desser
                 <span class="shop-item-price fav-price"><b>${values.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span><i class=" fav-item-but fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="loveHeart"><i class="fav-item-but fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
@@ -71,8 +71,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Meats 
 }).then((meatdata) => {
     // console.log(meatdata);
     let data3 = "";
-    meatdata.map((values) => {
-        data3+= `<article class = "menu_list shop-item">
+    meatdata.data.map((values) => {
+        data3 += `<article class = "menu_list shop-item">
         <div class="menu_list-image">
             <img class="shop-item-image fav-image" src=${values.foodImage} alt=${values.name}>
         </div>
@@ -82,8 +82,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Meats 
                 <span class="shop-item-price fav-price"><b>${values.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span><i class=" fav-item-but fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="loveHeart"><i class="fav-item-but fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
@@ -102,7 +102,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Native
 }).then((completedata) => {
     // console.log(completedata[2].title);
     let data4 = "";
-    completedata.map((values) => {
+    completedata.data.map((values) => {
         data4+= `<article class = "menu_list shop-item">
         <div class="menu_list-image">
             <img class="shop-item-image fav-image" src=${values.foodImage} alt=${values.name}>
@@ -113,8 +113,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Native
                 <span class="shop-item-price fav-price"><b>${values.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span><i class=" fav-item-but fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="loveHeart"><i class="fav-item-but fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
@@ -125,14 +125,14 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Native
     // console.log(err);
 });
 
-// ===================PATERIES==============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=continental').then((data) => {
+// ===================PASSTERIES==============================
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Pasteries').then((data) => {
     // console.log(data);
     return data.json();
 }).then((completedata) => {
     // console.log(completedata[2].title);
     let data5 = "";
-    completedata.map((values) => {
+    completedata.data.map((values) => {
         data5+= `<article class = "menu_list shop-item">
         <div class="menu_list-image">
             <img class="shop-item-image fav-image" src=${values.foodImage} alt=${values.name}>
@@ -143,8 +143,8 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=contin
                 <span class="shop-item-price fav-price"><b>${values.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span><i class=" fav-item-but fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="loveHeart"><i class="fav-item-but fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
@@ -157,42 +157,41 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=contin
 
 // ===================DRINKS==========================
 fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/foods?category=Drinks').then((data) => {
-    console.log(data);
+    // console.log(data);
     return data.json();
 }).then((drinksorder) => {
     // console.log(drinksorder);
     let data6 = "";
-    drinksorder.map((data) => {
-        console.log(data);
-        data6+= `<article class = "menu_list shop-item">
+    drinksorder.data.map((data) => {
+        // console.log(data);
+        data6 += `<article class = "menu_list shop-item">
         <div class="menu_list-image">
-            <img class="shop-item-image fav-image" src=${drinksorder.foodImage} alt=${data.name}>
+            <img class="shop-item-image fav-image" src=${data.foodImage} alt=${data.name}>
         </div>
         <div class="menu_list-summary">
             <div class="menu_list-summary-about">
-                <h3 class="shop-item-title fav-title">${values.name}</h3>
-                <span class="shop-item-price fav-price"><b>${values.price}</b></span>
+                <h3 class="shop-item-title fav-title">${data.name}</h3>
+                <span class="shop-item-price fav-price"><b>${data.price}</b></span>
             </div>
             <div class="menu_list-summary-icons shop-item-details">
-                <span class="fav-item-but"><i class="fas fa-heart"></i></span>
-                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
+                <span class="fav-item-but loveHeart"><i class="fas fa-heart" onclick="addToFavouriteList()"></i></span>
+                <span class="btn btn-primary shop-item-button" type="button" title="Add to Cart" onclick="addToCart()"><i class="fas fa-shopping-cart" onclick="showBadge()"></i></span>
             </div>
         </div>
     </article>`
     });
-    let obi = document.getElementById("drinks").innerHTML=JSON.stringify(data6);
-    console.log(obi);
+    document.getElementById("drinks").innerHTML=data6;
 
 }).catch((err) =>{
     // console.log(err);
 });
 
 // ================== FETCHING DATA FOR ORDER HISTORY ==========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((orderHis) => {
-    // console.log(completedata[2].title);
+    // console.log(orderHis);
     let order = "";
     orderHis.map((values) => {
         order+= `<a title="View order" onClick="showOrder()">
@@ -211,11 +210,11 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/').th
 }); 
 
 //=============FETCHING ORDER TO TRACK ORDER =========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((trackHis) => {
-    // console.log(completedata[2].title);
+    // console.log(trackHis);
     let track = "";
     trackHis.map((values) => {
         track+= `<article class="orders-record">
@@ -228,7 +227,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one')
         </div>
     </article>`
     });
-    document.getElementById("trackOrders").innerHTML=order;
+    document.getElementById("trackOrders").innerHTML=track;
     revealTrack();
 
 }).catch((err) =>{
@@ -236,30 +235,30 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/order-histories/one')
 });
 
 // ============FAVOURITE FOOD ITEMS============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((favList) => {
-    // console.log(completedata[2].title);
+    // console.log(favList);
     let favourite = "";
     favList.map((values) => {
         favourite+= `<article class="fav-row">
         <div>
-            <img class="fav-row_img" src=${values.foodImage} />
+            <img class="fav-row_img" src=${values.image} />
         </div>
         <div>
-            <h4 class="fav-row_title">${values.name}</h4>
+            <h4 class="fav-row_title">${values.title}</h4>
         </div>
         <div >
             <span class="fav-row_price">${values.price}</span>
         </div>
         <div class="fav-row_icons">
-            <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge()"></i></a>
-            <a href="#" title="delete"><i class="fav-del fas fa-trash-alt"></i></a>
+            <a href="#" title="shopping cart"><i class="btn btn-primary shop-item-button fas fa-shopping-cart" onclick="showBadge(); addToCart()"></i></a>
+            <a href="#" title="delete" onclick="deleteFavourites()"><i class="fav-del fas fa-trash-alt"></i></a>
         </div>
     </article>`
     });
-    document.getElementById("favourites").innerHTML=order;
+    document.getElementById("favourites").innerHTML=favourite;
 
 }).catch((err) =>{
     // console.log(err);
@@ -267,14 +266,14 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((dat
 
 
 // ================FETCHING DATA FOR USERS PROFILE============================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users/').then((data) => {
     // console.log(data);
     return data.json();
 }).then((userProfile) => {
-    // console.log(completedata[2].title);
+    // console.log(userProfile);
     let profile = "";
     userProfile.map((values) => {
-        profile+= `<article>
+        profile= `<article>
         <div class="profile-container_bottom-m">
             <div class="profile-container_bottom-m-img">
                 <div id="displayPhoto" class="img-preview"></div>
@@ -285,7 +284,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((dat
             <div class="profile-container_bottom-m-details">
                 <div class="profile-input">
                     <i class="fas fa-regular fa-id-card-clip"></i>
-                    <input type="text" placeholder="  Name" autofocus title="Full Name" value=${values.fullname} id="fullName"/>
+                    <input type="text" placeholder="  Name" autofocus title="Full Name" value=${values.title} id="fullName"/>
                 </div>
                 <div class="profile-input">
                     <i class="fa-regular fa-envelope"></i>
@@ -293,11 +292,11 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((dat
                 </div>
                 <div class="profile-input">
                     <i class="fas fa-regular fa-phone"></i>
-                    <input type="text" placeholder="  Phone Number" autofocus value=${values.phone} title="Phone" id="phone"/>
+                    <input type="text" placeholder="  Phone Number" autofocus value=${values.price} title="Phone" id="phone"/>
                 </div>
                 <div class="profile-input">
                     <i class="fas fa-map-marker-alt"></i>
-                    <input type="text" placeholder="  Address" autofocus value=${values.address} title="Address" id='address'/>
+                    <input type="text" placeholder="  Address" autofocus value=${values.description} title="Address" id='address'/>
                 </div>
             </div>
         </div>
@@ -307,7 +306,7 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((dat
         </div>
     </article>`
     });
-    document.getElementById("userPro").innerHTML=order;
+    document.getElementById("userPro").innerText=profile;
 
 }).catch((err) =>{
     // console.log(err);
@@ -315,18 +314,18 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/favorites').then((dat
 
 
 // ==================FETCHING DATA FOR USER'S CART==========================
-fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/carts'+storeData).then((data) => {
+fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/carts/').then((data) => {
     // console.log(data);
     return data.json();
-}).then((cartContainer) => {
-    // console.log(completedata[2].title);
+}).then((cartContainers) => {
+    // console.log(cartContainers);
     let usercart = "";
-    cartContainer.map((values) => {
-        usercart+= `<article class = "cart-item cart-column menu_list">
+    cartContainers.map((values) => {
+        usercart += `<article class = "cart-item cart-column menu_list">
         <div class="image">
-            <img  class="cart-item-image" src="${values.imageSrc}" alt="${values.title}" >
+            <img  class="cart-item-image" src="${values.image}" alt="${values.name}" >
         </div>
-        <h3 class="cart-item-title">${values.title}</h3>
+        <h3 class="cart-item-title">${item.items.name}</h3>
         <div class="item-adder">
         <button type="button" title="reduce" class="minus-d">-</button>
         <input class="num-d cart-quantity-input" type="number" title="item-number" value=${values.quantity}></input>
@@ -334,12 +333,12 @@ fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/carts'+storeData).the
         </div>
         <span class="amf cart-price cart-column">${values.price}</span>
         <div class="split">
-        <span><i class="fas fa-heart"></i></span>
-        <span class="btn-danger"><i class="fas fa-trash-alt"></i></span>
+        <span class="loveHeart"><i class="fas fa-heart" onclick="addToFavouriteList()"></i></span>
+        <span class="btn-danger" onclick="deleteItemFromCart()"><i class="fas fa-trash-alt"></i></span>
         </div>
     </article>`
     });
-    document.getElementById("userCart").innerHTML=order;
+    document.getElementsByClassName("userCart").innerHTML=usercart;
 
 }).catch((err) =>{
     // console.log(err);

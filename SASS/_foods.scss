@@ -88,6 +88,13 @@
                             color: $color-success;
                         }
                     }
+
+                    .loveHeart{
+                        &:hover{
+                            color: $color-error;
+                            border: $color-white;
+                        }
+                    }
                 }
             }
         }

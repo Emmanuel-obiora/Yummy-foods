@@ -13,7 +13,7 @@
 
     @media(max-width: 64rem){
         margin-top: -5.5rem;
-        margin-left: -1rem;
+        margin-left: -.3rem;
     }
     
    @media(max-width: 37.5rem){
@@ -46,11 +46,20 @@
         display: flex;
         align-items: right;
         justify-content: right;
-        padding: .2rem;
 
-        &>i{
-            color: $color-error;
+        & > i{
+            color: $color-white;
+            background: $color-pry;
             cursor: pointer;
+            width: 1.2rem;
+            height: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:hover{
+                background: $color-error;
+            }
         }
     }
 
