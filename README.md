@@ -93,7 +93,7 @@ To run this project on your local machine, simply follow the steps below.
 * Finally click GO Live to view on browser if live server is installed.
 * Else right click on the index file and click on open with (any browser installed on your pc would show here)
 
-Or you can view the published work by clicking this link [Yummyfoods](https://yummyfoods.com)
+Or you can view the published work by clicking this link [Yummyfoods](https://emmanuel-obiora.github.io/Yummy-foods/web-content/index.html)
 
 ## Room For Improvement
 
