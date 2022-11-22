@@ -45,7 +45,7 @@ function profileUpdater(){
     
     var number = document.getElementById('currentRating').value
     var rating = document.getElementById('review').value
-   
+    
     fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/reviews', {
     method: "POST",
     headers: {

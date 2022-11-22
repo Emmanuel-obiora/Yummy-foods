@@ -12,7 +12,7 @@ This project involves the development of a responsive website to help people wit
 * [Table of Content](#table-of-content)
 * [Introduction](#introduction)
 * [Technologies](#technologies)
-* [Illustration](#illusrations)
+* [Illustration](#illustrations)
 * [Scope of Functionalities](#scope-of-functionalities)
 * [Project Status](#project-status)
 * [Sources](#sources)
@@ -26,7 +26,7 @@ Yummyfoods is a concept born out of the desire to help people save time and prom
 
 ## Technologies
 
-In order to actaulize this project from the frontend team, the following technologies were used.
+In order to actualize this project from the frontend team, the following technologies were used.
 
 1. VScode v1.70.1
 2. JavaScript
@@ -35,7 +35,7 @@ In order to actaulize this project from the frontend team, the following technol
 5. Font Awesome Icons v4.7.0 and v6.1.1
 6. J-Query v3.2.1
 
-## Illusrations
+## Illustrations
 
 ![Home Page](./web-content/img/illustrations/home.png)
 Image showing the home page of Yummyfoods.
@@ -75,7 +75,7 @@ For the purpose this project is intended, it has elapsed its development time. H
 
 ## Sources
 
-This project was inspired by SeamFix NextGen programe. But was able to be a reality through several sources on Youtube and Google. For example;
+This project was inspired by SeamFix NextGen Programe. But was able to be a reality through several sources on Youtube and Google. For example;
 
 * [Stack-Overflow](https://stackoverflow.com)
 * [Coding Artist](https://stackoverflow.com)
@@ -93,7 +93,7 @@ To run this project on your local machine, simply follow the steps below.
 * Finally click GO Live to view on browser if live server is installed.
 * Else right click on the index file and click on open with (any browser installed on your pc would show here)
 
-Or you can view the publish work by clicking this link [Yummyfoods](https://yummyfoods.com)
+Or you can view the published work by clicking this link [Yummyfoods](https://yummyfoods.com)
 
 ## Room For Improvement
 
@@ -114,14 +114,14 @@ Or you can view the publish work by clicking this link [Yummyfoods](https://yumm
 
 👤 **Obiora Emmanuel**
 
-* Github: [Emmanuel-obiora](https://github.com/Emmanuel-obiora)
+* GitHub: [Emmanuel-obiora](https://github.com/Emmanuel-obiora)
 * Twitter: [Miroclesdgenius](https://twitter.com/Miroclesdgenius)
-* Linkedin: [obiora-emmanuel](https://www.linkedin.com/in/obiora-emmanuel-b4935616a/)
+* LinkedIn: [obiora-emmanuel](https://www.linkedin.com/in/obiora-emmanuel-b4935616a/)
 
 👤 **Odeyemi Oluwatobiloba**
 
-* Github: [Odeyemi Oluwatobiloba](https://github.com/Odeyemitobi)
-* Linkedin: [Odeyemi Oluwatobiloba](https://www.linkedin.com/in/Odeyemi-Oluwatobiloba/)
+* GitHub: [Odeyemi Oluwatobiloba](https://github.com/Odeyemitobi)
+* LinkedIn: [Odeyemi Oluwatobiloba](https://www.linkedin.com/in/Odeyemi-Oluwatobiloba/)
 
 ### Show your support
 
