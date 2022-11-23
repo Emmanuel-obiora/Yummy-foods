@@ -269,7 +269,7 @@ function addToFavouriteList(){
 // ==================FUNCTION RESETTING PASSWORD=====================
 function enterNewPasswords(){
 
-    var resetPass = document.getElementById('resetPassword').value
+    var resetPass = document.getElementById('resetNewPassword').value
     var resetConfPass = document.getElementById('confirmResetPass').value
     
     fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/auths/reset-password/b635ed15ce23b00c0309a4825da796d115f45819d2f6749e249e7108c105789d', {
