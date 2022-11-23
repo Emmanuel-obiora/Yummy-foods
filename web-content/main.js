@@ -184,21 +184,21 @@ function menuBar(){
     }
 };
 
-// ==============================Reveal Passwords=================================
+// ==============================Reveal Passwords for signin/signup=================================
 var state = false;
 function toggle(){
     if(state){
         document.getElementById("password").setAttribute("type", "password");
-        document.getElementById("resetPassword").setAttribute("type", "password");
         document.getElementById("signUpPassword").setAttribute("type", "password");
-        document.getElementById("eye").style.colour="#7a797e";
+        document.getElementById("eye").style.color="#7a797e";
+        document.getElementById("eye2").style.color="#7a797e";
         state = false;
     }
     else {
         document.getElementById("password").setAttribute("type", "text");
-        document.getElementById("resetPassword").setAttribute("type", "text");
         document.getElementById("signUpPassword").setAttribute("type", "text");
-        document.getElementById("eye").style.colour="#5887ef";
+        document.getElementById("eye").style.color="#5887ef";
+        document.getElementById("eye2").style.color="#5887ef";
         state = true;
     }
 }
@@ -207,14 +207,12 @@ var check = false;
 function tog(){
     if(check){
         document.getElementById("confirmPass").setAttribute("type", "password");
-        document.getElementById("confirmResetPass").setAttribute("type", "password");
-        document.getElementById("iron").style.colour="#7a797e";
+        document.getElementById("iron").style.color="#7a797e";
         check = false;
     }
     else {
         document.getElementById("confirmPass").setAttribute("type", "text");
-        document.getElementById("confirmResetPass").setAttribute("type", "text");
-        document.getElementById("iron").style.colour="#5887ef";
+        document.getElementById("iron").style.color="#5887ef";
         check = true;
     }
 }
@@ -704,3 +702,34 @@ function getCookie(name) {
     }
     return "";
 }
+
+// ================revealing passwords on password reset page===============
+var reset = false;
+function togReset(){
+    if(reset){
+        document.getElementById("confirmResetPass").setAttribute("type", "password");
+        document.getElementById("ironRe").style.color="#7a797e";
+        reset = false;
+    }
+    else {
+        document.getElementById("confirmResetPass").setAttribute("type", "text");
+        document.getElementById("ironRe").style.color="#5887ef";
+        reset = true;
+    }
+}
+
+
+var trust = false;
+function toggleReset(){
+    if(trust){
+        document.getElementById("resetNewPassword").setAttribute("type", "password");
+        document.getElementById("eyeRe").style.color="#7a797e";
+        trust = false;
+    }
+    else {
+        document.getElementById("resetNewPassword").setAttribute("type", "text");
+        document.getElementById("eyeRe").style.color="#5887ef";
+        trust = true;
+    }
+}
+
