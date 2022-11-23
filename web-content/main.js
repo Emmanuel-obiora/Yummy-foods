@@ -718,7 +718,6 @@ function togReset(){
     }
 }
 
-
 var trust = false;
 function toggleReset(){
     if(trust){
