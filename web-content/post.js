@@ -1,7 +1,7 @@
 var proUser = JSON.parse(localStorage.getItem('userId'));
 
 var token = JSON.stringify(getCookie("jwt"));
-// console.log(token);
+console.log(token);
 
 // ===========POSTING USER PROFILE DETAILS =========================
 function profileUpdater(){    
@@ -12,16 +12,15 @@ function profileUpdater(){
     var address =document.getElementById('address').value
     var imageSrc = document.getElementById('picup').src
 
-    fetch('https://food-delivery-app-lab3.herokuapp.com/api/v1/users', {
+    fetch(`https://food-delivery-app-lab3.herokuapp.com/api/v1/users/${proUser}`, {
     method: "PATCH",
     headers: {
         Accept: 'application.json',
         'Content-Type': 'application/json',
-        'Authorization': token,
+        'authorization': token,
         },
         body: JSON.stringify(
             { 
-                userId: proUser,
                 fullName: fullname,
                 email:  email,
                 phoneNumber: phone,

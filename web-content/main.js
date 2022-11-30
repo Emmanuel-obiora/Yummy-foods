@@ -1,3 +1,4 @@
+let bearer;
 // =====================JAVASCRIPT FOR LOGIN/SIGNUP PAGE =============================
 function validate() {
     var userEmail = document.getElementById("emailL").value;
@@ -82,7 +83,9 @@ document.addEventListener("DOMContentLoaded", () => {
         {
             localStorage.setItem('userId', JSON.stringify(data.data.user._id));
             localStorage.setItem('email', JSON.stringify(data.data.user.email));
-            setCookie("jwt",data.token, 5);
+            bearer = "Bearer" + data.token;
+            // console.log(bearer);
+            setCookie("jwt",bearer, 5);
             console.log(data);
         }).catch(error => console.error('Error:', error)); 
     } 
